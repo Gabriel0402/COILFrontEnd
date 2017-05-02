@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit, } from '@angular/core';
 
 @Component({
   selector: 'starter',
-  templateUrl: 'starter.template.html'
+  templateUrl: 'starter.template.html',
+  styleUrls: ['component.css']
 })
 export class StarterViewComponent implements OnDestroy, OnInit  {
 

@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit, } from '@angular/core';
 
 @Component({
   selector: 'inbox',
-  templateUrl: 'inbox.template.html'
+  templateUrl: 'inbox.template.html',
+  styleUrls: ['component.css']
 })
 export class InboxComponent implements OnDestroy, OnInit  {
 

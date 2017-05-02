@@ -6,7 +6,8 @@ declare var jQuery:any;
 
 @Component({
   selector: 'dashboard',
-  templateUrl: 'dashboard.template.html'
+  templateUrl: 'dashboard.template.html',
+  styleUrls: ['component.css']
 })
 
 export class DashboardComponent {

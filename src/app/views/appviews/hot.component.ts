@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit, } from '@angular/core';
 
 @Component({
   selector: 'hot',
-  templateUrl: 'hot.template.html'
+  templateUrl: 'hot.template.html',
+  styleUrls: ['component.css']
 })
 export class HotComponent implements OnDestroy, OnInit  {
 
