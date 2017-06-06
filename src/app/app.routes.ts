@@ -16,6 +16,7 @@ import {LoginComponent} from "./views/appviews/login.component";
 import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.component";
 import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
 import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationLayout.component";
+import {AuthGuard} from "./services/guards.service";
 
 export const ROUTES:Routes = [
   // Main redirect
@@ -42,7 +43,7 @@ export const ROUTES:Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'starterview', component: StarterViewComponent}
+      {path: 'starterview', component: StarterViewComponent,canActivate: [AuthGuard]}
     ]
   },
   {
