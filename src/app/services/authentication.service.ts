@@ -8,19 +8,19 @@ export class AuthenticationService {
     constructor(private http: Http) { }
     private apiurl = "http://php.scripts.psu.edu/kqy1/coil/endpoint.php";
     login(username: string, password: string) {
-        return this.http.post(this.apiurl+'/auth/login', JSON.stringify({ username: username, password: password }))
+        return this.http.post(this.apiurl+'/auth/login', JSON.stringify({ userId: username, password: password }))
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
-                let user = response.json();
-                if (user && user.token) {
+                let res = response.json();
+                if (res && res.token) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    localStorage.setItem('authtoken', JSON.stringify(res.token));
                 }
             });
     }
 
     logout() {
         // remove user from local storage to log user out
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('authtoken');
     }
 }

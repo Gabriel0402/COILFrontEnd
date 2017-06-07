@@ -28,8 +28,8 @@
 <form>
     <h2>Sign In</h2>
     
-    <input type="text" id="email" placeholder= "Enter Username" />
-    <input type="password" id="password" Placeholder="Enter Password" />
+    <input type="text" name="username" class="form-control" [(ngModel)]="model.username" placeholder= "Enter Username" #username="ngModel" />
+    <input type="password" class="form-control" [(ngModel)]="model.password" name="password" Placeholder="Enter Password" #password="ngModel" />
     <button [disabled]="loading" class="btn btn-primary" (click)="login()">Sign In</button>
 </form>   
     </div>
