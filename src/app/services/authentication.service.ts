@@ -12,9 +12,9 @@ export class AuthenticationService {
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let res = response.json();
-                if (res && res.token) {
+                if (res && res.data) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('authtoken', JSON.stringify(res.token));
+                    localStorage.setItem('authtoken', JSON.stringify(res.data.token));
                 }
             });
     }
