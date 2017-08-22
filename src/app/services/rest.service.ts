@@ -26,7 +26,7 @@ export class RestService {
         // create authorization header with jwt token
         let authtoken = JSON.parse(localStorage.getItem('authtoken'));
         if (authtoken) {
-            let headers = new Headers({ 'Authorization': 'Bearer ' + authtoken });
+            let headers = new Headers({ 'authorization': 'Bearer ' + authtoken });
             return new RequestOptions({ headers: headers });
         }
     }
