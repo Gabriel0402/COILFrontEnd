@@ -7,6 +7,7 @@ import {Dashboard3Component} from "./views/dashboards/dashboard3.component";
 import {Dashboard4Component} from "./views/dashboards/dashboard4.component";
 import {Dashboard41Component} from "./views/dashboards/dashboard41.component";
 import {Dashboard5Component} from "./views/dashboards/dashboard5.component";
+import {ForumComponent} from "./views/appviews/forum.component"
 
 import {StarterViewComponent} from "./views/appviews/starterview.component";
 import {InboxComponent} from "./views/appviews/inbox.component";
@@ -64,6 +65,13 @@ export const ROUTES:Routes = [
       { path: 'login', component: LoginComponent },
     ]
   },
+  {
+    path: '', component: BasicLayoutComponent,
+    children: [
+      {path: 'forum', component: ForumComponent}
+    ]
+  },
+  
 
   // Handle all other routes
   {path: '**',  redirectTo: 'starterview'}

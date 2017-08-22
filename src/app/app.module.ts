@@ -18,6 +18,7 @@ import {LayoutsModule} from "./components/common/layouts/layouts.module";
 import {AuthGuard} from "./services/guards.service";
 import {AuthenticationService} from "./services/authentication.service";
 import {AlertService} from "./services/alert.service";
+import {RestService} from "./services/rest.service";
 import { AlertComponent } from './components/alert/alert.component';
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { AlertComponent } from './components/alert/alert.component';
     AppviewsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard, AuthenticationService,AlertService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard, AuthenticationService,AlertService,RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

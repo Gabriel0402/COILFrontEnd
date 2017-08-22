@@ -22,7 +22,7 @@ html, body, .container, .scroller {
 .container {
 	position: relative;
 	overflow: hidden;
-	background: url("landscape.jpg") no-repeat 50% 100%;
+	 background: url("landscape.jpg") no-repeat 50% 100%; 
 }
 
 .menu-trigger {

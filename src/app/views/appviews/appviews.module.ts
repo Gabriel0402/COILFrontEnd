@@ -6,6 +6,7 @@ import {StarterViewComponent} from "./starterview.component";
 import {InboxComponent} from "./inbox.component";
 import {HotComponent} from "./hot.component";
 import {LoginComponent} from "./login.component";
+import {ForumComponent} from "./forum.component";
 
 import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
@@ -15,7 +16,8 @@ import {SparklineModule } from '../../components/charts/sparkline';
     StarterViewComponent,
     InboxComponent,
     HotComponent,
-    LoginComponent
+    LoginComponent,
+    ForumComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import {SparklineModule } from '../../components/charts/sparkline';
     StarterViewComponent,
     InboxComponent,
     HotComponent,
-    LoginComponent
+    LoginComponent,
+    ForumComponent
   ],
 })
 

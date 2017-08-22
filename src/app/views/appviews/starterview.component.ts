@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit, } from '@angular/core';
 
+import {RestService} from '../../services/rest.service'
+
 @Component({
   selector: 'starter',
   templateUrl: 'starter.template.html',
@@ -8,9 +10,14 @@ import { Component, OnDestroy, OnInit, } from '@angular/core';
 export class StarterViewComponent implements OnDestroy, OnInit  {
 
 public nav:any;
+users:any;
 
-public constructor() {
+public constructor(private restService: RestService) {
   this.nav = document.querySelector('nav.navbar');
+  this.restService.getAccounts().subscribe(data=>
+    {
+      this.users=data;}
+  )
 }
 
 public ngOnInit():any {
