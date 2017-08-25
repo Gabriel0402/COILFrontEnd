@@ -901,37 +901,39 @@ html, body, .container, .scroller {
 	display: block;
 }
 .main {
-position:fixed;
-margin-top: 14px;    
-left:50px;
-top: 45px;
-height: 630px;
-right:150px;
-width:1350px;
-background: rgba(255,255,255, 0.5);
+  position:fixed;
+  margin-top: 14px;  
+  border-radius: 3px;
+  left:60px;
+  top: 45px;
+  height: 630px;
+  right:200px;
+  width:1300px;
+  background: rgba(255,255,255, 0.8);
 }
 
 .group1 {
-    margin-top: 10px;
-	width: 1350px;
-    height: 100px;
-    margin-bottom: 10px;
-    margin-left: -10px;
+  margin-top: 10px;
+width: 1350px;
+  height: 100px;
+  margin-bottom: 10px;
+  margin-left: -5px;
 }
 
 .group1 a {
-	display: inline-block;
-	clear: both;
-	margin: 0.5em 0.5em 0.5em 1.9em;
-	padding: 1em 1.1em;
-	width: 280px;
-    height:90px;
-	outline: none;
-	color: #fff;
-	background: #336ca6;
-	text-align: center;
-	text-decoration: none;
-	font-weight: 700;
+display: inline-block;
+  border-radius: 5px;
+clear: both;
+margin: 0.7em 0.5em 0.5em 1.9em;
+padding: 1em 1.1em;
+width: 280px;
+  height:160px;
+outline: none;
+color: #fff;
+background: #336ca6;
+text-align: center;
+text-decoration: none;
+font-weight: 700;
 }
 
 .dog1-photo {
@@ -943,42 +945,28 @@ overflow: hidden;
 margin-top: -5px;
 }
 
-.dog1-photo img{
-width: 90%;
-margin-right: 4px;
+.group1 {
+  margin-top: 10px;
+width: 1350px;
+  height: 100px;
+  margin-bottom: 10px;
+  margin-left: -5px;
 }
 
-.dog1-help {
- margin-left:-120px;
- margin-top: -18px;
-}
-
-.dog1-help img {
-width: 8%
-}
-
-.dog1-name {
-    width: 60px;
-    height:20px;
-    margin-left: 80px;
-    margin-top: -75px;
-}
-
-.dog1-message {
-margin-top: -13px;
-margin-right: -210px;   
-}
-
-.dog1-message img {
-width: 8%;
-}
-
-
-
-.dog1-rating {
-
- margin-left: 10px;
- margin-top: -10px;
+.group1 a {
+display: inline-block;
+  border-radius: 5px;
+clear: both;
+margin: 0.7em 0.5em 0.5em 1.9em;
+padding: 1em 1.1em;
+width: 280px;
+  height:160px;
+outline: none;
+color: #fff;
+background: #336ca6;
+text-align: center;
+text-decoration: none;
+font-weight: 700;
 }
 
 .acidjs-rating-stars,

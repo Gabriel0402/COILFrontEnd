@@ -6,11 +6,11 @@
           <div class="main">
             <div class="group1">
 
-              <a class="dog1">
+              <a *ngFor="let user of rosters" class="dog1">
                 <div class="dog1-photo" href="#"><img src="assets/images/dog.png"></div>
                 <div class="dog1-help" href="#"><img src="assets/images/help.png"></div>
                 <div class="dog1-name">
-                  <h2>Boe</h2>
+                  <h2>{{user.nickname}}</h2>
                 </div>
                 <div class="dog1-message" href="#"><img src="assets/images/chat.png">
                 </div>

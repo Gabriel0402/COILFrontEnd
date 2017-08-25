@@ -1,17 +1,17 @@
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="col-lg-12">
-				<div class="current">
-						<p>Current </p>
-						<div class="mydog-health">
+      <div class="current">
+        <p>Current </p>
+        <div class="mydog-health">
 
-								<div class="w3-greenw3-container w3-green w3-center" style="height:20px;width:70%">90%</div>
-						</div>
-						<b>Overall</b>
-						<div class="overall">
-								<div class="w3-greenw3-container w3-grey w3-center" style="height:20px;width:30%">30/100</div>
-						</div>
-				</div>
+          <div class="w3-greenw3-container w3-green w3-center" style="height:20px;width:70%">90%</div>
+        </div>
+        <b>Overall</b>
+        <div class="overall">
+          <div class="w3-greenw3-container w3-grey w3-center" style="height:20px;width:30%">30/100</div>
+        </div>
+      </div>
       <div class="text-center m-t-lg">
         <div class="content content--husky">
           <div class="husky" style="position:absolute;top:300px;left:50px;">
@@ -57,67 +57,43 @@
             </div>
           </div>
 
-				</div>
-				
+        </div>
+
         <div class="content clearfix">
-						<div class="block block-40 clearfix">
-							<nav class="codrops-demos">
-								<a class="dog1" href="#">
-									<div class="dog1-photo"><img src="assets/images/dog.png"></div>
-									<div class="dog1-help"><img src="assets/images/help.png"></div>
-									<div class="dog1-name">
-										<h2>Boe</h2>
-									</div>
-									<div class="dog1-message" href="#"><img src="assets/images/chat.png">
-									</div>
-									<div class="dog1-rating">
-										<div class="acidjs-rating-stars acidjs-rating-disabled">
-											<form>
-												<input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label>
-												<input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" /><label for="group-3-1"></label>
+          <div class="block block-40 clearfix">
+            <nav class="codrops-demos">
+              <a *ngFor="let user of users"
+							class="dog1" href="#">
+                <div class="dog1-photo"><img src="assets/images/dog.png"></div>
+                <div class="dog1-help"><img src="assets/images/help.png"></div>
+                <div class="dog1-name">
+                  <h2>{{user.nickname}}</h2>
+                </div>
+                <div class="dog1-message" href="#"><img src="assets/images/chat.png">
+                </div>
+                <div class="dog1-rating">
+                  <div class="acidjs-rating-stars acidjs-rating-disabled">
+                    <form>
+                      <input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label>
+                      <input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" />
+                      <label for="group-3-1"></label>
 
-												<input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
+                      <input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
 
-												<input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
+                      <input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
 
-												<input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
-											</form>
-										</div>
-									</div>
-									<div class="dog1-health">
-										<div class="w3-green" style="height:15px;width:100%"></div>
-									</div><br>
-								</a>
-								<a class="dog1" href="#">
-										<div class="dog1-photo"><img src="assets/images/dog.png"></div>
-										<div class="dog1-help"><img src="assets/images/help.png"></div>
-										<div class="dog1-name">
-											<h2>Boe</h2>
-										</div>
-										<div class="dog1-message" href="#"><img src="assets/images/chat.png">
-										</div>
-										<div class="dog1-rating">
-											<div class="acidjs-rating-stars acidjs-rating-disabled">
-												<form>
-													<input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label>
-													<input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" /><label for="group-3-1"></label>
-	
-													<input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
-	
-													<input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
-	
-													<input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
-												</form>
-											</div>
-										</div>
-										<div class="dog1-health">
-											<div class="w3-green" style="height:15px;width:100%"></div>
-										</div><br>
-									</a>
-							</nav>
-						</div>
+                      <input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
+                    </form>
+                  </div>
+                </div>
+                <div class="dog1-health">
+                  <div class="w3-green" style="height:15px;width:100%"></div>
+                </div><br>
+              </a>
+            </nav>
+          </div>
 
-					</div>
+        </div>
       </div>
     </div>
   </div>
