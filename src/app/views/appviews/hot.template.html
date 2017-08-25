@@ -18,18 +18,26 @@
 </div>
 <div class="row">
   <div class="col-lg-12">
+    <ul>
+      <li *ngFor="let forum of forums">{{forum.title}}
+      </li>
+    </ul>
 
   </div>
 </div>
 
 <template #template>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
+    <h4 class="modal-title pull-left">Post a question</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
             <span aria-hidden="true">&times;</span>
           </button>
   </div>
   <div class="modal-body">
-    This is a modal.
+    <h1>title</h1>
+    <input type="text" [(ngModel)]="title">
+    <h1>quesion</h1>
+    <input type="text" [(ngModel)]="content">
+    <button type="submit" class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
   </div>
 </template>
