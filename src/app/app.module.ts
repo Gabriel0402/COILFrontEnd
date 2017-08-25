@@ -20,12 +20,15 @@ import {AuthenticationService} from "./services/authentication.service";
 import {AlertService} from "./services/alert.service";
 import {RestService} from "./services/rest.service";
 import { AlertComponent } from './components/alert/alert.component';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
   declarations: [
     AppComponent,
     AlertComponent
   ],
   imports: [
+    ModalModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -34,7 +37,7 @@ import { AlertComponent } from './components/alert/alert.component';
     AppviewsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard, AuthenticationService,AlertService,RestService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard, AuthenticationService,AlertService,RestService,BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
