@@ -16,18 +16,32 @@ users:any;
 userId:any;
 courses:any;
 course:any;
-rosters:any
+rosters:any;
+public currentUser:any;
 
 
 public constructor(private restService: RestService) {
-  this.userId='1';
+  
   this.nav = document.querySelector('nav.navbar');
+  
+  function switchUser(userId){
+    this.userId=userId;
+    this.currentUser=this.users.filter(user=>user.userId==this.userId);
+  }
+
+}
+
+public ngOnInit():any {
+  this.userId=localStorage.getItem('userId');
+  this.nav.className += " white-bg";
   this.restService.getAccounts().subscribe(data=>
     {
       this.users=data.data;
-      console.log(this.users);
+      this.currentUser=this.users.filter(user=>user.userId==this.userId);
+      console.log(this.currentUser);
     }
   )
+
   this.restService.getCourses(this.userId).subscribe(data=>{
     this.courses=data.data;
     this.course=this.courses[0];
@@ -42,10 +56,6 @@ public constructor(private restService: RestService) {
       })
     })
   })
-}
-
-public ngOnInit():any {
-  this.nav.className += " white-bg";
 }
 
 

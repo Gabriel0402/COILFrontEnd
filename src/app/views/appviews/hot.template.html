@@ -3,7 +3,7 @@
     <h2>Course 35</h2>
     <ol class="breadcrumb">
       <li>
-        <a href="index.html">Home</a>
+        <a [routerLink]="['/hot']">Home</a>
       </li>
       <li class="active">
         <strong>Frequently asked questions</strong>
@@ -19,7 +19,7 @@
 <div class="row">
   <div class="col-lg-12">
     <ul>
-      <li *ngFor="let forum of forums">{{forum.title}}
+      <li *ngFor="let forum of forums" [routerLink]="['/forum',forum.forumId]">{{forum.title}}
       </li>
     </ul>
 

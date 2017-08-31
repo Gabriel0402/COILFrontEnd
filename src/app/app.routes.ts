@@ -50,13 +50,13 @@ export const ROUTES:Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'inbox', component: InboxComponent}
+      {path: 'inbox', component: InboxComponent,canActivate: [AuthGuard]}
     ]
   },
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'hot', component: HotComponent}
+      {path: 'hot', component: HotComponent,canActivate: [AuthGuard]}
     ]
   },
   {
@@ -68,7 +68,7 @@ export const ROUTES:Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'forum', component: ForumComponent}
+      {path: 'forum/:id', component: ForumComponent,canActivate: [AuthGuard]}
     ]
   },
   

@@ -1,13 +1,14 @@
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="col-lg-12">
-      <div class="current">
-        <p>Current </p>
+      <div class="current" *ngFor="let user of currentUser">
+        <p>{{user.nickname}} </p>
+        <p>Current {{user.averageRating}} </p>
         <div class="mydog-health">
 
           <div class="w3-greenw3-container w3-green w3-center" style="height:20px;width:70%">90%</div>
         </div>
-        <b>Overall</b>
+        <b>Overall {{user.averageScore}}</b>
         <div class="overall">
           <div class="w3-greenw3-container w3-grey w3-center" style="height:20px;width:30%">30/100</div>
         </div>
@@ -63,13 +64,13 @@
           <div class="block block-40 clearfix">
             <nav class="codrops-demos">
               <a *ngFor="let user of users"
-							class="dog1" href="#">
-                <div class="dog1-photo"><img src="assets/images/dog.png"></div>
+							class="dog1">
+                <div class="dog1-photo" (click)="switchUser(user.userId)"><img src="assets/images/dog.png"></div>
                 <div class="dog1-help"><img src="assets/images/help.png"></div>
-                <div class="dog1-name">
-                  <h2>{{user.nickname}}</h2>
+                <div class="dog1-name" (click)="switchUser(user.userId)">
+                  <h2>{{user.nickname}}({{user.averageRating}})({{user.averageScore}})</h2>
                 </div>
-                <div class="dog1-message" href="#"><img src="assets/images/chat.png">
+                <div class="dog1-message" ><img src="assets/images/chat.png">
                 </div>
                 <div class="dog1-rating">
                   <div class="acidjs-rating-stars acidjs-rating-disabled">
