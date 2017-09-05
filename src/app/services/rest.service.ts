@@ -54,6 +54,11 @@ export class RestService {
             response.json());
     }
 
+    getChats(userId) {
+        return this.http.get(this.apiurl + '/chats/' + userId, this.jwt()).map((response: Response) =>
+        response.json());
+    }
+
     //post requests
     createAccounts(user) {
         return this.http.post(this.apiurl + '/accounts', user, this.jwt()).map((response: Response) =>
@@ -82,6 +87,11 @@ export class RestService {
 
     createCourse(course){
         return this.http.post(this.apiurl + '/courses', course, this.jwt()).map((response: Response) =>
+        response.json());
+    }
+
+    createChat(chatMessage) {
+        return this.http.post(this.apiurl + '/chats', chatMessage, this.jwt()).map((response: Response) =>
         response.json());
     }
 
