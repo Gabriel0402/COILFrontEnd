@@ -1,67 +1,83 @@
-<div class="wrapper wrapper-content animated fadeInRight">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="current" *ngFor="let user of currentUser">
-        <p>{{user.nickname}} </p>
-        <p>Current {{user.averageRating}} </p>
-        <div class="mydog-health">
+<div class="container animated fadeInRight">
+  <div class="row mt-5">
 
-          <div class="w3-greenw3-container w3-green w3-center" style="height:20px;width:70%">90%</div>
-        </div>
-        <b>Overall {{user.averageScore}}</b>
-        <div class="overall">
-          <div class="w3-greenw3-container w3-grey w3-center" style="height:20px;width:30%">30/100</div>
-        </div>
-      </div>
-      <div class="text-center m-t-lg">
-        <div class="content content--husky">
-          <div class="husky" style="position:absolute;top:300px;left:50px;">
-            <div class="husky-mane">
-              <div class="husky-coat"></div>
-            </div>
-            <div class="husky-body">
-              <div class="husky-head">
-                <div class="husky-ear"></div>
-                <div class="husky-ear"></div>
-                <div class="husky-face">
-                  <div class="husky-eye"></div>
-                  <div class="husky-eye"></div>
-                  <div class="husky-nose"></div>
-                  <div class="husky-mouth">
-                    <div class="husky-lips"></div>
-                    <div class="husky-tongue"></div>
+  <div class="current col-6" *ngFor="let user of currentUser">
+
+      <div class="card text-center">
+        <div class="card-body">
+            <h2 class="card-title pt-3" style="color: #000;" >{{user.nickname}} </h2>
+
+
+              <div class="content--husky">
+                <div class="husky mx-auto">
+                  <div class="husky-mane">
+                    <div class="husky-coat"></div>
                   </div>
-                </div>
-              </div>
-              <div class="husky-torso"></div>
-            </div>
-            <div class="husky-legs">
-              <div class="husky-front-legs">
-                <div class="husky-leg"></div>
-                <div class="husky-leg"></div>
-              </div>
-              <div class="husky-hind-leg">
-              </div>
-            </div>
-            <div class="husky-tail">
-              <div class="husky-tail">
-                <div class="husky-tail">
+                  <div class="husky-body">
+                    <div class="husky-head">
+                      <div class="husky-ear"></div>
+                      <div class="husky-ear"></div>
+                      <div class="husky-face">
+                        <div class="husky-eye"></div>
+                        <div class="husky-eye"></div>
+                        <div class="husky-nose"></div>
+                        <div class="husky-mouth">
+                          <div class="husky-lips"></div>
+                          <div class="husky-tongue"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="husky-torso"></div>
+                  </div>
+                  <div class="husky-legs">
+                    <div class="husky-front-legs">
+                      <div class="husky-leg"></div>
+                      <div class="husky-leg"></div>
+                    </div>
+                    <div class="husky-hind-leg">
+                    </div>
+                  </div>
                   <div class="husky-tail">
                     <div class="husky-tail">
                       <div class="husky-tail">
-                        <div class="husky-tail"></div>
+                        <div class="husky-tail">
+                          <div class="husky-tail">
+                            <div class="husky-tail">
+                              <div class="husky-tail"></div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                </div>
+              
+              <div class="row justify-content-center">
+                <div class="col-9">
+                  <p class="text-left mb-2">Current {{user.averageRating}} </p>
+                  <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                  </div>
+
+                  <p class="text-left mb-2">Overall {{user.averageScore}}</p>
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
+                  </div>
+                </div>  
               </div>
-            </div>
-          </div>
 
-        </div>
+          </div> <!-- card body -->
+      </div> <!-- card -->
+  
 
-        <div class="content clearfix">
-          <div class="block block-40 clearfix">
+
+
+  </div> <!-- current -->
+
+
+  <div class="col-lg-6">
+      <div class="">
             <nav class="codrops-demos">
               <a *ngFor="let user of users"
 							class="dog1">
@@ -92,10 +108,9 @@
                 </div><br>
               </a>
             </nav>
-          </div>
-
-        </div>
       </div>
-    </div>
+  </div>
+
   </div>
 </div>
+
