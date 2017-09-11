@@ -971,19 +971,19 @@ body,
   font-weight: 700;
 }
 
-.dog1-photo {
+/*.dog1-photo {
   width: 65px;
   height: 50px;
   background: white;
   border-radius: 50%;
   overflow: hidden;
   margin-top: -5px;
-}
+}*/
 
-.dog1-photo img {
+/*.dog1-photo img {
   width: 90%;
   margin-right: 4px;
-}
+}*/
 
 .dog1-help {
   margin-left: -120px;
@@ -1934,7 +1934,7 @@ a:focus {
   opacity: 0.6;
 }
 
-.dog1-photo {
+/*.dog1-photo {
   width: 65px;
   height: 50px;
   background: white;
@@ -1946,7 +1946,7 @@ a:focus {
 .dog1-photo img {
   width: 90%;
   margin-right: 4px;
-}
+}*/
 
 .dog1-help {
   margin-left: -120px;

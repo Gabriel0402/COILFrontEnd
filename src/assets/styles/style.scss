@@ -55,3 +55,32 @@ div#page-wrapper{
 	min-height: 95vh;
 	padding: 0;
 }
+
+
+
+// Front Page
+
+.profile{
+    padding: 1rem;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.profile-img {
+  img{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+  }
+}
+
+
+.leaderboard {
+    overflow: scroll;
+    height: 522px;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    padding: 1px;
+}
+
