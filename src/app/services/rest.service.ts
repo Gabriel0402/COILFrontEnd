@@ -54,8 +54,8 @@ export class RestService {
             response.json());
     }
 
-    getChats(userId) {
-        return this.http.get(this.apiurl + '/chats/' + userId, this.jwt()).map((response: Response) =>
+    getChats(userId,otherId) {
+        return this.http.get(this.apiurl + '/chats/' + userId+'/' + otherId, this.jwt()).map((response: Response) =>
         response.json());
     }
 
@@ -92,6 +92,12 @@ export class RestService {
 
     createChat(chatMessage) {
         return this.http.post(this.apiurl + '/chats', chatMessage, this.jwt()).map((response: Response) =>
+        response.json());
+    }
+
+    //logging API
+    log(logMessage){
+        return this.http.post(this.apiurl + '/logs', logMessage, this.jwt()).map((response: Response) =>
         response.json());
     }
 
