@@ -1,4 +1,57 @@
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="container animated fadeInRight">
+  <div class="row">
+    <div class="col-sm-12 mt-5">
+      <h1 class="mt-5">Dashboard</h1>
+    </div>
+  </div>
+  
+  <div class="row mt-4">
+
+    <div class="current col-sm-12 col-md-6 col-lg-4" *ngFor="let user of rosters">
+
+       <a class="">
+        <div class="media profile">
+        
+          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"></div>
+          
+            <div class="media-body profile-body">
+            <a class="chat-bubble" href="#"><i class="fa fa-comment" aria-hidden="true"></i></a>
+              <div class="" (click)="switchUser(user.userId)">
+                <h2>{{user.nickname}}</h2>
+              </div>
+
+                <!-- ({{user.averageRating}}) -->
+                <div class="profile-rating">
+                  <div class="acidjs-rating-stars acidjs-rating-disabled">
+                    <form>
+                      <input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label>
+                      <input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" />
+                      <label for="group-3-1"></label>
+
+                      <input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
+
+                      <input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
+
+                      <input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
+                    </form>
+                  </div>
+                </div>
+
+                
+
+
+                <p class="mb-0">Overall</p>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 80%; height: 14px;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">{{user.averageScore}}</div>
+                </div>
+            </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="col-lg-12">
       <div class="text-center m-t-lg">
@@ -19,15 +72,15 @@
                     <form>
                       <input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" />
                       <label for="group-3-0"></label>
-                      <!--
-            --><input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" />
+                      
+            <input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" />
                       <label for="group-3-1"></label>
-                      <!--
-            --><input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
-                      <!--
-            --><input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
-                      <!--
-            --><input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
+                      
+            <input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
+                      
+            <input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
+                      
+            <input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
                     </form>
                   </div>
                 </div>
@@ -56,4 +109,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
