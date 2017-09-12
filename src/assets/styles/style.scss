@@ -63,6 +63,15 @@ div#page-wrapper{
     padding: 1rem;
     background: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+
+    a.chat-bubble{
+      position: absolute;
+      color: rgba(0, 0, 0, 0.125);
+      right: 10px;
+      font-size: 1.33rem;
+      z-index: 10;
+    }
+
 }
 .profile-img {
   img{
@@ -82,4 +91,58 @@ div#page-wrapper{
     border-radius: 0.25rem;
     padding: 1px;
 }
+
+
+@media (min-width: 576px){
+  .fullscreen .modal-dialog {
+      max-width: none;
+      margin: 0;
+  }
+}
+
+
+.fullscreen {
+  .modal-dialog {
+      max-width: none;
+      margin: 0;
+      height: 100vh;
+  }
+  .modal-content{
+      height: 100%;
+      min-height: 100%;
+      border-radius: 0;
+      color: #333;
+      background: rgba(255, 255, 255, 0.97);
+      overflow:auto;
+  }
+}
+
+.chat {
+  li {
+      border-bottom: 0;
+  }
+  textarea{
+      background: #f2f5f8;
+  }
+  .chat-header{
+    img{
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.people-list {
+  img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+  }
+}
+
+.footer{
+  background: #fff !important;
+}
+
 

@@ -7901,7 +7901,8 @@ ul{
 .chat {
   width: 490px;
   float: left;
-  background: #f2f5f8;
+  /*background: #f2f5f8;*/
+  background: #fff;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   color: #434651;
