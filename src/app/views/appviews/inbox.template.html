@@ -64,8 +64,8 @@
           <li class="clearfix" *ngFor="let message of chatHistory">
             <div *ngIf="message.from==currentUser[0].userId">
               <div class="message-data align-right">
-                <span class="message-data-time">{{message.timestamp}}</span> &nbsp; &nbsp;
-                <span class="message-data-name">{{message.from}}</span> <i class="fa fa-circle me"></i>
+                <span class="message-data-time">{{message.timestamp*1000|date}}</span> &nbsp; &nbsp;
+                <span class="message-data-name">{{currentUser[0].nickname}}</span> <i class="fa fa-circle me"></i>
 
               </div>
               <div class="message other-message float-right">
@@ -74,8 +74,8 @@
             </div>
             <div *ngIf="message.from!==currentUser[0].userId">
               <div class="message-data">
-                <span class="message-data-name"><i class="fa fa-circle online"></i> {{message.from}}</span>
-                <span class="message-data-time">{{message.timestamp}}</span>
+                <span class="message-data-name"><i class="fa fa-circle online"></i> {{talkTo.nickname}}</span>
+                <span class="message-data-time">{{message.timestamp*1000|date}}</span>
               </div>
               <div class="message my-message">
                 {{message.message}}
