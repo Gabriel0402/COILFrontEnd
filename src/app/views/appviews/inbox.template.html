@@ -1,28 +1,28 @@
-<div class="wrapper wrapper-content animated fadeInRight">
+<!-- <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     <div class="col-lg-12">
       <ul>
-          <li *ngFor="let user of users">{{user.nickname}}
-          </li>
+        <li *ngFor="let user of users">{{user.nickname}}
+        </li>
       </ul>
     </div>
   </div>
-</div>
+</div> -->
 
 
 <div class="container clearfix animated fadeInRight">
 
-      <div class="row">
-        
-        <div class="col-lg-12">
-          <h1 class="mt-5">Inbox</h1>
-        </div>
+  <div class="row">
 
-      </div>
+    <div class="col-lg-12">
+      <h1 class="mt-5">Inbox</h1>
+    </div>
 
-      <div class="row mt-5">
+  </div>
 
-      </div>
+  <div class="row mt-5">
+
+  </div>
 
   <div class="row">
 
@@ -35,119 +35,11 @@
       </div>
 
       <ul class="list">
-        <li class="clearfix">
-        <a href="#">
+        <li class="clearfix" *ngFor="let user of otherUsers">
+          <a (click)="selectUser(user)">
           <img src="assets/images/dog.png" alt="avatar" />
           <div class="about">
-            <div class="name">Vincent Porter</div>
-            <div class="status">
-              <i class="fa fa-circle online"></i> online
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Aiden Chavez</div>
-            <div class="status">
-              <i class="fa fa-circle offline"></i> offline
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Mike Thomas</div>
-            <div class="status">
-              <i class="fa fa-circle online"></i> online
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Erica Hughes</div>
-            <div class="status">
-              <i class="fa fa-circle online"></i> online
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Ginger Johnston</div>
-            <div class="status">
-              <i class="fa fa-circle online"></i> online
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Tracy Carpenter</div>
-            <div class="status">
-              <i class="fa fa-circle offline"></i> offline
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Christian Kelly</div>
-            <div class="status">
-              <i class="fa fa-circle offline"></i> offline
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Monica Ward</div>
-            <div class="status">
-              <i class="fa fa-circle online"></i> online
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Dean Henry</div>
-            <div class="status">
-              <i class="fa fa-circle offline"></i> offline 
-            </div>
-          </div>
-          </a>
-        </li>
-        
-        <li class="clearfix">
-        <a href="#">
-          <img src="assets/images/dog.png" alt="avatar" />
-          <div class="about">
-            <div class="name">Peyton Mckinney</div>
+            <div class="name">{{user.nickname}}</div>
             <div class="status">
               <i class="fa fa-circle online"></i> online
             </div>
@@ -156,31 +48,42 @@
         </li>
       </ul>
     </div>
-    
+
     <div class="col-12 col-md-12 col-lg-8 chat">
       <div class="chat-header clearfix">
         <img src="assets/images/dog.png" alt="avatar" />
-        
+
         <div class="chat-about">
-          <div class="chat-with">Chat with Vincent Porter</div>
+          <div class="chat-with">Chat</div>
           <div class="chat-num-messages"></div>
         </div>
-      </div> 
-      
-      <div class="chat-history">
+      </div>
+
+      <div class="chat-history" *ngIf="talkTo!==null">
         <ul>
-          <li class="clearfix">
-            <div class="message-data align-right">
-              <span class="message-data-time" >10:10 AM, Today</span> &nbsp; &nbsp;
-              <span class="message-data-name" >Harry</span> <i class="fa fa-circle me"></i>
-              
+          <li class="clearfix" *ngFor="let message of chatHistory">
+            <div *ngIf="message.from==currentUser[0].userId">
+              <div class="message-data align-right">
+                <span class="message-data-time">{{message.timestamp}}</span> &nbsp; &nbsp;
+                <span class="message-data-name">{{message.from}}</span> <i class="fa fa-circle me"></i>
+
+              </div>
+              <div class="message other-message float-right">
+                {{message.message}}
+              </div>
             </div>
-            <div class="message other-message float-right">
-              Hi Vincent, how are you? How is the project coming along?
+            <div *ngIf="message.from!==currentUser[0].userId">
+              <div class="message-data">
+                <span class="message-data-name"><i class="fa fa-circle online"></i> {{message.from}}</span>
+                <span class="message-data-time">{{message.timestamp}}</span>
+              </div>
+              <div class="message my-message">
+                {{message.message}}
+              </div>
             </div>
           </li>
-          
-          <li>
+
+          <!-- <li>
             <div class="message-data">
               <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
               <span class="message-data-time">10:12 AM, Today</span>
@@ -189,18 +92,19 @@
               Are we meeting today? Project has been already finished and I have results to show you.
             </div>
           </li>
-          
+
           <li class="clearfix">
             <div class="message-data align-right">
-              <span class="message-data-time" >10:14 AM, Today</span> &nbsp; &nbsp;
-              <span class="message-data-name" >Harry</span> <i class="fa fa-circle me"></i>
-              
+              <span class="message-data-time">10:14 AM, Today</span> &nbsp; &nbsp;
+              <span class="message-data-name">Harry</span> <i class="fa fa-circle me"></i>
+
             </div>
             <div class="message other-message float-right">
-              Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last phase of the project?
+              Well I am not sure. The rest of the team is not here yet. Maybe in an hour or so? Have you faced any problems at the last
+              phase of the project?
             </div>
           </li>
-          
+
           <li>
             <div class="message-data">
               <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
@@ -210,7 +114,7 @@
               Actually everything was fine. I'm very excited to show this to our team.
             </div>
           </li>
-          
+
           <li>
             <div class="message-data">
               <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
@@ -219,20 +123,20 @@
             <i class="fa fa-circle online"></i>
             <i class="fa fa-circle online" style="color: #AED2A6"></i>
             <i class="fa fa-circle online" style="color:#DAE9DA"></i>
-          </li>
-          
+          </li> -->
+
         </ul>
-        
-      </div> 
-      
-      <div class="chat-message clearfix">
-        <textarea name="message-to-send" id="message-to-send" placeholder ="Type your message" rows="3"></textarea>
-                
-        
-        <button>Send</button>
 
       </div>
-      
-    </div> 
+
+      <div class="chat-message clearfix" *ngIf="talkTo!==null">
+        <textarea name="message-to-send" id="message-to-send" placeholder="Type your message" rows="3" [(ngModel)]="message"></textarea>
+
+
+        <button (click)="reply()" *ngIf="talkTo!==null">Send</button>
+
+      </div>
+
+    </div>
   </div>
 </div>
