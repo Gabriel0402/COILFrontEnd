@@ -56,11 +56,26 @@ public ngOnInit():any {
       })
     })
   })
+
+  let log={
+    component:"start view",
+    action:"enter"
+  }
+  this.restService.log(log).subscribe(data=>{
+    console.log(data);
+  })
 }
 
 
 public ngOnDestroy():any {
   this.nav.classList.remove("white-bg");
+  let log={
+    component:"start view",
+    action:"leave"
+  }
+  this.restService.log(log).subscribe(data=>{
+    console.log(data);
+  })
 }
 
 }

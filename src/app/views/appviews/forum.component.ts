@@ -32,12 +32,26 @@ export class ForumComponent implements OnDestroy, OnInit {
         console.log(this.forumMessages);
       })
     });
+    let log={
+      component:"forum",
+      action:"enter"
+    }
+    this.restService.log(log).subscribe(data=>{
+      console.log(data);
+    })
   }
 
 
   public ngOnDestroy(): any {
     this.nav.classList.remove("white-bg");
     this.sub.unsubscribe();
+    let log={
+      component:"inbox",
+      action:"leave"
+    }
+    this.restService.log(log).subscribe(data=>{
+      console.log(data);
+    })
   }
 
   public openModal(template: TemplateRef<any>) {

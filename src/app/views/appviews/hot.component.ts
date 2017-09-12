@@ -43,11 +43,25 @@ export class HotComponent implements OnDestroy, OnInit {
 
   public ngOnInit(): any {
     this.nav.className += " white-bg";
+    let log={
+      component:"what's hot",
+      action:"enter"
+    }
+    this.restService.log(log).subscribe(data=>{
+      console.log(data);
+    })
   }
 
 
   public ngOnDestroy(): any {
     this.nav.classList.remove("white-bg");
+    let log={
+      component:"what's hot",
+      action:"leave"
+    }
+    this.restService.log(log).subscribe(data=>{
+      console.log(data);
+    })
   }
 
   public openModal(template: TemplateRef<any>) {
