@@ -145,4 +145,18 @@ div#page-wrapper{
   background: #fff !important;
 }
 
+body.modal-open{
 
+  .modal-backdrop.fade.in {
+    opacity: 0.5 !important;
+  }
+
+  .modal.fade.in {
+    opacity: 1 !important;
+  }
+
+  .modal.fade .modal-dialog {
+    transform: translate(0, 50%) !important;
+  }
+
+}
