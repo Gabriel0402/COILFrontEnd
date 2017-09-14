@@ -61,22 +61,22 @@
 
                 <div class="forum-title">
                     <div class="pull-right forum-desc">
-                        <small>Total posts: 320,800</small>
+                        <small>Total posts: 0</small>
                     </div>
                     <h3>What's hot</h3>
                 </div>
 
-                <div class="forum-item active">
+                <div class="forum-item active" *ngFor="let forum of forums" [routerLink]="['/forum',forum.forumId]">
                     <div class="row">
                         <div class="col-md-9">
                             <div class="forum-icon">
                                 <i class="fa fa-users"></i>
                             </div>
-                            <a href="forum_post.html" class="forum-item-title">Question 1</a>
-                            <div class="forum-sub-title">Description of what's hot. Action steps.</div>
+                            <a [routerLink]="['/forum',forum.forumId]" class="forum-item-title">{{forum.title}}</a>
+                            <!-- <div class="forum-sub-title">{{forum.title}}</div> -->
                         </div>
                         
-                        <div class="col-md-1 forum-info">
+                        <!-- <div class="col-md-1 forum-info">
                             <span class="views-number">
                                 368
                             </span>
@@ -91,92 +91,7 @@
                             <div>
                                 <small>Comments</small>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="forum-item active">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="forum-icon">
-                                <i class="fa fa-users"></i>
-                            </div>
-                            <a href="forum_post.html" class="forum-item-title">Question 2</a>
-                            <div class="forum-sub-title">New to the community? Please stop by, say hi and tell us a bit about yourself. </div>
-                        </div>
-                        <div class="col-md-1 forum-info">
-                            <span class="views-number">
-                                890
-                            </span>
-                            <div>
-                                <small>Views</small>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-1 forum-info">
-                            <span class="views-number">
-                                154
-                            </span>
-                            <div>
-                                <small>Comments</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="forum-item active">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="forum-icon">
-                                <i class="fa fa-users"></i>
-                            </div>
-                            <a href="forum_post.html" class="forum-item-title">Lorem Ipsum is simply dummy text. </a>
-                            <div class="forum-sub-title">Various versions have evolved over the years, sometimes by accident, sometimes on purpose passage of Lorem Ipsum (injected humour and the like).</div>
-                        </div>
-                        <div class="col-md-1 forum-info">
-                            <span class="views-number">
-                                1516
-                            </span>
-                            <div>
-                                <small>Views</small>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-1 forum-info">
-                            <span class="views-number">
-                                180
-                            </span>
-                            <div>
-                                <small>Comments</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="forum-item active">
-                    <div class="row">
-                        <div class="col-md-9">
-                            <div class="forum-icon">
-                                <i class="fa fa-users"></i>
-                            </div>
-                            <a href="forum_post.html" class="forum-item-title">Lorem Ipsum is simply dummy text. </a>
-                            <div class="forum-sub-title">Various versions have evolved over the years, sometimes by accident, sometimes on purpose passage of Lorem Ipsum (injected humour and the like).</div>
-                        </div>
-                        <div class="col-md-1 forum-info">
-                            <span class="views-number">
-                                1516
-                            </span>
-                            <div>
-                                <small>Views</small>
-                            </div>
-                        </div>
-                        <div class="col-md-1 forum-info">
-                            <span class="views-number">
-                                180
-                            </span>
-                            <div>
-                                <small>Comments</small>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -211,22 +126,13 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="post-title" class="form-control-label">Title:</label>
-            <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
-          </div>
-          <div class="form-group">
-            <label for="post-question" class="form-control-label">Question:</label>
-            <textarea type="text" class="form-control" id="post-question" [(ngModel)]="content"></textarea>
-            <!-- <input type="text" [(ngModel)]="content"> -->
-          </div>
-        </form>
+        <label for="post-title" class="form-control-label">Title:</label>
+        <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
         <!-- <button type="button" class="btn btn-primary">Send message</button> -->
-        <button type="submit" class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
+        <button class="btn btn-primary" (click)="createPost(title);modalRef.hide()">Submit</button>
       </div>
     </div>
 </template>

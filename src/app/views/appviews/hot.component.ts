@@ -71,8 +71,7 @@ export class HotComponent implements OnDestroy, OnInit {
   public createPost(title:string,content:string){
     let forum = {
       courseId: this.course.courseId,
-      title: title,
-      content: content
+      title: title
     }
     this.restService.createForum(forum).subscribe(data=>{
       this.restService.getCourseForums(this.course.courseId).subscribe(data => {
