@@ -51,8 +51,14 @@
 
 div#page-wrapper{
 	margin: 0;
-	min-height: 95vh;
+	min-height: 100vh;
 	padding: 0;
+  padding-top: 3.5rem;
+  padding-bottom: 8.5rem;
+}
+
+div.course-wrapper{
+  padding: 1rem;
 }
 
 
@@ -159,4 +165,30 @@ body.modal-open{
     transform: translate(0, 50%) !important;
   }
 
+}
+
+.hot-tab{
+    background: #fff;
+    padding: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+    a{ color: #000 !important; }
+}
+
+a.nav-link.nav-link--text {
+    font-size: 1rem;
+    line-height: 2.25;
+}
+a.nav-link.nav-link--icon {
+    font-size: 1.5rem;
+}
+
+.help {
+    position: absolute !important;
+    right: -8px;
+    bottom: -10px;
+    img{
+      width: 45px;
+      height: 45px;
+    }
 }

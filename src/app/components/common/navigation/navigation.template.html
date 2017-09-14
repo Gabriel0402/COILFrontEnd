@@ -8,22 +8,22 @@
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item"[ngClass]="{active: activeRoute('starter')}">
-              <a class="nav-link" [routerLink]="['/starterview']"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
+              <a class="nav-link nav-link--text" [routerLink]="['/starterview']"><span class="nav-label">Home</span></a>
             </li>
             
-            <li class="nav-item"[ngClass]="{active: activeRoute('dashboard')}"><a class="nav-link" [routerLink]="['/dashboards/dashboard']"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+            <li class="nav-item"[ngClass]="{active: activeRoute('dashboard')}"><a class="nav-link nav-link--text" [routerLink]="['/dashboards/dashboard']">Dashboard</a></li>
 
             <li class="nav-item"[ngClass]="{active: activeRoute('hot')}">
-              <a class="nav-link" [routerLink]="['/hot']"><i class="fa fa-fire"></i> <span class="nav-label">What's hot</span></a>
+              <a class="nav-link nav-link--icon" [routerLink]="['/hot']"><i class="fa fa-comments"></i></a>
             </li>
             <li class="nav-item"[ngClass]="{active: activeRoute('inbox')}">
-              <a class="nav-link" [routerLink]="['/inbox']"><i class="fa fa-inbox"></i> <span class="nav-label">Inbox</span></a>
+              <a class="nav-link nav-link--icon" [routerLink]="['/inbox']"><i class="fa fa-inbox"></i></a>
             </li>
-            <li class="nav-item"[ngClass]="{active: activeRoute('login')}">
-              <a class="nav-link" [routerLink]="['/login']"><i class="fa fa-th-large"></i> <span class="nav-label">Logout</span></a>
+            <li class="nav-item"[ngClass]="{active: activeRoute('login')}" style="padding-left: 2rem; border-left: 1px solid #666;margin-left: 1rem;">
+              <a class="nav-link btn navbar-toggle collapsed navbar-brand mt-2" [routerLink]="['/login']" style="color: #fff;"><i class="fa fa-sign-out" style="color: #fff;"></i> <span class="nav-label">Logout</span></a>
             </li>
 
-            <button type="button" class="btn btn-link navbar-toggle collapsed navbar-brand" data-toggle="modal" data-target="#menuModal"><i class="fa fa-bars" aria-hidden="true"></i> Menu </button>
+<!--             <button type="button" class="btn btn-link navbar-toggle collapsed navbar-brand" data-toggle="modal" data-target="#menuModal"><i class="fa fa-bars" aria-hidden="true"></i> Menu </button> -->
 
           </ul>
         </div>
@@ -76,7 +76,7 @@
   </div>
 </nav>
 
-  <div class="modal fullscreen" id="menuModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--   <div class="modal fullscreen" id="menuModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" style="color:#fff;">
         <div class="modal-header" style="border:0;">
@@ -108,4 +108,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
