@@ -78,4 +78,10 @@ public ngOnDestroy():any {
   })
 }
 
+updatePwd(password){
+  this.restService.changePsw(password).subscribe(data=>{
+    console.log(data);
+  })
+}
+
 }

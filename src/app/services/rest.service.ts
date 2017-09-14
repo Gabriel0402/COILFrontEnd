@@ -101,6 +101,12 @@ export class RestService {
         response.json());
     }
 
+    //update password
+    changePsw(password){
+        return this.http.put(this.apiurl + '/accounts/password', password, this.jwt()).map((response: Response) =>
+        response.json());
+    }
+
 
     // private helper methods
 
