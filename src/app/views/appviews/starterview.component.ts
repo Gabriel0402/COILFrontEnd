@@ -17,6 +17,7 @@ userId:any;
 courses:any;
 course:any;
 rosters:any;
+passwordd:any;
 public currentUser:any;
 
 
@@ -79,7 +80,10 @@ public ngOnDestroy():any {
 }
 
 updatePwd(password){
-  this.restService.changePsw(password).subscribe(data=>{
+  let psw={
+    password:password
+  }
+  this.restService.changePsw(psw).subscribe(data=>{
     console.log(data);
   })
 }

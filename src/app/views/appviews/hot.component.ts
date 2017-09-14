@@ -3,7 +3,8 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { RestService } from '../../services/rest.service';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx'
+import 'rxjs/Rx';
+import {SearchPipe} from "./search.pipe";
 
 @Component({
   selector: 'hot',
@@ -22,6 +23,7 @@ export class HotComponent implements OnDestroy, OnInit {
   forumMessage:any;
   title:string;
   content:string;
+  searchString:string;
 
   public constructor(private modalService: BsModalService, private restService: RestService) {
     this.nav = document.querySelector('nav.navbar');

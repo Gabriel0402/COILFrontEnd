@@ -10,6 +10,7 @@ import {ForumComponent} from "./forum.component";
 
 import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
+import {SearchPipe} from "./search.pipe";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {SparklineModule } from '../../components/charts/sparkline';
     InboxComponent,
     HotComponent,
     LoginComponent,
-    ForumComponent
+    ForumComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

@@ -41,11 +41,8 @@
             <div class="row mt-3">
                 <div class="col-lg-8 mx-auto">
                   <div class="input-group custom-search-form">
-                      <input type="text" class="form-control" placeholder="Type in Search">
+                      <input type="text" class="form-control" placeholder="Type in Search" [(ngModel)]="searchString">
                       
-                       <button class="btn btn-default" type="button">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                          </button>
                      
                     </div>
                 </div>
@@ -66,7 +63,7 @@
                     <h3>What's hot</h3>
                 </div>
 
-                <div class="forum-item active" *ngFor="let forum of forums" [routerLink]="['/forum',forum.forumId]">
+                <div class="forum-item active" *ngFor="let forum of forums|search:searchString" [routerLink]="['/forum',forum.forumId]">
                     <div class="row">
                         <div class="col-md-9">
                             <div class="forum-icon">

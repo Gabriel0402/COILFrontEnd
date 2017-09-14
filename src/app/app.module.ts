@@ -22,6 +22,7 @@ import {RestService} from "./services/rest.service";
 import { AlertComponent } from './components/alert/alert.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ModalModule } from 'ngx-bootstrap/modal';
+//app pipe
 @NgModule({
   declarations: [
     AppComponent,
