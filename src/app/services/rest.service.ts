@@ -107,6 +107,17 @@ export class RestService {
         response.json());
     }
 
+    //activate help
+    activateHelp(){
+        return this.http.put(this.apiurl + '/helps', this.jwt()).map((response: Response) =>
+        response.json());
+    }
+
+    deactivateHelp(){
+        return this.http.delete(this.apiurl + '/helps', this.jwt()).map((response: Response) =>
+        response.json());
+    }
+
 
     // private helper methods
 

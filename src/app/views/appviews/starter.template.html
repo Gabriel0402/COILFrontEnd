@@ -64,6 +64,11 @@
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
                   </div>
+                  <button *ngIf="user.needHelp=='false'" (click)="activateHelp()">Raise question</button>
+                  <button *ngIf="user.needHelp=='true'" (click)="deactivateHelp()">Solved question</button>
+                  <div *ngFor="let alert of helpAlerts">
+                    <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+                  </div>
                 </div>  
               </div>
 
@@ -81,7 +86,7 @@
       <a *ngFor="let user of rosters" class="">
         <div class="media profile">
         
-          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"><span class="help"><img src="assets/images/help.png"></span></div>
+          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"><span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span></div>
           
             <div class="media-body profile-body">
             <a class="chat-bubble" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit, } from '@angular/core';
 
-import {RestService} from '../../services/rest.service';
+import { RestService } from '../../services/rest.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx'
 
@@ -9,88 +9,115 @@ import 'rxjs/Rx'
   templateUrl: 'starter.template.html',
   styleUrls: ['component.css']
 })
-export class StarterViewComponent implements OnDestroy, OnInit  {
+export class StarterViewComponent implements OnDestroy, OnInit {
 
-public nav:any;
-users:any;
-userId:any;
-courses:any;
-course:any;
-rosters:any;
-passwordd:any;
-public currentUser:any;
-public alerts: any = [];
+  public nav: any;
+  users: any;
+  userId: any;
+  courses: any;
+  course: any;
+  rosters: any;
+  passwordd: any;
+  public currentUser: any;
+  public alerts: any = [];
+  public helpAlerts: any = [];
 
 
-public constructor(private restService: RestService) {
-  
-  this.nav = document.querySelector('nav.navbar');
-  
-  function switchUser(userId){
-    this.userId=userId;
-    this.currentUser=this.users.filter(user=>user.userId==this.userId);
+  public constructor(private restService: RestService) {
+
+    this.nav = document.querySelector('nav.navbar');
+
+    function switchUser(userId) {
+      this.userId = userId;
+      this.currentUser = this.users.filter(user => user.userId == this.userId);
+    }
+
   }
 
-}
-
-public ngOnInit():any {
-  this.userId=localStorage.getItem('userId');
-  this.nav.className += " white-bg";
-  this.restService.getAccounts().subscribe(data=>
-    {
-      this.users=data.data;
-      this.currentUser=this.users.filter(user=>user.userId==this.userId);
+  public ngOnInit(): any {
+    this.userId = localStorage.getItem('userId');
+    this.nav.className += " white-bg";
+    this.restService.getAccounts().subscribe(data => {
+      this.users = data.data;
+      this.currentUser = this.users.filter(user => user.userId == this.userId);
       console.log(this.currentUser);
     }
-  )
+    )
 
-  this.restService.getCourses(this.userId).subscribe(data=>{
-    this.courses=data.data;
-    this.course=this.courses[0];
-    this.restService.getCourseRoster(this.course.courseId).subscribe(data=>{ 
-      this.rosters=data.data;
-      let Observables = [];
-      for(let user of this.rosters){
-        Observables.push(this.restService.getRatings(user.userId));
-      }
-      Observable.forkJoin(Observables).subscribe(result=>{
-        console.log(result);
+    this.restService.getCourses(this.userId).subscribe(data => {
+      this.courses = data.data;
+      this.course = this.courses[0];
+      this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
+        this.rosters = data.data;
+        // let Observables = [];
+        // for(let user of this.rosters){
+        //   Observables.push(this.restService.getRatings(user.userId));
+        // }
+        // Observable.forkJoin(Observables).subscribe(result=>{
+        //   console.log(result);
+        // })
+        console.log(this.rosters)
       })
     })
-  })
 
-  let log={
-    component:"start view",
-    action:"enter"
+    let log = {
+      component: "start view",
+      action: "enter"
+    }
+    this.restService.log(log).subscribe(data => {
+      console.log(data);
+    })
   }
-  this.restService.log(log).subscribe(data=>{
-    console.log(data);
-  })
-}
 
 
-public ngOnDestroy():any {
-  this.nav.classList.remove("white-bg");
-  let log={
-    component:"start view",
-    action:"leave"
+  public ngOnDestroy(): any {
+    this.nav.classList.remove("white-bg");
+    let log = {
+      component: "start view",
+      action: "leave"
+    }
+    this.restService.log(log).subscribe(data => {
+      console.log(data);
+    })
   }
-  this.restService.log(log).subscribe(data=>{
-    console.log(data);
-  })
-}
 
-updatePwd(password){
-  let psw={
-    password:password
+  updatePwd(password) {
+    let psw = {
+      password: password
+    }
+    this.restService.changePsw(psw).subscribe(data => {
+      this.alerts.push({
+        type: 'success',
+        msg: `Successfully updated your password`,
+        timeout: 3000
+      });
+    })
   }
-  this.restService.changePsw(psw).subscribe(data=>{
-    this.alerts.push({
-      type: 'success',
-      msg: `Successfully updated your password`,
-      timeout: 3000
-    });
-  })
-}
+
+  activateHelp(){
+    this.restService.activateHelp().subscribe(data=>{
+      this.helpAlerts.push({
+        type: 'success',
+        msg: `Someone will come to help you`,
+        timeout: 3000
+      });
+      this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
+        this.rosters = data.data;
+      })
+    })
+  }
+
+  deactivateHelp(){
+    this.restService.deactivateHelp().subscribe(data=>{
+      this.helpAlerts.push({
+        type: 'success',
+        msg: `Glad you've solved your problem`,
+        timeout: 3000
+      });
+      this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
+        this.rosters = data.data;
+      })
+    })
+  }
 
 }
