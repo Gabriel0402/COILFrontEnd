@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
                         this.alerts.push({
                             type: 'danger',
                             msg: `Wrong username or passowrd`,
-                            timeout: 5000
+                            timeout: 3000
                           });
                         this.loading = false;
                         this.model.username="";

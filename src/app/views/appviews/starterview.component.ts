@@ -19,6 +19,7 @@ course:any;
 rosters:any;
 passwordd:any;
 public currentUser:any;
+public alerts: any = [];
 
 
 public constructor(private restService: RestService) {
@@ -84,7 +85,11 @@ updatePwd(password){
     password:password
   }
   this.restService.changePsw(psw).subscribe(data=>{
-    console.log(data);
+    this.alerts.push({
+      type: 'success',
+      msg: `Successfully updated your password`,
+      timeout: 3000
+    });
   })
 }
 

@@ -119,7 +119,9 @@
       <label for="post-title" class="form-control-label">Update Password:</label>
       <input type="password" class="form-control" id="post-title" [(ngModel)]="password">
       <button class="btn btn-primary" (click)="updatePwd(password)">Update</button>
-      
+      <div *ngFor="let alert of alerts">
+        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+      </div>
       
     </div>
 
