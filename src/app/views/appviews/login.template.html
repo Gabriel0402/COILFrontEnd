@@ -23,14 +23,20 @@
         <p class="m-t"> <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small> </p>
     </div>
 </div>-->
+
 <body>
-  <div id="login">    
-<form>
-    <h2>Sign In</h2>
-    
-    <input type="text" name="username" class="form-control" [(ngModel)]="model.username" placeholder= "Enter Username" #username="ngModel" />
-    <input type="password" class="form-control" [(ngModel)]="model.password" name="password" Placeholder="Enter Password" #password="ngModel" />
-    <button class="btn btn-primary" (click)="login()">Sign In</button>
-</form>   
+  <div id="login">
+    <form>
+      <h2>Sign In</h2>
+
+      <input type="text" name="username" class="form-control" [(ngModel)]="model.username" placeholder="Enter Username" #username="ngModel"
+      />
+      <input type="password" class="form-control" [(ngModel)]="model.password" name="password" Placeholder="Enter Password" #password="ngModel"
+      />
+      <button class="btn btn-primary" (click)="login()">Sign In</button>
+    </form>
+    <div *ngFor="let alert of alerts">
+      <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
     </div>
-</body>    
+  </div>
+</body>

@@ -11,6 +11,7 @@ import {ForumComponent} from "./forum.component";
 import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
 import {SearchPipe} from "./search.pipe";
+import { AlertModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {SearchPipe} from "./search.pipe";
     FormsModule,
     RouterModule,
     PeityModule,
-    SparklineModule
+    SparklineModule,
+    AlertModule.forRoot()
   ],
   exports: [
     StarterViewComponent,

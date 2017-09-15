@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     returnUrl: string;
     username: any;
     password: any;
+    public alerts: any = [];
 
     constructor(
         private route: ActivatedRoute,
@@ -33,12 +34,20 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
-                },
-                error => {
-                    this.alertService.error(error.statusText);
-                    this.loading = false;
+                data => {           
+                    if(data.status=="error"){
+                        this.alerts.push({
+                            type: 'danger',
+                            msg: `Wrong username or passowrd`,
+                            timeout: 5000
+                          });
+                        this.loading = false;
+                        this.model.username="";
+                        this.model.passowrd="";
+                    }
+                    else{
+                        this.router.navigate([this.returnUrl]);
+                    }
                 });
     }
 }
