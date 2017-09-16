@@ -23,7 +23,7 @@ export class DashboardComponent {
   
   
   public constructor(private restService: RestService) {
-    this.userId='1';
+    this.userId = localStorage.getItem('userId');
     this.restService.getAccounts().subscribe(data=>
       {
         this.users=data.data;
@@ -35,13 +35,7 @@ export class DashboardComponent {
       this.course=this.courses[0];
       this.restService.getCourseRoster(this.course.courseId).subscribe(data=>{ 
         this.rosters=data.data;
-        let Observables = [];
-        for(let user of this.rosters){
-          Observables.push(this.restService.getRatings(user.userId));
-        }
-        Observable.forkJoin(Observables).subscribe(result=>{
-          console.log(result);
-        })
+        console.log(this.rosters);
       })
     })
   }

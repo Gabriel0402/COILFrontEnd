@@ -94,8 +94,8 @@ export class StarterViewComponent implements OnDestroy, OnInit {
     })
   }
 
-  activateHelp(){
-    this.restService.activateHelp().subscribe(data=>{
+  activateHelp() {
+    this.restService.activateHelp().subscribe(data => {
       this.helpAlerts.push({
         type: 'success',
         msg: `Someone will come to help you`,
@@ -107,8 +107,8 @@ export class StarterViewComponent implements OnDestroy, OnInit {
     })
   }
 
-  deactivateHelp(){
-    this.restService.deactivateHelp().subscribe(data=>{
+  deactivateHelp() {
+    this.restService.deactivateHelp().subscribe(data => {
       this.helpAlerts.push({
         type: 'success',
         msg: `Glad you've solved your problem`,
