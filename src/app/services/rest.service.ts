@@ -108,8 +108,8 @@ export class RestService {
     }
 
     //activate help
-    activateHelp(){
-        return this.http.put(this.apiurl + '/helps', this.jwt()).map((response: Response) =>
+    activateHelp(help){
+        return this.http.put(this.apiurl + '/helps', help, this.jwt()).map((response: Response) =>
         response.json());
     }
 

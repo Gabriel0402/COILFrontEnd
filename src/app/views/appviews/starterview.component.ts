@@ -95,7 +95,10 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   }
 
   activateHelp() {
-    this.restService.activateHelp().subscribe(data => {
+    let help = {
+      help: 'true'
+    }
+    this.restService.activateHelp(help).subscribe(data => {
       this.helpAlerts.push({
         type: 'success',
         msg: `Someone will come to help you`,
@@ -103,6 +106,7 @@ export class StarterViewComponent implements OnDestroy, OnInit {
       });
       this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
         this.rosters = data.data;
+        this.currentUser = this.rosters.filter(user => user.userId == this.userId);
       })
     })
   }
@@ -116,6 +120,7 @@ export class StarterViewComponent implements OnDestroy, OnInit {
       });
       this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
         this.rosters = data.data;
+        this.currentUser = this.rosters.filter(user => user.userId == this.userId);
       })
     })
   }
