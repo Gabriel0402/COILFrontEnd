@@ -79,6 +79,7 @@ div.course-wrapper{
     }
 
 }
+
 .profile-img {
   img{
     width: 85px;
@@ -125,6 +126,10 @@ div.course-wrapper{
 .controls{
   text-align: center;
   padding: 1rem;
+}
+.pwd{
+  padding: 2rem;
+  button{ margin-top: 1rem !important; }
 }
 .chat-frame{ max-height: 75vh;}
 
@@ -208,5 +213,38 @@ a.nav-link.nav-link--icon {
       height: 45px;
     }
 }
-
-
+#question{
+  button{
+    margin-bottom: 2.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem 2rem !important;
+    border-radius: 4px !important;
+    line-height: 3;
+    border: 0;
+  }
+  i{
+    font-size: 1.5rem;
+    /* line-height: 2; */
+    margin-left: 0.5rem;
+    /* margin-top: 0.5rem; */
+  }
+}
+#password{
+  a.btn-danger{
+    display: block;
+    padding: 2rem !important;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 4px;
+    i{
+      font-size: 1.5rem;
+      margin-left: 0.5rem
+    }
+  }
+}

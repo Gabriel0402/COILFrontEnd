@@ -64,16 +64,25 @@
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30%</div>
                   </div>
-                  <button *ngIf="user.needHelp=='false'" (click)="activateHelp()">Raise question</button>
-                  <button *ngIf="user.needHelp=='true'" (click)="deactivateHelp()">Solved question</button>
-                  <div *ngFor="let alert of helpAlerts">
-                    <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
-                  </div>
+
                 </div>  
               </div>
 
           </div> <!-- card body -->
+      <div id="question">
+        <button *ngIf="user.needHelp=='false'" (click)="activateHelp()" class="question-btn btn-success">Raise question <i class="fa fa-hand-paper-o" aria-hidden="true"></i></button>
+        <button *ngIf="user.needHelp=='true'" (click)="deactivateHelp()" class="question-btn btn-success">Solved question</button>
+        <div *ngFor="let alert of helpAlerts">
+          <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+        </div>
+      </div>
+
+      <div *ngFor="let alert of alerts">
+        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+      </div>
+
       </div> <!-- card -->
+
 
   </div> <!-- current -->
 
@@ -121,14 +130,11 @@
             </div>
         </div>
       </a>
-      <label for="post-title" class="form-control-label">Update Password:</label>
-      <input type="password" class="form-control" id="post-title" [(ngModel)]="password">
-      <button class="btn btn-primary" (click)="updatePwd(password)">Update</button>
-      <div *ngFor="let alert of alerts">
-        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
-      </div>
+
       
     </div>
+
+
 
 
   <!--             <nav class="codrops-demos">
@@ -164,6 +170,27 @@
 
     </div>
 
+
+
+  </div>
+    <div class="row justify-content-md-center mt-5">
+  
+      <div class="col col-lg-6">
+        <div id="password" data-children=".item">
+          <div class="item">
+            <a data-toggle="collapse" data-parent="#password" href="#exampleAccordion1" aria-expanded="false" aria-controls="password1" class="btn-danger">
+              Update Password <i class="fa fa-key" aria-hidden="true"></i>
+            </a>
+            <div id="exampleAccordion1" class="collapse" role="tabpanel">
+              <div class="pwd">
+                <label for="post-title" class="form-control-label">New password:</label>
+                <input type="password" class="form-control" id="post-title" [(ngModel)]="password">
+                <button class="btn btn-primary" (click)="updatePwd(password)">Update</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>
 
