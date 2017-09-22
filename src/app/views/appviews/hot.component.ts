@@ -24,6 +24,8 @@ export class HotComponent implements OnDestroy, OnInit {
   title:string;
   content:string;
   searchString:string;
+  id: number;
+  forumMessages: any;
 
   public constructor(private modalService: BsModalService, private restService: RestService) {
     this.nav = document.querySelector('nav.navbar');
@@ -38,7 +40,12 @@ export class HotComponent implements OnDestroy, OnInit {
       this.course = this.courses[0];
       this.restService.getCourseForums(this.course.courseId).subscribe(data => {
         console.log(data);
-        this.forums=data.data;
+        this.forums=[data.data[0]];
+        this.id=this.forums[0].forumId;
+        this.restService.getForums(this.id).subscribe(data=>{
+          this.forumMessages=data.data;
+          console.log(this.forumMessages);
+        })
       })
     })
   }
@@ -70,15 +77,28 @@ export class HotComponent implements OnDestroy, OnInit {
     this.modalRef = this.modalService.show(template);
   }
 
+  // public createPost(title:string,content:string){
+  //   let forum = {
+  //     courseId: this.course.courseId,
+  //     title: title
+  //   }
+  //   this.restService.createForum(forum).subscribe(data=>{
+  //     this.restService.getCourseForums(this.course.courseId).subscribe(data => {
+  //       console.log(data);
+  //       this.forums=data.data;
+  //     })
+  //   })
+  // }
   public createPost(title:string,content:string){
     let forum = {
-      courseId: this.course.courseId,
-      title: title
+      forumId: this.id,
+      title: title,
+      message: content
     }
-    this.restService.createForum(forum).subscribe(data=>{
-      this.restService.getCourseForums(this.course.courseId).subscribe(data => {
-        console.log(data);
-        this.forums=data.data;
+    this.restService.postForumMessages(forum).subscribe(data=>{
+      this.restService.getForums(this.id).subscribe(data=>{
+        this.forumMessages=data.data;
+        console.log(this.forumMessages);
       })
     })
   }

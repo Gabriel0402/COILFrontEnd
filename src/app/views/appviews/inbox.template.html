@@ -36,7 +36,8 @@
 
       <ul class="list">
         <li class="clearfix" *ngFor="let user of otherUsers">
-          <a (click)="selectUser(user)" class="currentMessage">
+          <!-- <a (click)="selectUser(user)" class="currentMessage"> -->
+          <a (click)="selectUser(user)" [ngClass]="select(user)?'currentMessage':''">
           <img src="assets/images/dog.png" alt="avatar" />
           <div class="about">
             <div class="name">{{user.nickname}}</div>

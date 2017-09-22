@@ -38,7 +38,7 @@ export class InboxComponent implements OnDestroy, OnInit {
         this.currentUser = this.users.filter(user => user.userId == this.userId);
         this.otherUsers = this.users.filter(user => user.userId !== this.userId);
         console.log(this.currentUser);
-      }) 
+      })
     }
     )
     let log = {
@@ -63,11 +63,16 @@ export class InboxComponent implements OnDestroy, OnInit {
   }
 
   selectUser(user) {
-    this.talkTo = user;
-    this.restService.getChats(this.currentUser[0].userId, this.talkTo.userId).subscribe(data => {
-      this.chatHistory = data.data;
-      console.log(this.chatHistory);
-    })
+    if (this.talkTo == user) {
+      this.talkTo = null;
+    }
+    else {
+      this.talkTo = user;
+      this.restService.getChats(this.currentUser[0].userId, this.talkTo.userId).subscribe(data => {
+        this.chatHistory = data.data;
+        console.log(this.chatHistory);
+      })
+    }
   }
 
   reply() {
@@ -83,6 +88,16 @@ export class InboxComponent implements OnDestroy, OnInit {
       })
     })
 
+
+  }
+
+  select(user) {
+    if (this.talkTo != null) {
+      if (user.nickname == this.talkTo.nickname) {
+        return true;
+      }
+    }
+    else return false;
 
   }
 

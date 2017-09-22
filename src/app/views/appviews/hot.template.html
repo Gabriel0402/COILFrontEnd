@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading course-wrapper">
   <div class="col-sm-4">
-    <h2>Course 35</h2>
+    <h2 *ngFor="let forum of forums">{{forum.title}}</h2>
     <ol class="breadcrumb">
       <li>
         <a [routerLink]="['/hot']">Home</a>
@@ -63,13 +63,13 @@
                     <h3>What's hot</h3>
                 </div>
 
-                <div class="forum-item active" *ngFor="let forum of forums|search:searchString" [routerLink]="['/forum',forum.forumId]">
+                <div class="forum-item active" *ngFor="let forum of forumMessages|search:searchString" [routerLink]="['/forum',forum.messageId]">
                     <div class="row">
                         <div class="col-md-9">
                             <div class="forum-icon">
                                 <i class="fa fa-users"></i>
                             </div>
-                            <a [routerLink]="['/forum',forum.forumId]" class="forum-item-title">{{forum.title}}</a>
+                            <a [routerLink]="['/forum',forum.messageId]" class="forum-item-title">{{forum.title}}</a>
                             <!-- <div class="forum-sub-title">{{forum.title}}</div> -->
                         </div>
                         
@@ -125,11 +125,13 @@
       <div class="modal-body">
         <label for="post-title" class="form-control-label">Title:</label>
         <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
+        <label for="post-title" class="form-control-label">Message:</label>
+        <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
         <!-- <button type="button" class="btn btn-primary">Send message</button> -->
-        <button class="btn btn-primary" (click)="createPost(title);modalRef.hide()">Submit</button>
+        <button class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
       </div>
     </div>
 </template>

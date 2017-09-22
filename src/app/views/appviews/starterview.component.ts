@@ -82,28 +82,30 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   }
 
   updatePwd(password) {
+    this.helpAlerts=[];
     let psw = {
       password: password
     }
     this.restService.changePsw(psw).subscribe(data => {
-      this.alerts.push({
+      this.alerts=[{
         type: 'success',
         msg: `Successfully updated your password`,
         timeout: 3000
-      });
+      }];
     })
   }
 
   activateHelp() {
+    this.alerts=[];
     let help = {
       help: 'true'
     }
     this.restService.activateHelp(help).subscribe(data => {
-      this.helpAlerts.push({
+      this.helpAlerts=[{
         type: 'success',
         msg: `Someone will come to help you`,
         timeout: 3000
-      });
+      }];
       this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
         this.rosters = data.data;
         this.currentUser = this.rosters.filter(user => user.userId == this.userId);
@@ -112,12 +114,13 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   }
 
   deactivateHelp() {
+    this.alerts=[];
     this.restService.deactivateHelp().subscribe(data => {
-      this.helpAlerts.push({
+      this.helpAlerts=[{
         type: 'success',
         msg: `Glad you've solved your problem`,
         timeout: 3000
-      });
+      }];
       this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
         this.rosters = data.data;
         this.currentUser = this.rosters.filter(user => user.userId == this.userId);

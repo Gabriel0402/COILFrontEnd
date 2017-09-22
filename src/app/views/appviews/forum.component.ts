@@ -27,7 +27,7 @@ export class ForumComponent implements OnDestroy, OnInit {
     this.nav.className += " white-bg";
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id']; // (+) converts string 'id' to a number
-      this.restService.getForums(this.id).subscribe(data=>{
+      this.restService.getForumReply(this.id).subscribe(data=>{
         this.forumMessages=data.data;
         console.log(this.forumMessages);
       })
@@ -64,8 +64,8 @@ export class ForumComponent implements OnDestroy, OnInit {
       title: title,
       message: content
     }
-    this.restService.postForumMessages(forum).subscribe(data=>{
-      this.restService.getForums(this.id).subscribe(data=>{
+    this.restService.postForumMessagesReply(this.id,forum).subscribe(data=>{
+      this.restService.getForumReply(this.id).subscribe(data=>{
         this.forumMessages=data.data;
         console.log(this.forumMessages);
       })
