@@ -24,7 +24,7 @@
 
   </div>
 
-  <div class="row">
+  <div class="row chat-frame">
 
     <div class="col-12 col-md-12 col-lg-4 people-list" id="people-list" style="background: #444753;">
 
@@ -36,7 +36,7 @@
 
       <ul class="list">
         <li class="clearfix" *ngFor="let user of otherUsers">
-          <a (click)="selectUser(user)">
+          <a (click)="selectUser(user)" class="currentMessage">
           <img src="assets/images/dog.png" alt="avatar" />
           <div class="about">
             <div class="name">{{user.nickname}}</div>
@@ -50,14 +50,14 @@
     </div>
 
     <div class="col-12 col-md-12 col-lg-8 chat">
-      <div class="chat-header clearfix">
+<!--       <div class="chat-header clearfix">
         <img src="assets/images/dog.png" alt="avatar" />
 
         <div class="chat-about">
           <div class="chat-with">Chat</div>
           <div class="chat-num-messages"></div>
         </div>
-      </div>
+      </div> -->
 
       <div class="chat-history" *ngIf="talkTo!==null">
         <ul>

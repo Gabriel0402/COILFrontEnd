@@ -61,7 +61,7 @@ div.course-wrapper{
   padding: 1rem;
 }
 
-
+#wrapper{ overflow-y: hidden; }
 
 // Front Page
 
@@ -122,10 +122,16 @@ div.course-wrapper{
       overflow:auto;
   }
 }
+.controls{
+  text-align: center;
+  padding: 1rem;
+}
+.chat-frame{ max-height: 75vh;}
 
 .chat {
   li {
       border-bottom: 0;
+      
   }
   textarea{
       background: #f2f5f8;
@@ -137,6 +143,14 @@ div.course-wrapper{
       border-radius: 50%;
     }
   }
+  .chat-history{ height: 52vh !important; }
+  .chat-message{
+    padding: 1.5rem;
+    background: #e6e6e6;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
 }
 
 .people-list {
@@ -145,7 +159,9 @@ div.course-wrapper{
     height: 55px;
     border-radius: 50%;
   }
+  li a{ padding: 0.75rem 0.5rem; border-radius: 4px;}
 }
+a.currentMessage{ background: #645E9D; }
 
 .footer{
   background: #fff !important;
@@ -192,3 +208,5 @@ a.nav-link.nav-link--icon {
       height: 45px;
     }
 }
+
+
