@@ -29,7 +29,7 @@ export class HotComponent implements OnDestroy, OnInit {
 
   public constructor(private modalService: BsModalService, private restService: RestService) {
     this.nav = document.querySelector('nav.navbar');
-    this.userId = '1';
+    this.userId = localStorage.getItem('userId');
     this.restService.getAccounts().subscribe(data => {
       this.users = data.data;
       console.log(this.users);
