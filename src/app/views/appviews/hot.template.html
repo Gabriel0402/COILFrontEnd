@@ -57,9 +57,9 @@
             <div class="ibox-content forum-container">
 
                 <div class="forum-title">
-                    <div class="pull-right forum-desc">
-                        <small>Total posts: 0</small>
-                    </div>
+                    <!-- <div class="pull-right forum-desc">
+                        <small>Total posts: {{forumMessages.length}}</small>
+                    </div> -->
                     <h3>What's hot</h3>
                 </div>
 
@@ -70,7 +70,8 @@
                                 <i class="fa fa-users"></i>
                             </div>
                             <a [routerLink]="['/forum',forum.messageId]" class="forum-item-title">{{forum.title}}</a>
-                            <!-- <div class="forum-sub-title">{{forum.title}}</div> -->
+                            <div class="forum-sub-title">{{forum.message}}</div>
+                            <div class="forum-sub-title pull-right">{{forum.timestamp*1000|date}}</div>
                         </div>
                         
                         <!-- <div class="col-md-1 forum-info">

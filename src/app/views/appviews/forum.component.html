@@ -24,12 +24,7 @@
               
               <div class="ibox-content forum-container">
   
-                  <div class="forum-title">
-                      <div class="pull-right forum-desc">
-                          <small>Total posts: 0</small>
-                      </div>
-                      <h3>What's hot</h3>
-                  </div>
+                  
   
                   <div class="forum-item active" *ngFor="let forum of forumMessages">
                       <div class="row">
@@ -37,8 +32,9 @@
                               <div class="forum-icon">
                                   <i class="fa fa-users"></i>
                               </div>
-                              <a class="forum-item-title">{{forum.message}}</a>
-                              <!-- <div class="forum-sub-title">{{forum.title}}</div> -->
+                              <a class="forum-item-title">{{forum.title}}</a>
+                              <div class="forum-sub-title">{{forum.message}}</div>
+                              <div class="forum-sub-title pull-right">{{forum.timestamp*1000|date}}</div>
                           </div>
                           
                           <!-- <div class="col-md-1 forum-info">

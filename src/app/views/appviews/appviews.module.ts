@@ -12,6 +12,7 @@ import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
 import {SearchPipe} from "./search.pipe";
 import { AlertModule } from 'ngx-bootstrap';
+import { RatingModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AlertModule } from 'ngx-bootstrap';
     RouterModule,
     PeityModule,
     SparklineModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    RatingModule.forRoot()
   ],
   exports: [
     StarterViewComponent,

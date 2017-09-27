@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit, } from '@angular/core';
 
 import { RestService } from '../../services/rest.service';
+import { NgStyle } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx'
 
@@ -21,6 +22,8 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   public currentUser: any;
   public alerts: any = [];
   public helpAlerts: any = [];
+  rate:number;
+  max:number;
 
 
   public constructor(private restService: RestService) {
@@ -35,6 +38,8 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   }
 
   public ngOnInit(): any {
+    this.rate=3;
+    this.max=5;
     this.userId = localStorage.getItem('userId');
     this.nav.className += " white-bg";
     this.restService.getAccounts().subscribe(data => {
@@ -127,5 +132,6 @@ export class StarterViewComponent implements OnDestroy, OnInit {
       })
     })
   }
+
 
 }
