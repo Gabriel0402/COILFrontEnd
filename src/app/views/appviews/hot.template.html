@@ -49,9 +49,9 @@
             </div>
 
             <div id="tab" class="btn-toggle hot-tab" data-toggle="buttons-radio">
-              <a href="#latest" class="btn active" data-toggle="tab">Latest</a>
-              <a href="#top" class="btn" data-toggle="tab">Most commented</a>
-              <a href="#mine" class="btn" data-toggle="tab">My questions</a>
+              <a class="btn active" (click)="orderByTime()">Latest</a>
+              <a class="btn" (click)="orderByComment()">Most commented</a>
+              <a class="btn">My questions</a>
             </div>
             
             <div class="ibox-content forum-container">

@@ -6,6 +6,7 @@ import { InfoService } from '../../services/info.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {SearchPipe} from "./search.pipe";
+import {OrderBy} from "./order.pipe";
 
 @Component({
   selector: 'hot',
@@ -21,14 +22,18 @@ export class HotComponent implements OnDestroy, OnInit {
   courses: any;
   course: any;
   forums: any;
-  forumMessage:any;
+  public forumMessage:any[];
   title:string;
   content:string;
   searchString:string;
   id: number;
   forumMessages: any;
+  order:any;
+  ascending:boolean;
 
   public constructor(private modalService: BsModalService, private restService: RestService, private infoService:InfoService) {
+    this.order="timestamp";
+    this.ascending=true;
     this.nav = document.querySelector('nav.navbar');
     this.userId = localStorage.getItem('userId');
     this.restService.getAccounts().subscribe(data => {
@@ -106,6 +111,18 @@ export class HotComponent implements OnDestroy, OnInit {
 
   public setForum(forum){
     this.infoService.setForum(forum);
+  }
+
+  public orderByTime(){
+    this.forumMessages=this.forumMessages.sort(function(a,b){
+      return b.timestamp-a.timestamp;
+    })
+  }
+
+  public orderByComment(){
+    this.forumMessages=this.forumMessages.sort(function(a,b){
+      return b.replies-a.replies;
+    })
   }
 
 }

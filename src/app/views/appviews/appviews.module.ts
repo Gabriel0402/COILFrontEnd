@@ -11,6 +11,7 @@ import {ForumComponent} from "./forum.component";
 import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
 import {SearchPipe} from "./search.pipe";
+import {OrderBy} from "./order.pipe";
 import { AlertModule } from 'ngx-bootstrap';
 import { RatingModule } from 'ngx-bootstrap';
 
@@ -21,7 +22,8 @@ import { RatingModule } from 'ngx-bootstrap';
     HotComponent,
     LoginComponent,
     ForumComponent,
-    SearchPipe
+    SearchPipe,
+    OrderBy
   ],
   imports: [
     BrowserModule,
