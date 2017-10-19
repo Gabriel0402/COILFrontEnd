@@ -63,13 +63,13 @@
                     <h3>What's hot</h3>
                 </div>
 
-                <div class="forum-item active" *ngFor="let forum of forumMessages|search:searchString" [routerLink]="['/forum',forum.messageId]">
+                <div class="forum-item active" *ngFor="let forum of forumMessages|search:searchString" [routerLink]="['/forum',forum.messageId]" (click)="setForum(forum)">
                     <div class="row">
                         <div class="col-md-9">
                             <div class="forum-icon">
                                 <i class="fa fa-users"></i>
                             </div>
-                            <a [routerLink]="['/forum',forum.messageId]" class="forum-item-title">{{forum.title}}</a>
+                            <a class="forum-item-title">{{forum.title}}</a>
                             <div class="forum-sub-title">{{forum.message}}</div>
                             <div class="forum-sub-title pull-right">{{forum.timestamp*1000|date}}</div>
                         </div>

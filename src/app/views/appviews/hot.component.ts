@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { RestService } from '../../services/rest.service';
+import { InfoService } from '../../services/info.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {SearchPipe} from "./search.pipe";
@@ -27,7 +28,7 @@ export class HotComponent implements OnDestroy, OnInit {
   id: number;
   forumMessages: any;
 
-  public constructor(private modalService: BsModalService, private restService: RestService) {
+  public constructor(private modalService: BsModalService, private restService: RestService, private infoService:InfoService) {
     this.nav = document.querySelector('nav.navbar');
     this.userId = localStorage.getItem('userId');
     this.restService.getAccounts().subscribe(data => {
@@ -101,6 +102,10 @@ export class HotComponent implements OnDestroy, OnInit {
         console.log(this.forumMessages);
       })
     })
+  }
+
+  public setForum(forum){
+    this.infoService.setForum(forum);
   }
 
 }

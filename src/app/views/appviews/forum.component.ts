@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import {InfoService} from '../../services/info.service';
 
 @Component({
   selector: 'forum',
@@ -18,9 +19,11 @@ export class ForumComponent implements OnDestroy, OnInit {
   private sub: any;
   forumMessages: any;
   public modalRef: BsModalRef;
+  forum:any;
 
-  public constructor(private modalService: BsModalService,private route: ActivatedRoute,private restService: RestService) {
+  public constructor(private modalService: BsModalService,private route: ActivatedRoute,private restService: RestService, private infoService:InfoService) {
     this.nav = document.querySelector('nav.navbar');
+    this.forum=this.infoService.getForum();
   }
 
   public ngOnInit(): any {
@@ -39,6 +42,7 @@ export class ForumComponent implements OnDestroy, OnInit {
     this.restService.log(log).subscribe(data=>{
       console.log(data);
     })
+    
   }
 
 

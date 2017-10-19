@@ -19,6 +19,7 @@ import {AuthGuard} from "./services/guards.service";
 import {AuthenticationService} from "./services/authentication.service";
 import {AlertService} from "./services/alert.service";
 import {RestService} from "./services/rest.service";
+import {InfoService} from "./services/info.service";
 import { AlertComponent } from './components/alert/alert.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -38,7 +39,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppviewsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard, AuthenticationService,AlertService,RestService,BsModalService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard, AuthenticationService,AlertService,RestService,InfoService,BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
