@@ -10,12 +10,15 @@
             <li class="nav-item"[ngClass]="{active: activeRoute('starter')}">
               <a class="nav-link nav-link--text" [routerLink]="['/starterview']"><span class="nav-label">Home</span></a>
             </li>
-            
-            <li class="nav-item"[ngClass]="{active: activeRoute('dashboard')}"><a class="nav-link nav-link--text" [routerLink]="['/dashboards/dashboard']">Dashboard</a></li>
+
+            <li class="nav-item"[ngClass]="{active: activeRoute('dashboard')}">
+              <a class="nav-link nav-link--text" [routerLink]="['/dashboards/dashboard']">Dashboard</a>
+            </li>
 
             <li class="nav-item"[ngClass]="{active: activeRoute('hot')}">
-              <a class="nav-link nav-link--icon" [routerLink]="['/hot']"><i class="fa fa-comments"></i></a>
+              <a class="nav-link nav-link--text" [routerLink]="['/hot']">Discussion Forum</a>
             </li>
+            
             <li class="nav-item"[ngClass]="{active: activeRoute('inbox')}">
               <a class="nav-link nav-link--icon" [routerLink]="['/inbox']"><i class="fa fa-inbox"></i></a>
             </li>
@@ -89,7 +92,7 @@
             <li class="nav-item"[ngClass]="{active: activeRoute('starter')}">
               <a class="nav-link" [routerLink]="['/starterview']"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
             </li>
-            
+
             <li class="nav-item"[ngClass]="{active: activeRoute('dashboard')}"><a class="nav-link" [routerLink]="['/dashboards/dashboard']"><i class="fa fa-tachometer"></i> Dashboard</a></li>
 
             <li class="nav-item"[ngClass]="{active: activeRoute('hot')}">
