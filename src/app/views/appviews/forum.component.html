@@ -4,19 +4,21 @@
           <div class="wrapper wrapper-content animated fadeInRight">
               <div class="ibox-content forum-container">
                   <div class="row">
-                    <div class="col-md-1 forum-icon" id="forumItemIcon">
+                    <div class="col-md-7">
+                      <div class="forum-icon">
                         <i class="fa fa-user-circle"></i>
+                      </div>
+                      <div class="forum-item-title">
+                        <h2>{{forum.title}}</h2>
+                      </div>
+                      <div class="offset-md-1 forum-sub-title">
+                        {{forum.message}}
+                      </div>
                     </div>
-                    <div>
-                      <h2 class="forum-item-title">{{forum.title}}</h2>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <p class="offset-md-1 forum-sub-title">{{forum.message}}</p>
-                  </div>
-                  <div class="row">
-                    <div class="col align-self-start forum-sub-title pull-left">
-                      {{forum.timestamp*1000|date}} by {{forum.nickname}}
+                    <div class="col-md-5">
+                      <div class="forum-sub-title pull-right">
+                        {{forum.timestamp*1000|date}} by {{forum.nickname}}
+                      </div>
                     </div>
                   </div>
               </div>
@@ -38,8 +40,10 @@
                           <div class="forum-sub-title">
                             {{forum.message}}
                           </div>
+                      </div>
+                      <div class="col-md-3">
                           <div class="forum-sub-title pull-right">
-                            {{forum.timestamp*1000|date}}
+                            {{forum.timestamp*1000|date}} by {{forum.nickname}}
                           </div>
                       </div>
                     </div>
