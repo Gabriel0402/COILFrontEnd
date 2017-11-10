@@ -18,21 +18,31 @@ export class ForumComponent implements OnDestroy, OnInit {
   id: number;
   private sub: any;
   forumMessages: any;
+  forumMsg:any;
   public modalRef: BsModalRef;
   forum:any;
+  title:string;
+  content:string;
 
   public constructor(private modalService: BsModalService,private route: ActivatedRoute,private restService: RestService, private infoService:InfoService) {
     this.nav = document.querySelector('nav.navbar');
-    this.forum=this.infoService.getForum();
+    
   }
 
   public ngOnInit(): any {
     this.nav.className += " white-bg";
+    this.title="";
+    this.content="";
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id']; // (+) converts string 'id' to a number
+      
       this.restService.getForumReply(this.id).subscribe(data=>{
         this.forumMessages=data.data;
         console.log(this.forumMessages);
+      })
+      this.restService.getForumMessage(this.id).subscribe(data=>{
+        this.forum=data.data;
+        console.log(this.forum);
       })
     });
     let log={
@@ -60,6 +70,7 @@ export class ForumComponent implements OnDestroy, OnInit {
 
   public openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+    this.title="Re: "+this.forum.title;
   }
 
   public createPost(title:string,content:string){
@@ -72,6 +83,8 @@ export class ForumComponent implements OnDestroy, OnInit {
       this.restService.getForumReply(this.id).subscribe(data=>{
         this.forumMessages=data.data;
         console.log(this.forumMessages);
+        this.title="";
+        this.content="";
       })
     })
   }

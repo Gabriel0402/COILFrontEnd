@@ -9,15 +9,15 @@
                         <i class="fa fa-user-circle"></i>
                       </div>
                       <div class="forum-item-title">
-                        <h2>{{forum.title}}</h2>
+                        <h2>{{forum?.title}}</h2>
                       </div>
                       <div class="offset-md-1 forum-sub-title">
-                        {{forum.message}}
+                        {{forum?.message}}
                       </div>
                     </div>
                     <div class="col-md-5">
                       <div class="forum-sub-title pull-right">
-                        {{forum.timestamp*1000|date}} by {{forum.nickname}}
+                        {{forum?.timestamp*1000|date}} by {{forum?.nickname}}
                       </div>
                     </div>
                   </div>
@@ -64,6 +64,8 @@
       </button>
     </div>
     <div class="modal-body">
+        <label for="post-title" class="form-control-label">Title</label>
+        <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
       <label for="post-title" class="form-control-label">Details</label>
       <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
     </div>

@@ -29,6 +29,11 @@ export class RestService {
             response.json());
     }
 
+    getForumMessage(messageId){
+        return this.http.get(this.apiurl + '/forummessages/' + messageId, this.jwt()).map((response: Response) =>
+        response.json());
+    }
+
     getForumReply(messageId) {
         return this.http.get(this.apiurl + '/forummessages/' + messageId + '/replies', this.jwt()).map((response: Response) =>
             response.json());
