@@ -20,7 +20,7 @@
                     <p class="text-center">Have a discussion with your peers.</p>
                 </div>
             </div>
-            
+
          <div class="row">
             <div class="col-sm-7 col-centered">
     <div class="title-action">
@@ -28,14 +28,14 @@
     </div>
   </div>
              </div>
-           
-            
+
+
             <div class="row mt-3">
                 <div class="col-lg-8 mx-auto">
                   <div class="input-group custom-search-form">
                       <input type="text" class="form-control" placeholder="Type in Search" [(ngModel)]="searchString">
-                      
-                     
+
+
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
               <a class="btn" (click)="orderByComment()">Most commented</a>
               <a class="btn">My questions</a>
             </div>
-            
+
             <div class="ibox-content forum-container">
 
                 <div class="forum-title">
@@ -57,15 +57,18 @@
 
                 <div class="forum-item active" *ngFor="let forum of forumMessages|search:searchString" [routerLink]="['/forum',forum.messageId]" (click)="setForum(forum)">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-7">
                             <div class="forum-icon">
-                                <i class="fa fa-users"></i>
+                              <i class="fa fa-users"></i>
                             </div>
                             <a class="forum-item-title">{{forum.title}}</a>
                             <div class="forum-sub-title">{{forum.message}}</div>
-                            <div class="forum-sub-title pull-right">{{forum.timestamp*1000|date}}</div>
                         </div>
-                        
+                        <div class="col-md-5">
+                          <div class="forum-sub-title pull-right">{{forum.timestamp*1000|date}} by {{forum.nickname}}</div>
+
+                        </div>
+
                         <!-- <div class="col-md-1 forum-info">
                             <span class="views-number">
                                 368
@@ -135,5 +138,5 @@
 
 
 
-  
+
 
