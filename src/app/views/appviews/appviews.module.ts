@@ -7,6 +7,7 @@ import {InboxComponent} from "./inbox.component";
 import {HotComponent} from "./hot.component";
 import {LoginComponent} from "./login.component";
 import {ForumComponent} from "./forum.component";
+import {ForumMessageComponent} from "./forumMessage.component";
 
 import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
@@ -22,6 +23,7 @@ import { RatingModule } from 'ngx-bootstrap';
     HotComponent,
     LoginComponent,
     ForumComponent,
+    ForumMessageComponent,
     SearchPipe,
     OrderBy
   ],
@@ -39,7 +41,8 @@ import { RatingModule } from 'ngx-bootstrap';
     InboxComponent,
     HotComponent,
     LoginComponent,
-    ForumComponent
+    ForumComponent,
+    ForumMessageComponent
   ],
 })
 

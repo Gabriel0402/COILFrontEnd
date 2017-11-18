@@ -6,6 +6,7 @@ import 'rxjs/Rx'
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import {InfoService} from '../../services/info.service';
+import {ForumMessageComponent} from "./forumMessage.component";
 
 @Component({
   selector: 'forum',
@@ -23,6 +24,8 @@ export class ForumComponent implements OnDestroy, OnInit {
   forum:any;
   title:string;
   content:string;
+  messageId:string;
+  replies:any[];
 
   public constructor(private modalService: BsModalService,private route: ActivatedRoute,private restService: RestService, private infoService:InfoService) {
     this.nav = document.querySelector('nav.navbar');
@@ -38,11 +41,18 @@ export class ForumComponent implements OnDestroy, OnInit {
       
       this.restService.getForumReply(this.id).subscribe(data=>{
         this.forumMessages=data.data;
-        console.log(this.forumMessages);
+        this.replies=[];
+        for(let forum of this.forumMessages){
+          this.restService.getForumReply(forum.messageId).subscribe(data=>{
+            this.replies=this.replies.concat(data.data);
+          })
+        }
+        //console.log(this.forumMessages);
       })
       this.restService.getForumMessage(this.id).subscribe(data=>{
         this.forum=data.data;
-        console.log(this.forum);
+        this.forum.messageId=this.id;
+        //console.log(this.forum);
       })
     });
     let log={
@@ -50,7 +60,7 @@ export class ForumComponent implements OnDestroy, OnInit {
       action:"enter"
     }
     this.restService.log(log).subscribe(data=>{
-      console.log(data);
+      //console.log(data);
     })
     
   }
@@ -68,9 +78,10 @@ export class ForumComponent implements OnDestroy, OnInit {
     })
   }
 
-  public openModal(template: TemplateRef<any>) {
+  public openModal(template: TemplateRef<any>,forum) {
     this.modalRef = this.modalService.show(template);
-    this.title="Re: "+this.forum.title;
+    this.title="Re: "+forum.title;
+    this.messageId=forum.messageId;
   }
 
   public createPost(title:string,content:string){
@@ -79,14 +90,24 @@ export class ForumComponent implements OnDestroy, OnInit {
       title: title,
       message: content
     }
-    this.restService.postForumMessagesReply(this.id,forum).subscribe(data=>{
+    this.restService.postForumMessagesReply(this.messageId,forum).subscribe(data=>{
       this.restService.getForumReply(this.id).subscribe(data=>{
         this.forumMessages=data.data;
-        console.log(this.forumMessages);
+        this.replies=[];
+        for(let forum of this.forumMessages){
+          this.restService.getForumReply(forum.messageId).subscribe(data=>{
+            this.replies=this.replies.concat(data.data);
+          })
+        }
+        //console.log(this.forumMessages);
         this.title="";
         this.content="";
       })
     })
+  }
+
+  public replyTo(messageId){
+
   }
 
 }

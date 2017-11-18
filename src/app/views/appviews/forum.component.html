@@ -1,74 +1,41 @@
 <div class="container">
   <div class="row">
-      <div class="col-lg-12">
-          <div class="wrapper wrapper-content animated fadeInRight">
-              <div class="ibox-content forum-container">
-                  <div class="row">
-                    <div class="col-md-7">
-                      <div class="forum-icon">
-                        <i class="fa fa-user-circle"></i>
-                      </div>
-                      <div class="forum-item-title">
-                        <h2>{{forum?.title}}</h2>
-                      </div>
-                      <div class="offset-md-1 forum-sub-title">
-                        {{forum?.message}}
-                      </div>
-                    </div>
-                    <div class="col-md-5">
-                      <div class="forum-sub-title pull-right">
-                        {{forum?.timestamp*1000|date}} by {{forum?.nickname}}
-                      </div>
-                    </div>
-                  </div>
+    <div class="col-lg-12">
+      <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="ibox-content forum-container">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="forum-icon">
+                <i class="fa fa-user-circle"></i>
               </div>
-              <div class="row">
-                <div class="col-sm-7">
-                  <div class="title-action">
-                    <a class="btn btn-primary btn-lg" style="color: #fff;" (click)="openModal(template)">Add Reply</a>
-                  </div>
-                </div>
+              <div class="forum-item-title">
+                <h2>{{forum?.title}}</h2>
               </div>
-            <div class="mt-3">
-              <div class="ibox-content forum-container">
-                  <div class="forum-item active" *ngFor="let forum of forumMessages">
-                    <div class="row">
-                      <div class="col-md-9">
-                          <div class="forum-icon">
-                              <i class="fa fa-user-circle"></i>
-                          </div>
-                          <div class="forum-sub-title">
-                            {{forum.message}}
-                          </div>
-                      </div>
-                        
-                      <div class="col-md-3">
-                          <div class="forum-sub-title pull-right">
-                            {{forum.timestamp*1000|date}} by {{forum.nickname}}
-                          </div>
-                      </div>
-                        <!-- ({{user.averageRating}}) -->
-                <div class="profile-rating pull-right">
-                  <div class="acidjs-rating-stars acidjs-rating-disabled">
-                    <form>
-                      <input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label>
-                      <input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" />
-                      <label for="group-3-1"></label>
-
-                      <input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
-
-                      <input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
-
-                      <input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
-                    </form>
-                  </div>
-                </div>
-                    </div>
-                  </div>
+              <div class="offset-md-1 forum-sub-title">
+                {{forum?.message}}
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="forum-sub-title pull-right">
+                {{forum?.timestamp*1000|date}} by {{forum?.nickname}}
               </div>
             </div>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="title-action">
+              <a class="btn btn-primary btn-lg" style="color: #fff;" (click)="openModal(template,forum)">Add Reply</a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div class="ibox-content forum-container">
+            <forum-message [forumMessages]="forumMessages"></forum-message>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 
@@ -81,8 +48,8 @@
       </button>
     </div>
     <div class="modal-body">
-        <label for="post-title" class="form-control-label">Title</label>
-        <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
+      <label for="post-title" class="form-control-label">Title</label>
+      <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
       <label for="post-title" class="form-control-label">Details</label>
       <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
     </div>
