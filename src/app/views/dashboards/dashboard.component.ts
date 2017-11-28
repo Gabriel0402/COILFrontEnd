@@ -27,7 +27,7 @@ export class DashboardComponent {
     this.restService.getAccounts().subscribe(data=>
       {
         this.users=data.data;
-        console.log(this.users);
+        //console.log(this.users);
       }
     )
     this.restService.getCourses(this.userId).subscribe(data=>{
@@ -35,7 +35,7 @@ export class DashboardComponent {
       this.course=this.courses[0];
       this.restService.getCourseRoster(this.course.courseId).subscribe(data=>{ 
         this.rosters=data.data;
-        console.log(this.rosters);
+        //console.log(this.rosters);
       })
     })
   }

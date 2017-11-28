@@ -74,7 +74,7 @@ export class ForumComponent implements OnDestroy, OnInit {
       action:"leave"
     }
     this.restService.log(log).subscribe(data=>{
-      console.log(data);
+      //console.log(data);
     })
   }
 

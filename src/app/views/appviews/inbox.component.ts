@@ -37,7 +37,7 @@ export class InboxComponent implements OnDestroy, OnInit {
         this.users = data.data;
         this.currentUser = this.users.filter(user => user.userId == this.userId);
         this.otherUsers = this.users.filter(user => user.userId !== this.userId);
-        console.log(this.currentUser);
+        //console.log(this.currentUser);
       })
     }
     )
@@ -46,7 +46,7 @@ export class InboxComponent implements OnDestroy, OnInit {
       action: "enter"
     }
     this.restService.log(log).subscribe(data => {
-      console.log(data);
+      //console.log(data);
     })
   }
 
@@ -58,7 +58,7 @@ export class InboxComponent implements OnDestroy, OnInit {
       action: "leave"
     }
     this.restService.log(log).subscribe(data => {
-      console.log(data);
+      //console.log(data);
     })
   }
 
@@ -70,7 +70,7 @@ export class InboxComponent implements OnDestroy, OnInit {
       this.talkTo = user;
       this.restService.getChats(this.currentUser[0].userId, this.talkTo.userId).subscribe(data => {
         this.chatHistory = data.data;
-        console.log(this.chatHistory);
+        //console.log(this.chatHistory);
       })
     }
   }
@@ -84,7 +84,7 @@ export class InboxComponent implements OnDestroy, OnInit {
       this.restService.getChats(this.currentUser[0].userId, this.talkTo.userId).subscribe(data => {
         this.chatHistory = data.data;
         this.message = '';
-        console.log(this.chatHistory);
+        //console.log(this.chatHistory);
       })
     })
 

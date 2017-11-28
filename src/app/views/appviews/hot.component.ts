@@ -38,19 +38,19 @@ export class HotComponent implements OnDestroy, OnInit {
     this.userId = localStorage.getItem('userId');
     this.restService.getAccounts().subscribe(data => {
       this.users = data.data;
-      console.log(this.users);
+      //console.log(this.users);
     }
     )
     this.restService.getCourses(this.userId).subscribe(data => {
       this.courses = data.data;
       this.course = this.courses[0];
       this.restService.getCourseForums(this.course.courseId).subscribe(data => {
-        console.log(data);
+        //console.log(data);
         this.forums=[data.data[0]];
         this.id=this.forums[0].forumId;
         this.restService.getForums(this.id).subscribe(data=>{
           this.forumMessages=data.data;
-          console.log(this.forumMessages);
+          //console.log(this.forumMessages);
         })
       })
     })
@@ -63,7 +63,7 @@ export class HotComponent implements OnDestroy, OnInit {
       action:"enter"
     }
     this.restService.log(log).subscribe(data=>{
-      console.log(data);
+      //console.log(data);
     })
   }
 
@@ -75,7 +75,7 @@ export class HotComponent implements OnDestroy, OnInit {
       action:"leave"
     }
     this.restService.log(log).subscribe(data=>{
-      console.log(data);
+      //console.log(data);
     })
   }
 
@@ -104,7 +104,7 @@ export class HotComponent implements OnDestroy, OnInit {
     this.restService.postForumMessages(forum).subscribe(data=>{
       this.restService.getForums(this.id).subscribe(data=>{
         this.forumMessages=data.data;
-        console.log(this.forumMessages);
+        //console.log(this.forumMessages);
       })
     })
   }

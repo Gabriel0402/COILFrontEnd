@@ -45,7 +45,7 @@ export class StarterViewComponent implements OnDestroy, OnInit {
     this.restService.getAccounts().subscribe(data => {
       this.users = data.data;
       this.currentUser = this.users.filter(user => user.userId == this.userId);
-      console.log(this.currentUser);
+      //console.log(this.currentUser);
     }
     )
 
@@ -61,7 +61,7 @@ export class StarterViewComponent implements OnDestroy, OnInit {
         // Observable.forkJoin(Observables).subscribe(result=>{
         //   console.log(result);
         // })
-        console.log(this.rosters)
+        //(this.rosters)
       })
     })
 
@@ -70,7 +70,7 @@ export class StarterViewComponent implements OnDestroy, OnInit {
       action: "enter"
     }
     this.restService.log(log).subscribe(data => {
-      console.log(data);
+      //console.log(data);
     })
   }
 
@@ -82,7 +82,7 @@ export class StarterViewComponent implements OnDestroy, OnInit {
       action: "leave"
     }
     this.restService.log(log).subscribe(data => {
-      console.log(data);
+      //console.log(data);
     })
   }
 

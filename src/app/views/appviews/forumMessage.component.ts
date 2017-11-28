@@ -27,7 +27,7 @@ export class ForumMessageComponent implements OnDestroy, OnInit {
     }
 
     public constructor(private modalService: BsModalService,private route: ActivatedRoute,private restService: RestService, private infoService:InfoService) {
-        console.log(this.forumMessages);
+        //console.log(this.forumMessages);
     }
 
     public openModal(template: TemplateRef<any>,forum) {
