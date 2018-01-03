@@ -21,20 +21,20 @@
       <div class="profile-rating pull-right">
         <div class="acidjs-rating-stars">
           <form>
-            <input type="radio" name="group-4" id="group-4-0" value="5" />
-            <label for="group-4-0"></label>
+            <input type="radio" name="group-4" [attr.id]="'group-4-0-' + forum.nickname" value="5" />
+            <label for="group-4-0-{{forum.nickname}}"></label>
 
-            <input type="radio" checked="checked" name="group-4" id="group-4-1" value="4" />
-            <label for="group-4-1"></label>
+            <input type="radio" checked="checked" name="group-4" [attr.id]="'group-4-1-' + forum.nickname" value="4" />
+            <label for="group-4-1-{{forum.nickname}}"></label>
 
-            <input type="radio" name="group-4" id="group-4-2" value="3" />
-            <label for="group-4-2"></label>
+            <input type="radio" name="group-4" [attr.id]="'group-4-2-' + forum.nickname" value="3" />
+            <label for="group-4-2-{{forum.nickname}}"></label>
 
-            <input type="radio" name="group-4" id="group-4-3" value="2" />
-            <label for="group-4-3"></label>
+            <input type="radio" name="group-4" [attr.id]="'group-4-3-' + forum.nickname" value="2" />
+            <label for="group-4-3-{{forum.nickname}}"></label>
 
-            <input type="radio" name="group-4" id="group-4-4" value="1" />
-            <label for="group-4-4"></label>
+            <input type="radio" name="group-4" [attr.id]="'group-4-4-' + forum.nickname" value="1" />
+            <label for="group-4-4-{{forum.nickname}}"></label>
           </form>
         </div>
       </div>
