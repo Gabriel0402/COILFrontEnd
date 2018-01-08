@@ -1,33 +1,39 @@
-import { Component, OnDestroy, OnInit, TemplateRef, Input } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef, Input, AfterViewInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {RestService} from '../../services/rest.service';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx'
+import 'rxjs/Rx';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import {InfoService} from '../../services/info.service';
+import { CustomRatingComponent } from './customRating.component';
 
 @Component({
     selector: 'forum-message',
     templateUrl: 'forumMessage.component.html',
     styleUrls: ['forum.component.css']
 })
+
 export class ForumMessageComponent implements OnDestroy, OnInit {
-    @Input() forumMessages: any;
-    public modalRef: BsModalRef;
+    @Input() forumMessages:any;
+    public modalRef:BsModalRef;
     title:string;
-    messageId:string;
+    @Input() messageId:string;
+    private rating:number = 0;
 
     public ngOnInit():any{
-        
     }
 
     public ngOnDestroy():any{
-        
+
+    }
+
+    public ngAfterViewInit():void{
+      this.getForumRating(this.messageId);
     }
 
     public constructor(private modalService: BsModalService,private route: ActivatedRoute,private restService: RestService, private infoService:InfoService) {
-        //console.log(this.forumMessages);
     }
 
     public openModal(template: TemplateRef<any>,forum) {
@@ -42,5 +48,11 @@ export class ForumMessageComponent implements OnDestroy, OnInit {
         })
     }
 
-    
+    private getForumRating(forumMessageId):number{
+      this.restService.getForumRating(forumMessageId).subscribe(data=>{
+        console.log(`returned data for getForumRating: ${JSON.stringify(data.data)}`);
+         this.rating = data.data.averageRating;
+      });
+      return this.rating;
+    }
 }

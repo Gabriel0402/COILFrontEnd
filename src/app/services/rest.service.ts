@@ -85,8 +85,8 @@ export class RestService {
             response.json());
     }
 
-    postRatings(rating){
-        return this.http.post(this.apiurl + '/ratings/forum/', rating, this.jwt()).map((response: Response) =>
+    postRatings(messageId,rating){
+        return this.http.post(this.apiurl + '/ratings/forum/'+messageId, rating, this.jwt()).map((response: Response) =>
         response.json());
     }
 

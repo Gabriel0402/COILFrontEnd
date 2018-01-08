@@ -1,4 +1,5 @@
 <div class="forum-item active" *ngFor="let forum of forumMessages">
+  <forum-message [messageId]="forum.messageId"></forum-message>
     <div class="row">
       <div class="col-md-9">
         <div class="forum-icon">
@@ -14,34 +15,18 @@
           {{forum.timestamp*1000|date}} by {{forum.nickname}}
           <br>
           <button (click)="openModal(template,forum)">reply</button>
-          <button (click)="getReplies(forum)">expend</button>
+          <button (click)="getReplies(forum)">expand</button>
         </div>
       </div>
-      <!-- ({{user.averageRating}}) -->
-      <div class="profile-rating pull-right">
-        <div class="acidjs-rating-stars">
-          <form>
-            <input type="radio" name="group-4" [attr.id]="'group-4-0-' + forum.nickname" value="5" />
-            <label for="group-4-0-{{forum.nickname}}"></label>
 
-            <input type="radio" checked="checked" name="group-4" [attr.id]="'group-4-1-' + forum.nickname" value="4" />
-            <label for="group-4-1-{{forum.nickname}}"></label>
+    <custom-rating [rate]="rating" [messageId]="forum.messageId" ></custom-rating>
 
-            <input type="radio" name="group-4" [attr.id]="'group-4-2-' + forum.nickname" value="3" />
-            <label for="group-4-2-{{forum.nickname}}"></label>
-
-            <input type="radio" name="group-4" [attr.id]="'group-4-3-' + forum.nickname" value="2" />
-            <label for="group-4-3-{{forum.nickname}}"></label>
-
-            <input type="radio" name="group-4" [attr.id]="'group-4-4-' + forum.nickname" value="1" />
-            <label for="group-4-4-{{forum.nickname}}"></label>
-          </form>
-        </div>
-      </div>
     </div>
     <span *ngIf="forum.replies?.length>0">
         <forum-message [forumMessages]="forum.replies"></forum-message>
     </span>
+
+
 </div>
 
 
