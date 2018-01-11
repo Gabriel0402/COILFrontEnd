@@ -13,7 +13,7 @@ import { RestService } from '../../services/rest.service';
 export class CustomRatingComponent implements OnDestroy, OnInit {
   @Input() rate:number;
   @Input() messageId:string;
-  // @Output() rateChange:EventEmitter<number> = new EventEmitter();
+  @Input () hasRatingDisabled:boolean;
 
   public ngOnInit(): any {}
 

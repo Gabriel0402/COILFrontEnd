@@ -1,5 +1,5 @@
 <div class="profile-rating">
-  <div class="acidjs-rating-stars">
+  <div [ngClass]="(hasRatingDisabled) ? 'acidjs-rating-stars acidjs-rating-disabled' : 'acidjs-rating-stars'">
       <form>
         <input type="radio" name="group-{{messageId}}" [value]="5" [attr.id]="'group-5-'+ messageId" [(ngModel)]="rate" (ngModelChange)="updateForumMessageRating($event)"/>
         <label for="group-5-{{messageId}}"></label>

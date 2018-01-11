@@ -18,7 +18,7 @@
           <button (click)="getReplies(forum)">expand</button>
         </div>
       </div>
-    <custom-rating [rate]="rating" [messageId]="forum.messageId" ></custom-rating>
+    <custom-rating [rate]="rating" [hasRatingDisabled]=false [messageId]="forum.messageId" ></custom-rating>
 
     </div>
     <span *ngIf="forum.replies?.length>0">
