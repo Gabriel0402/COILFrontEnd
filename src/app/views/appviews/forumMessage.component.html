@@ -18,17 +18,13 @@
           <button (click)="getReplies(forum)">expand</button>
         </div>
       </div>
-
     <custom-rating [rate]="rating" [messageId]="forum.messageId" ></custom-rating>
 
     </div>
     <span *ngIf="forum.replies?.length>0">
         <forum-message [forumMessages]="forum.replies"></forum-message>
     </span>
-
-
 </div>
-
 
   <template #template>
     <div class="modal-content">

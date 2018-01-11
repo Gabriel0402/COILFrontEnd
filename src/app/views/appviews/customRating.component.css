@@ -36,7 +36,7 @@
 }
 
 .acidjs-rating-stars input:checked~label {
-  color: #ffff00;
+  color: #1ab394;
 }
 
 .acidjs-rating-disabled {

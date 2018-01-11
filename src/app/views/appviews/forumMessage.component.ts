@@ -50,7 +50,6 @@ export class ForumMessageComponent implements OnDestroy, OnInit {
 
     private getForumRating(forumMessageId):number{
       this.restService.getForumRating(forumMessageId).subscribe(data=>{
-        console.log(`returned data for getForumRating: ${JSON.stringify(data.data)}`);
          this.rating = data.data.averageRating;
       });
       return this.rating;
