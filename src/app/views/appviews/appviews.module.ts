@@ -8,6 +8,7 @@ import {HotComponent} from "./hot.component";
 import {LoginComponent} from "./login.component";
 import {ForumComponent} from "./forum.component";
 import {ForumMessageComponent} from "./forumMessage.component";
+import {HuskyComponent} from "./husky.component";
 
 import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
@@ -24,6 +25,7 @@ import { RatingModule } from 'ngx-bootstrap';
     LoginComponent,
     ForumComponent,
     ForumMessageComponent,
+    HuskyComponent,
     SearchPipe,
     OrderBy
   ],
@@ -42,7 +44,8 @@ import { RatingModule } from 'ngx-bootstrap';
     HotComponent,
     LoginComponent,
     ForumComponent,
-    ForumMessageComponent
+    ForumMessageComponent,
+    HuskyComponent
   ],
 })
 
