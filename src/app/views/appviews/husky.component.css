@@ -1,15 +1,29 @@
+ /*TODO:
+  Move over raw husky animation after verifying not used elsewhere
+ */
+
 .husky-sad {
   display: inline-block;
   position: inherit;
   height: 15em;
   width: 11.6em;
-  background: url('../../../assets/images/sprites/sad_sprite.png') repeat-x center center;
+  background: url('../../../assets/images/emotions/sad_sprite.png') repeat-x center center;
   -webkit-background-size: cover;
   background-size: cover;
-  animation: weep 10s steps(10) infinite;
+  animation: emote 10s steps(10) infinite;
 }
 
-@keyframes weep {
+.husky-dead {
+  display: inline-block;
+  position: inherit;
+  height: 15em;
+  width: 25em;
+  background: url('../../../assets/images/emotions/dead.png') no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+@keyframes emote {
   from { background-position: 0px; }
   to { background-position: -7589px; }
 }

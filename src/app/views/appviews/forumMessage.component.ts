@@ -18,13 +18,9 @@ export class ForumMessageComponent implements OnDestroy, OnInit {
     title:string;
     messageId:string;
 
-    public ngOnInit():any{
-        
-    }
+    public ngOnInit(): any {}
 
-    public ngOnDestroy():any{
-        
-    }
+    public ngOnDestroy(): any {}
 
     public constructor(private modalService: BsModalService,private route: ActivatedRoute,private restService: RestService, private infoService:InfoService) {
         //console.log(this.forumMessages);

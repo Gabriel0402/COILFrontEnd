@@ -9,6 +9,9 @@ import {LoginComponent} from "./login.component";
 import {ForumComponent} from "./forum.component";
 import {ForumMessageComponent} from "./forumMessage.component";
 import {HuskyComponent} from "./husky.component";
+import {HuskyHappiestComponent} from "./huskyHappiest.component";
+import {HuskySadComponent} from "./huskySad.component";
+import {HuskyDeadComponent} from "./huskyDead.component";
 
 import {PeityModule } from '../../components/charts/peity';
 import {SparklineModule } from '../../components/charts/sparkline';
@@ -26,6 +29,9 @@ import { RatingModule } from 'ngx-bootstrap';
     ForumComponent,
     ForumMessageComponent,
     HuskyComponent,
+    HuskyHappiestComponent,
+    HuskySadComponent,
+    HuskyDeadComponent,
     SearchPipe,
     OrderBy
   ],
@@ -45,7 +51,10 @@ import { RatingModule } from 'ngx-bootstrap';
     LoginComponent,
     ForumComponent,
     ForumMessageComponent,
-    HuskyComponent
+    HuskyComponent,
+    HuskyHappiestComponent,
+    HuskySadComponent,
+    HuskyDeadComponent
   ],
 })
 

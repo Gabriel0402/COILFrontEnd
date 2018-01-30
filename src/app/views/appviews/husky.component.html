@@ -1,1 +1,5 @@
-<div class="row husky-sad justify-content-md-center"></div>
+<div [ngSwitch]="emotion">
+  <husky-happiest *ngSwitchCase="huskyEmotions.HAPPIEST"></husky-happiest>
+  <husky-sad *ngSwitchCase="huskyEmotions.SAD"></husky-sad>
+  <husky-dead *ngSwitchCase="huskyEmotions.DEAD"></husky-dead>
+</div>
