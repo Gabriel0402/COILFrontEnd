@@ -8,11 +8,11 @@ import { HotComponent } from "./hot.component";
 import { LoginComponent } from "./login.component";
 import { ForumComponent } from "./forum.component";
 import { ForumMessageComponent } from "./forumMessage.component";
-import { HuskyComponent } from "./husky.component";
-import { HuskyHappiestComponent } from "./huskyHappiest.component";
-import { HuskyNeutralComponent } from "./huskyNeutral.component";
-import { HuskySadComponent } from "./huskySad.component";
-import { HuskyDeadComponent } from "./huskyDead.component";
+import { HuskyComponent } from "./huskyViews/husky.component";
+import { HuskyHappiestComponent } from "./huskyViews/huskyHappiest.component";
+import { HuskyNeutralComponent } from "./huskyViews/huskyNeutral.component";
+import { HuskySadComponent } from "./huskyViews/huskySad.component";
+import { HuskyDeadComponent } from "./huskyViews/huskyDead.component";
 
 import { PeityModule } from '../../components/charts/peity';
 import { SparklineModule } from '../../components/charts/sparkline';

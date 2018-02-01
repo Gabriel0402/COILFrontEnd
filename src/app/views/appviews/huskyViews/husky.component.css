@@ -7,7 +7,7 @@
   position: inherit;
   height: 23em;
   width: 21em;
-  background: url('../../../assets/images/emotions/neutral_sprite.png') repeat-x center center;
+  background: url('../../../../assets/images/emotions/neutral_sprite.png') repeat-x center center;
   -webkit-background-size: cover;
   background-size: cover;
   animation: emote 10s steps(10) infinite;
@@ -18,7 +18,7 @@
   position: inherit;
   height: 25em;
   width: 19.4em;
-  background: url('../../../assets/images/emotions/sad_sprite.png') repeat-x center center;
+  background: url('../../../../assets/images/emotions/sad_sprite.png') repeat-x center center;
   -webkit-background-size: cover;
   background-size: cover;
   animation: emote 10s steps(10) infinite;
@@ -29,7 +29,7 @@
   position: inherit;
   height: 15em;
   width: 25em;
-  background: url('../../../assets/images/emotions/dead.png') no-repeat center center;
+  background: url('../../../../assets/images/emotions/dead.png') no-repeat center center;
   -webkit-background-size: cover;
   background-size: cover;
 }

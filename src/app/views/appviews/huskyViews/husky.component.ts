@@ -2,13 +2,13 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 
 import 'rxjs/Rx';
 
-import { Emotions } from '../../models/emotions.enum';
-import { EmotionDetectorService } from "../../services/emotionDetector.service";
+import { Emotions } from '../../../models/emotions.enum';
+import { EmotionDetectorService } from "../../../services/emotionDetector.service";
 
 @Component({
   selector: 'husky',
   templateUrl: './husky.component.html',
-  styleUrls: ['husky.component.css']
+  styleUrls: ['./husky.component.css']
 
 })
 

@@ -5,7 +5,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
   template: `
     <div class="row husky-dead justify-content-md-center"></div>
   `,
-  styleUrls: ['husky.component.css']
+  styleUrls: ['./husky.component.css']
 })
 
 export class HuskyDeadComponent implements OnDestroy, OnInit {
