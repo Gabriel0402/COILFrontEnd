@@ -7,52 +7,8 @@
         <div class="card-body">
             <h2 class="card-title pt-3" style="color: #000;" >{{user.nickname}} </h2>
 
+              <husky [userScore]="user.averageScore" ></husky>
 
-              <div class="content--husky">
-                <div class="husky mx-auto">
-                  <div class="husky-mane">
-                    <div class="husky-coat"></div>
-                  </div>
-                  <div class="husky-body">
-                    <div class="husky-head">
-                      <div class="husky-ear"></div>
-                      <div class="husky-ear"></div>
-                      <div class="husky-face">
-                        <div class="husky-eye"></div>
-                        <div class="husky-eye"></div>
-                        <div class="husky-nose"></div>
-                        <div class="husky-mouth">
-                          <div class="husky-lips"></div>
-                          <div class="husky-tongue"></div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="husky-torso"></div>
-                  </div>
-                  <div class="husky-legs">
-                    <div class="husky-front-legs">
-                      <div class="husky-leg"></div>
-                      <div class="husky-leg"></div>
-                    </div>
-                    <div class="husky-hind-leg">
-                    </div>
-                  </div>
-                  <div class="husky-tail">
-                    <div class="husky-tail">
-                      <div class="husky-tail">
-                        <div class="husky-tail">
-                          <div class="husky-tail">
-                            <div class="husky-tail">
-                              <div class="husky-tail"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-              
               <div class="row justify-content-center">
                 <div class="col-9">
                   <!-- <p class="text-left mb-2">Current {{user.averageRating}} </p>
@@ -105,9 +61,9 @@
 
       <a *ngFor="let user of rosters" class="">
         <div class="media profile">
-        
+
           <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"><span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span></div>
-          
+
             <div class="media-body profile-body">
             <a class="chat-bubble" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
               <div class="" (click)="switchUser(user.userId)">
