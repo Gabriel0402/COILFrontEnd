@@ -1,3 +1,3 @@
-export enum HuskyEmotions {
+export enum Emotions {
   HAPPIEST, HAPPY, NEUTRAL, SAD, DEAD
 }
