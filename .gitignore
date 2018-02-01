@@ -1,6 +1,6 @@
-
+src/.DS_Store
+.idea/
 node_modules
 dist
 .DS_Store
 dist.zip
-.idea/

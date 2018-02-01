@@ -1,0 +1,6 @@
+<div [ngSwitch]="emotion">
+  <husky-happiest *ngSwitchCase="huskyEmotions.HAPPIEST"></husky-happiest>
+  <husky-neutral *ngSwitchCase="huskyEmotions.NEUTRAL"></husky-neutral>
+  <husky-sad *ngSwitchCase="huskyEmotions.SAD"></husky-sad>
+  <husky-dead *ngSwitchCase="huskyEmotions.DEAD"></husky-dead>
+</div>

@@ -7,7 +7,6 @@ import 'rxjs/Rx';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import {InfoService} from '../../services/info.service';
-import { CustomRatingComponent } from './customRating.component';
 
 @Component({
     selector: 'forum-message',
