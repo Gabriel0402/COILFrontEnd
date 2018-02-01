@@ -22,7 +22,7 @@ export class HuskyComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
-    this.emotion.clear();
+    this.emotion = null;
   }
 
   public constructor(private emotionDetectorService: EmotionDetectorService) {
