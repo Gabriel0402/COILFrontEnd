@@ -11,18 +11,30 @@ import { RestService } from '../../services/rest.service';
 })
 
 export class CustomRatingComponent implements OnDestroy, OnInit {
-  @Input() rate:number;
-  @Input() messageId:string;
-  @Input () hasRatingDisabled:boolean;
+  @Input() rate: number;
+  @Input() messageId: string;
+  @Input () hasRatingDisabled: boolean;
 
   public ngOnInit(): any {}
 
   public ngOnDestroy(): any {}
 
-  public constructor( private restService:RestService ){}
+  public constructor( private restService: RestService ) {}
 
-//TODO: need to verify if payload for POST request is accurate
-  private updateForumMessageRating(newRate) {
-    this.restService.postRatings(this.messageId,newRate).subscribe();
+  onSubmit(): void {
+    this.updateRating();
+    this.hasRatingDisabled = true;
   }
+
+  private updateRating() {
+    let data = {
+      'forumMessageId': this.messageId,
+      'rawRatingScore': this.rate
+    };
+
+    console.log(`--------------- data payload: ${JSON.stringify(data)} ------------`);
+
+    this.restService.postRatings(this.messageId, data).subscribe();
+  }
+
 }

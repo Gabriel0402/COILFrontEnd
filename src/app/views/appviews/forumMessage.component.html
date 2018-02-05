@@ -18,31 +18,32 @@
           <button (click)="getReplies(forum)">expand</button>
         </div>
       </div>
-    <custom-rating [rate]="rating" [hasRatingDisabled]=false [messageId]="forum.messageId" ></custom-rating>
 
+      <custom-rating [rate]="rating" [hasRatingDisabled]="!!rating" [messageId]="forum.messageId" ></custom-rating>
     </div>
+
     <span *ngIf="forum.replies?.length>0">
         <forum-message [forumMessages]="forum.replies"></forum-message>
     </span>
 </div>
 
-  <template #template>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add a reply</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <label for="post-title" class="form-control-label">Title</label>
-        <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
-        <label for="post-title" class="form-control-label">Details</label>
-        <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
-        <button class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
-      </div>
+<template #template>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Add a reply</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">×</span>
+      </button>
     </div>
-  </template>
+    <div class="modal-body">
+      <label for="post-title" class="form-control-label">Title</label>
+      <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
+      <label for="post-title" class="form-control-label">Details</label>
+      <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
+      <button class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
+    </div>
+  </div>
+</template>
