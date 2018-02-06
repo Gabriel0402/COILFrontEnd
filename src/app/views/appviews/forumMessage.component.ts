@@ -18,10 +18,8 @@ export class ForumMessageComponent implements OnDestroy, OnInit {
     public modalRef: BsModalRef;
     title: string;
     @Input() messageId: string;
-    public rating: number;
 
     public ngOnInit(): any {
-      this.getForumRating(this.messageId);
     }
 
     public ngOnDestroy(): any {}
@@ -45,10 +43,4 @@ export class ForumMessageComponent implements OnDestroy, OnInit {
         });
     }
 
-    private getForumRating(forumMessageId): void {
-      this.restService.getForumRating(forumMessageId).subscribe(data => {
-            this.rating = data.data.averageRating;
-            console.log(`----- within subscription assigned rating: ${this.rating} ---------`);
-      });
-    }
 }

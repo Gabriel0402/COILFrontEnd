@@ -1,0 +1,23 @@
+<div class="profile-rating">
+  <button type="button" [attr.id]="'rate-up-button'" (click)="incrementHelpfulness()"> Up Vote </button>
+  <button type="button" [attr.id]="'rate-down-button'" (click)="decrementHelpfulness()"> Down Vote </button>
+
+  <div [ngClass]="'acidjs-rating-stars acidjs-rating-disabled'">
+    <form #form="ngForm">
+      <input type="radio" name="group-{{messageId}}" [value]="5" [attr.id]="'group-5-'+ messageId" [ngModel]="rate" />
+      <label for="group-5-{{messageId}}"></label>
+
+      <input type="radio" name="group-{{messageId}}" [value]="4" [attr.id]="'group-4-'+ messageId" [ngModel]="rate" />
+      <label for="group-4-{{messageId}}"></label>
+
+      <input type="radio" name="group-{{messageId}}" [value]="3" [attr.id]="'group-3-'+ messageId" [ngModel]="rate" />
+      <label for="group-3-{{messageId}}"></label>
+
+      <input type="radio" name="group-{{messageId}}" [value]="2" [attr.id]="'group-2-'+ messageId" [ngModel]="rate"  />
+      <label for="group-2-{{messageId}}"></label>
+
+      <input type="radio" name="group-{{messageId}}" [value]="1" [attr.id]="'group-1-' + messageId" [ngModel]="rate"  />
+      <label for="group-1-{{messageId}}"></label>
+    </form>
+  </div>
+</div>

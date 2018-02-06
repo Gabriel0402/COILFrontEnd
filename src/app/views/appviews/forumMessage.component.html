@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <custom-rating [rate]="rating" [hasRatingDisabled]="!!rating" [messageId]="forum.messageId" ></custom-rating>
+      <rating-custom [messageId]="forum.messageId" ></rating-custom>
     </div>
 
     <span *ngIf="forum.replies?.length>0">
