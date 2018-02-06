@@ -1,4 +1,5 @@
 <div class="forum-item active" *ngFor="let forum of forumMessages">
+  <forum-message [messageId]="forum.messageId"></forum-message>
     <div class="row">
       <div class="col-md-9">
         <div class="forum-icon">
@@ -9,58 +10,31 @@
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="forum-sub-title pull-right">
-          {{forum.timestamp*1000|date}} by {{forum.nickname}}
-          <br>
-          <button (click)="openModal(template,forum)">reply</button>
-          <button (click)="getReplies(forum)">expend</button>
-        </div>
-      </div>
-      <!-- ({{user.averageRating}}) -->
-      <div class="profile-rating pull-right">
-        <div class="acidjs-rating-stars acidjs-rating-disabled">
-          <form>
-            <input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" />
-            <label for="group-3-0"></label>
-            <input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" />
-            <label for="group-3-1"></label>
-
-            <input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" />
-            <label for="group-3-2"></label>
-
-            <input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" />
-            <label for="group-3-3"></label>
-
-            <input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" />
-            <label for="group-3-4"></label>
-          </form>
-        </div>
-      </div>
+      <rating-custom [messageId]="forum.messageId" ></rating-custom>
     </div>
+
     <span *ngIf="forum.replies?.length>0">
         <forum-message [forumMessages]="forum.replies"></forum-message>
     </span>
 </div>
 
-
-  <template #template>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add a reply</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <label for="post-title" class="form-control-label">Title</label>
-        <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
-        <label for="post-title" class="form-control-label">Details</label>
-        <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
-        <button class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
-      </div>
+<template #template>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Add a reply</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">×</span>
+      </button>
     </div>
-  </template>
+    <div class="modal-body">
+      <label for="post-title" class="form-control-label">Title</label>
+      <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
+      <label for="post-title" class="form-control-label">Details</label>
+      <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
+      <button class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
+    </div>
+  </div>
+</template>

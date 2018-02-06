@@ -8,6 +8,7 @@ import { HotComponent } from "./hot.component";
 import { LoginComponent } from "./login.component";
 import { ForumComponent } from "./forum.component";
 import { ForumMessageComponent } from "./forumMessage.component";
+import { RatingCustomComponent } from "./ratingCustom.component";
 import { HuskyComponent } from "./huskyViews/husky.component";
 import { HuskyHappiestComponent } from "./huskyViews/huskyHappiest.component";
 import { HuskyNeutralComponent } from "./huskyViews/huskyNeutral.component";
@@ -29,6 +30,7 @@ import { RatingModule } from 'ngx-bootstrap';
     LoginComponent,
     ForumComponent,
     ForumMessageComponent,
+    RatingCustomComponent,
     HuskyComponent,
     HuskyHappiestComponent,
     HuskyNeutralComponent,
@@ -53,6 +55,7 @@ import { RatingModule } from 'ngx-bootstrap';
     LoginComponent,
     ForumComponent,
     ForumMessageComponent,
+    RatingCustomComponent,
     HuskyComponent,
     HuskyHappiestComponent,
     HuskyNeutralComponent,

@@ -1,5 +1,3 @@
-/* missing styling for stars*/
-
 .acidjs-rating-stars,
 .acidjs-rating-stars label::before {
   display: inline-block;
@@ -38,11 +36,10 @@
 }
 
 .acidjs-rating-stars input:checked~label {
-  color: #ffff00;
+  color: #1ab394;
 }
 
 .acidjs-rating-disabled {
-  opacity: .50;
   -webkit-pointer-events: none;
   -moz-pointer-events: none;
   pointer-events: none;

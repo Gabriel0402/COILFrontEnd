@@ -43,12 +43,13 @@ export class StarterViewComponent implements OnDestroy, OnInit {
     this.userId = localStorage.getItem('userId');
     this.nav.className += " white-bg";
     this.restService.getAccounts().subscribe(data => {
-      this.users = data.data;
-      this.currentUser = this.users.filter(user => user.userId == this.userId);
-      //console.log(this.currentUser);
-    }
+        this.users = data.data;
+        this.currentUser = this.users.filter(user => user.userId == this.userId);
+        //console.log(this.currentUser);
+      }
     )
 
+    // TODO: implement logic to select the top 5 students in course by user's average score...
     this.restService.getCourses(this.userId).subscribe(data => {
       this.courses = data.data;
       this.course = this.courses[0];
