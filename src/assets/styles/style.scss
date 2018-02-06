@@ -1,6 +1,9 @@
 // Google Fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 
+// Open Iconic Bootstrap
+@import url("https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css");
+
 // Variables, Mixins
 @import "imports/variables";
 @import "imports/mixins";
@@ -247,4 +250,8 @@ a.nav-link.nav-link--icon {
       margin-left: 0.5rem
     }
   }
+}
+
+#rate-minus, #rate-plus{
+  border: none;
 }

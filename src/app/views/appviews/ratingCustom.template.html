@@ -1,6 +1,4 @@
 <div class="profile-rating">
-  <button type="button" [attr.id]="'rate-up-button'" (click)="incrementHelpfulness()"> Up Vote </button>
-  <button type="button" [attr.id]="'rate-down-button'" (click)="decrementHelpfulness()"> Down Vote </button>
 
   <div [ngClass]="'acidjs-rating-stars acidjs-rating-disabled'">
     <form #form="ngForm">
@@ -20,4 +18,7 @@
       <label for="group-1-{{messageId}}"></label>
     </form>
   </div>
+
+  <button [attr.id]="'rate-minus'" tooltip="Voting impacts item's overall total" placement="auto" (click)="decrementHelpfulness()"><span class="oi oi-minus"></span></button>
+  <button [attr.id]="'rate-plus'" tooltip="Voting impacts item's overall total" placement="auto" (click)="incrementHelpfulness()"><span class="oi oi-plus"></span></button>
 </div>
