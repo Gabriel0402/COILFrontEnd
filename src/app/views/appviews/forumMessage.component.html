@@ -10,15 +10,6 @@
         </div>
       </div>
 
-      <div class="col-md-3">
-        <div class="forum-sub-title pull-right">
-          {{forum.timestamp*1000|date}} by {{forum.nickname}}
-          <br>
-          <button (click)="openModal(template,forum)">reply</button>
-          <button (click)="getReplies(forum)">expand</button>
-        </div>
-      </div>
-
       <custom-rating [rate]="rating" [hasRatingDisabled]="!!rating" [messageId]="forum.messageId" ></custom-rating>
     </div>
 
