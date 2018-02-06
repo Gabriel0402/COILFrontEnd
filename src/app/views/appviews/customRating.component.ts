@@ -32,8 +32,6 @@ export class CustomRatingComponent implements OnDestroy, OnInit {
       'rawRatingScore': this.rate
     };
 
-    console.log(`--------------- data payload: ${JSON.stringify(data)} ------------`);
-
     this.restService.postRatings(this.messageId, data).subscribe();
   }
 
