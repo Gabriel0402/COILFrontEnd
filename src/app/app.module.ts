@@ -23,7 +23,8 @@ import { InfoService } from './services/info.service';
 import { AlertComponent } from './components/alert/alert.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { EmotionDetectorService } from './services/emotionDetector.service';
+import { EmotionDetectorService } from "./services/emotionDetector.service";
+import {UserService} from "./services/user.service";
 
 //app pipe
 @NgModule({
@@ -49,7 +50,8 @@ import { EmotionDetectorService } from './services/emotionDetector.service';
     RestService,
     InfoService,
     BsModalService,
-    EmotionDetectorService
+    EmotionDetectorService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

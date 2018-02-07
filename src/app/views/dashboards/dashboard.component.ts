@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {RestService} from '../../services/rest.service';
+import { UserService } from "../../services/user.service";
 import 'rxjs/Rx';
 
 declare var jQuery: any;
@@ -19,7 +20,7 @@ export class DashboardComponent {
   rosters:any
 
 
-  public constructor(private restService: RestService) {
+  public constructor(private restService: RestService, private userService:UserService) {
     this.userId = localStorage.getItem('userId');
     this.restService.getAccounts().subscribe(data=>
       {

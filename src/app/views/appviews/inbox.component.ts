@@ -2,7 +2,8 @@ import { Component, OnDestroy, OnInit, } from '@angular/core';
 
 import { RestService } from '../../services/rest.service';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx'
+import 'rxjs/Rx';
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: 'inbox',
@@ -22,7 +23,7 @@ export class InboxComponent implements OnDestroy, OnInit {
   courses: any;
   course: any;
 
-  public constructor(private restService: RestService) {
+  public constructor(private restService: RestService,private userService:UserService) {
     this.nav = document.querySelector('nav.navbar');
   }
 
@@ -37,6 +38,10 @@ export class InboxComponent implements OnDestroy, OnInit {
         this.users = data.data;
         this.currentUser = this.users.filter(user => user.userId == this.userId);
         this.otherUsers = this.users.filter(user => user.userId !== this.userId);
+        if(this.userService.getUser()!=={}){
+          this.selectUser(this.userService.getUser());
+          this.userService.setUser({});
+        }
         //console.log(this.currentUser);
       })
     }
