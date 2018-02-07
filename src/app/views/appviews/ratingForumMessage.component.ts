@@ -22,22 +22,8 @@ export class RatingForumMessageComponent implements OnDestroy, OnInit {
 
   private getForumRating(forumMessageId): void {
     this.restService.getForumRating(forumMessageId).subscribe(data => {
-      let result = data.data.averageRating;
-
-      if (result <= 5 && result > 4) {
-        this.rate = 5;
-      } else if (result <= 4 && result > 3) {
-        this.rate = 4;
-      } else if (result <= 3 && result > 2) {
-        this.rate = 3;
-      } else if (result <= 2 && result > 1) {
-        this.rate = 2;
-      } else if (result === null) {
-        this.rate = 0;
-      } else {
-        this.rate = 1;
-      }
-
+      const result = data.data.averageRating;
+      this.rate = Math.round(result);
     });
   }
 
