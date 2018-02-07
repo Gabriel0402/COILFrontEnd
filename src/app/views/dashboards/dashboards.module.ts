@@ -20,6 +20,7 @@ import { IboxtoolsModule } from '../../components/common/iboxtools/iboxtools.mod
 import { PeityModule } from '../../components/charts/peity';
 import { SparklineModule } from '../../components/charts/sparkline';
 import { JVectorMapModule } from '../../components/map/jvectorMap';
+import { RouterModule } from "@angular/router";
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { JVectorMapModule } from '../../components/map/jvectorMap';
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule,
     ChartsModule,
     FlotModule,
     IboxtoolsModule,

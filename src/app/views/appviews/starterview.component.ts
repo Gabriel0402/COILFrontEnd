@@ -3,7 +3,8 @@ import { Component, OnDestroy, OnInit, } from '@angular/core';
 import { RestService } from '../../services/rest.service';
 import { NgStyle } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx'
+import 'rxjs/Rx';
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: 'starter',
@@ -26,7 +27,7 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   max:number;
 
 
-  public constructor(private restService: RestService) {
+  public constructor(private restService: RestService, private userService:UserService) {
 
     this.nav = document.querySelector('nav.navbar');
 

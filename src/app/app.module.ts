@@ -24,6 +24,7 @@ import { AlertComponent } from './components/alert/alert.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { EmotionDetectorService } from "./services/emotionDetector.service";
+import {UserService} from "./services/user.service";
 
 //app pipe
 @NgModule({
@@ -41,7 +42,7 @@ import { EmotionDetectorService } from "./services/emotionDetector.service";
     AppviewsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard, AuthenticationService,AlertService,RestService,InfoService,BsModalService, EmotionDetectorService],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},AuthGuard, AuthenticationService,AlertService,RestService,InfoService,BsModalService, EmotionDetectorService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
