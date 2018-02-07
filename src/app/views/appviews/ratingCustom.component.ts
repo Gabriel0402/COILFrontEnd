@@ -45,7 +45,7 @@ export class RatingCustomComponent implements OnDestroy, OnInit {
     let incrementedRate = this.rate;
 
     if (this.rate < 5) {
-      incrementedRate += 1;
+      incrementedRate++;
     }
 
     this.updateRating(incrementedRate);
@@ -55,7 +55,7 @@ export class RatingCustomComponent implements OnDestroy, OnInit {
     let decrementedRate = this.rate;
 
     if (this.rate > 1) {
-      decrementedRate -= 1;
+      decrementedRate--;
     }
 
     this.updateRating(decrementedRate);
