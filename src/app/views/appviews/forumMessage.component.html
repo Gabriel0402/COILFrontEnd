@@ -10,12 +10,18 @@
         </div>
       </div>
 
-      <rating-forum-message [messageId]="forum.messageId" ></rating-forum-message>
+      <div class="col-md-3">
+        <div class="forum-sub-title pull-right">
+          {{forum?.timestamp*1000|date}} by {{forum?.nickname}}
+        </div>
+      </div>
     </div>
 
-    <span *ngIf="forum.replies?.length>0">
-        <forum-message [forumMessages]="forum.replies"></forum-message>
-    </span>
+    <div class="row align-items-end">
+      <div class="col-md-auto">
+        <rating-forum-message [messageId]="forum.messageId" ></rating-forum-message>
+      </div>
+    </div>
 </div>
 
 <template #template>
