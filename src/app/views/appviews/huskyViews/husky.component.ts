@@ -14,11 +14,13 @@ import { EmotionDetectorService } from "../../../services/emotionDetector.servic
 
 export class HuskyComponent implements OnDestroy, OnInit {
   @Input() userScore: number;
+  private defaultScore: number = 0.9;
   protected huskyEmotions = Emotions;
   emotion;
 
   ngOnInit() {
-    this.emotion = this.emotionDetectorService.processWith(this.userScore);
+    let score = this.userScore ? this.userScore : this.defaultScore;
+    this.emotion = this.emotionDetectorService.processWith(score);
   }
 
   ngOnDestroy() {

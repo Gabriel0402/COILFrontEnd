@@ -23,7 +23,6 @@ import { InfoService } from "./services/info.service";
 import { AlertComponent } from './components/alert/alert.component';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { EmotionDetectorService } from "./services/emotionDetector.service";
 
 //app pipe
@@ -34,7 +33,6 @@ import { EmotionDetectorService } from "./services/emotionDetector.service";
   ],
   imports: [
     ModalModule.forRoot(),
-    TooltipModule.forRoot(),
     BrowserModule,
     FormsModule,
     HttpModule,

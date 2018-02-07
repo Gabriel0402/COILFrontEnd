@@ -11,6 +11,7 @@ import { ForumMessageComponent } from "./forumMessage.component";
 import { RatingCustomComponent } from "./ratingCustom.component";
 import { HuskyComponent } from "./huskyViews/husky.component";
 import { HuskyHappiestComponent } from "./huskyViews/huskyHappiest.component";
+import { HuskyHappyComponent } from "./huskyViews/huskyHappy.component";
 import { HuskyNeutralComponent } from "./huskyViews/huskyNeutral.component";
 import { HuskySadComponent } from "./huskyViews/huskySad.component";
 import { HuskyDeadComponent } from "./huskyViews/huskyDead.component";
@@ -21,6 +22,8 @@ import { SearchPipe } from "./search.pipe";
 import { OrderBy } from "./order.pipe";
 import { AlertModule } from 'ngx-bootstrap';
 import { RatingModule } from 'ngx-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +36,7 @@ import { RatingModule } from 'ngx-bootstrap';
     RatingCustomComponent,
     HuskyComponent,
     HuskyHappiestComponent,
+    HuskyHappyComponent,
     HuskyNeutralComponent,
     HuskySadComponent,
     HuskyDeadComponent,
@@ -46,7 +50,8 @@ import { RatingModule } from 'ngx-bootstrap';
     PeityModule,
     SparklineModule,
     AlertModule.forRoot(),
-    RatingModule.forRoot()
+    RatingModule.forRoot(),
+    TooltipModule.forRoot()
   ],
   exports: [
     StarterViewComponent,
@@ -58,6 +63,7 @@ import { RatingModule } from 'ngx-bootstrap';
     RatingCustomComponent,
     HuskyComponent,
     HuskyHappiestComponent,
+    HuskyHappyComponent,
     HuskyNeutralComponent,
     HuskySadComponent,
     HuskyDeadComponent
