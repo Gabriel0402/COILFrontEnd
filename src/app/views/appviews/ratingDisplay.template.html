@@ -1,7 +1,7 @@
 <div class="profile-rating">
   <span [hidden]="hasRating"> No ratings available yet to reflect buddy's helpfulness. </span>
 
-  <div [ngClass]="'acidjs-rating-stars acidjs-rating-disabled'" [hidden]="!hasRating">
+  <div [ngClass]="'acidjs-rating-stars acidjs-rating-disabled-custom'" [hidden]="!hasRating">
     <form>
       <input type="radio" name="group-{{nickname}}" [value]="5" [attr.id]="'group-5-'+ nickname" [ngModel]="rate" />
       <label for="group-5-{{nickname}}"></label>

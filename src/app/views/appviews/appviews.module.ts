@@ -8,7 +8,7 @@ import { HotComponent } from './hot.component';
 import { LoginComponent } from './login.component';
 import { ForumComponent } from './forum.component';
 import { ForumMessageComponent } from './forumMessage.component';
-import { RatingDisplayComponent } from '../../components/rating/ratingDisplay.component';
+import { RatingDisplayComponent } from './ratingDisplay.component';
 import { RatingForumMessageComponent } from './ratingForumMessage.component';
 import { HuskyComponent } from './huskyViews/husky.component';
 import { HuskyHappiestComponent } from './huskyViews/huskyHappiest.component';

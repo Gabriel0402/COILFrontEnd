@@ -4,7 +4,7 @@ import 'rxjs/Rx';
 @Component({
   selector: 'rating-display',
   templateUrl: './ratingDisplay.template.html',
-  styleUrls: ['../../../assets/styles/ratingCustom.component.css']
+  styleUrls: ['./ratingCustom.component.css']
 })
 
 export class RatingDisplayComponent implements OnDestroy, OnInit {
