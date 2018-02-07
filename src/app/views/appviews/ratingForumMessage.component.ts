@@ -3,12 +3,12 @@ import 'rxjs/Rx';
 import { RestService } from '../../services/rest.service';
 
 @Component({
-  selector: 'rating-custom',
-  templateUrl: './ratingCustom.template.html',
+  selector: 'rating-forum-message',
+  templateUrl: './ratingForumMessage.template.html',
   styleUrls: ['./ratingCustom.component.css']
 })
 
-export class RatingCustomComponent implements OnDestroy, OnInit {
+export class RatingForumMessageComponent implements OnDestroy, OnInit {
   @Input() messageId: string;
   @Input() rate: number;
 
@@ -45,7 +45,7 @@ export class RatingCustomComponent implements OnDestroy, OnInit {
     let incrementedRate = this.rate;
 
     if (this.rate < 5) {
-      incrementedRate += 1;
+      incrementedRate++;
     }
 
     this.updateRating(incrementedRate);
@@ -55,14 +55,14 @@ export class RatingCustomComponent implements OnDestroy, OnInit {
     let decrementedRate = this.rate;
 
     if (this.rate > 1) {
-      decrementedRate -= 1;
+      decrementedRate--;
     }
 
     this.updateRating(decrementedRate);
  }
 
  private updateRating(newRate) {
-   let data = {
+   const data = {
      'forumMessageId': this.messageId,
      'rawRatingScore': newRate
    };
