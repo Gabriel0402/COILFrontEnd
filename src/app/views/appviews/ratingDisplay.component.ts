@@ -13,26 +13,14 @@ export class RatingDisplayComponent implements OnDestroy, OnInit {
   @Input() hasRating: boolean;
 
   public ngOnInit(): any {
-    this.roundRate();
+    this.rate = this.roundRate();
   }
 
   public ngOnDestroy(): any {}
 
   public constructor( ) {}
 
-  private roundRate(): void {
-      if (this.rate <= 5 && this.rate > 4) {
-        this.rate = 5;
-      } else if (this.rate <= 4 && this.rate > 3) {
-        this.rate = 4;
-      } else if (this.rate <= 3 && this.rate > 2) {
-        this.rate = 3;
-      } else if (this.rate <= 2 && this.rate > 1) {
-        this.rate = 2;
-      } else if (this.rate === null) {
-        this.rate = 0;
-      } else {
-        this.rate = 1;
-      }
+  private roundRate(): number {
+      return Math.round(this.rate);
   }
 }
