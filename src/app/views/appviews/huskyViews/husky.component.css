@@ -2,15 +2,27 @@
   Move over raw husky animation after verifying not used elsewhere
  */
 
+
+.husky-happy {
+ display: inline-block;
+ position: inherit;
+ height: 25em;
+ width: 19.4em;
+ background: url('../../../../assets/images/emotions/happy_sprite.png') repeat-x center center;
+ -webkit-background-size: cover;
+ background-size: cover;
+ animation: happy 10s steps(7) infinite;
+}
+
 .husky-neutral {
   display: inline-block;
   position: inherit;
-  height: 23em;
-  width: 21em;
+  height: 25em;
+  width: 19.4em;
   background: url('../../../../assets/images/emotions/neutral_sprite.png') repeat-x center center;
   -webkit-background-size: cover;
   background-size: cover;
-  animation: emote 10s steps(10) infinite;
+  animation: emote 10s steps(5) infinite;
 }
 
  .husky-sad {
@@ -38,3 +50,9 @@
   from { background-position: 0px; }
   to { background-position: -7589px; }
 }
+
+
+ @keyframes happy {
+   from { background-position: 0px; }
+   to { background-position: -5312px; }
+ }
