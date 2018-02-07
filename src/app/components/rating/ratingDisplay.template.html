@@ -1,0 +1,23 @@
+<div class="profile-rating">
+  <span [hidden]="hasRating"> No ratings available yet to reflect buddy's helpfulness. </span>
+
+  <div [ngClass]="'acidjs-rating-stars acidjs-rating-disabled'" [hidden]="!hasRating">
+    <form>
+      <input type="radio" name="group-{{nickname}}" [value]="5" [attr.id]="'group-5-'+ nickname" [ngModel]="rate" />
+      <label for="group-5-{{nickname}}"></label>
+
+      <input type="radio" name="group-{{nickname}}" [value]="4" [attr.id]="'group-4-'+ nickname" [ngModel]="rate" />
+      <label for="group-4-{{nickname}}"></label>
+
+      <input type="radio" name="group-{{nickname}}" [value]="3" [attr.id]="'group-3-'+ nickname" [ngModel]="rate" />
+      <label for="group-3-{{nickname}}"></label>
+
+      <input type="radio" name="group-{{nickname}}" [value]="2" [attr.id]="'group-2-'+ nickname" [ngModel]="rate"  />
+      <label for="group-2-{{nickname}}"></label>
+
+      <input type="radio" name="group-{{nickname}}" [value]="1" [attr.id]="'group-1-' + nickname" [ngModel]="rate"  />
+      <label for="group-1-{{nickname}}"></label>
+    </form>
+  </div>
+
+</div>
