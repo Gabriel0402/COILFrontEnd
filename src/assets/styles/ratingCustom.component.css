@@ -40,12 +40,6 @@
 }
 
 .acidjs-rating-disabled {
-  -webkit-pointer-events: none;
-  -moz-pointer-events: none;
-  pointer-events: none;
-}
-
-.acidjs-rating-disabled-custom {
   opacity: 0.75;
   -webkit-pointer-events: none;
   -moz-pointer-events: none;
