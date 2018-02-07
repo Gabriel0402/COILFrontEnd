@@ -18,7 +18,7 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   courses: any;
   course: any;
   rosters: any;
-  passwordd: any;
+  password: any;
   public currentUser: any;
   public alerts: any = [];
   public helpAlerts: any = [];

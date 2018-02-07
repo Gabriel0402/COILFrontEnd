@@ -8,7 +8,7 @@ import { HotComponent } from "./hot.component";
 import { LoginComponent } from "./login.component";
 import { ForumComponent } from "./forum.component";
 import { ForumMessageComponent } from "./forumMessage.component";
-import { RatingCustomComponent } from "./ratingCustom.component";
+import { RatingForumMessageComponent } from "./ratingForumMessage.component";
 import { HuskyComponent } from "./huskyViews/husky.component";
 import { HuskyHappiestComponent } from "./huskyViews/huskyHappiest.component";
 import { HuskyHappyComponent } from "./huskyViews/huskyHappy.component";
@@ -33,7 +33,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     LoginComponent,
     ForumComponent,
     ForumMessageComponent,
-    RatingCustomComponent,
+    RatingForumMessageComponent,
     HuskyComponent,
     HuskyHappiestComponent,
     HuskyHappyComponent,
@@ -60,7 +60,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     LoginComponent,
     ForumComponent,
     ForumMessageComponent,
-    RatingCustomComponent,
+    RatingForumMessageComponent,
     HuskyComponent,
     HuskyHappiestComponent,
     HuskyHappyComponent,

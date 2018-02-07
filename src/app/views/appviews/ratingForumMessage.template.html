@@ -19,6 +19,6 @@
     </form>
   </div>
 
-  <button [attr.id]="'rate-minus'" tooltip="-1 to total overall" placement="bottom" (click)="decrementHelpfulness()"><span class="oi oi-minus"></span></button>
-  <button [attr.id]="'rate-plus'" tooltip="+1 to total overall" placement="bottom" (click)="incrementHelpfulness()"><span class="oi oi-plus"></span></button>
+  <button [attr.id]="'rate-minus'" tooltip="-1 for item's overall score" placement="bottom" (click)="decrementHelpfulness()"><span class="oi oi-minus"></span></button>
+  <button [attr.id]="'rate-plus'" tooltip="+1 for item's overall score" placement="bottom" (click)="incrementHelpfulness()"><span class="oi oi-plus"></span></button>
 </div>
