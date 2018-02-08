@@ -1,133 +1,77 @@
 <div class="container animated fadeInRight">
   <div class="row mt-5">
 
-  <div class="current col-sm-12 col-lg-6 mt-5" *ngFor="let user of currentUser">
-
+    <div class="current col-sm-12 col-lg-6" *ngFor="let user of currentUser">
+      <h2 class="text-left mb-2">My Performance Status</h2>
       <div class="card text-center">
         <div class="card-body">
-            <h2 class="card-title pt-3" style="color: #000;" >{{user.nickname}} </h2>
-
-              <husky [userScore]="user.averageScore" ></husky>
-
-              <div class="row justify-content-center">
-                <div class="col-9">
-
-                  <rating-display [nickname]="user.nickname" [rate]="user.averageRating" [hasRating]="!!user.averageRating"></rating-display>
-
-                  <p class="text-left mb-2">Overall </p>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar"  [ngStyle]="{ 'width': user.averageScore*100+'%'}" aria-valuenow="user.averageScore*100" aria-valuemin="0" aria-valuemax="100">{{user.averageScore*100}}%</div>
-                  </div>
-
-                </div>
-              </div>
-
-          </div> <!-- card body -->
-      <div id="question">
-        <button *ngIf="user.needHelp=='false'" (click)="activateHelp()" class="question-btn btn-success">Raise question <i class="fa fa-hand-paper-o" aria-hidden="true"></i></button>
-        <button *ngIf="user.needHelp=='true'" (click)="deactivateHelp()" class="question-btn btn-success">Question solved </button>
-        <div *ngFor="let alert of helpAlerts">
-          <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
-        </div>
-      </div>
-
-      <div *ngFor="let alert of alerts">
-        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
-      </div>
-
-      </div> <!-- card -->
-
-
-  </div> <!-- current -->
-
-
-  <div class="col-sm-14 col-lg-4 mt-5">
-
-    <!-- <h2 class="mb-3">Leaderboard</h2> -->
-    <div class="leaderboard">
-
-      <a *ngFor="let user of rosters" class="">
-        <div class="media profile">
-
-          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"><span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span></div>
-
-            <div class="media-body profile-body">
-            <a class="chat-bubble" (click)="userService.setUser(user)" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
-              <div class="" (click)="switchUser(user.userId)">
-                <h2>{{user.nickname}}</h2>
-              </div>
-
-
-
-                <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
-
-              <rating-display [nickname]="user.nickname" [rate]="user.averageRating" [hasRating]="!!user.averageRating"></rating-display>
-
-
-            </div>
-        </div>
-      </a>
-
-
-    </div>
-
-
-
-
-  <!--             <nav class="codrops-demos">
-                <a *ngFor="let user of users"
-  							class="dog1">
-                  <div class="dog1-photo" (click)="switchUser(user.userId)"><img src="assets/images/dog.png"></div>
-                  <div class="dog1-help"><img src="assets/images/help.png"></div>
-                  <div class="dog1-name" (click)="switchUser(user.userId)">
-                    <h2>{{user.nickname}}({{user.averageRating}})({{user.averageScore}})</h2>
-                  </div>
-                  <div class="dog1-message" ><img src="assets/images/chat.png">
-                  </div>
-                  <div class="dog1-rating">
-                    <div class="acidjs-rating-stars acidjs-rating-disabled">
-                      <form>
-                        <input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label>
-                        <input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" />
-                        <label for="group-3-1"></label>
-
-                        <input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
-
-                        <input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
-
-                        <input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="dog1-health">
-                    <div class="w3-green" style="height:15px;width:100%"></div>
-                  </div><br>
-                </a>
-              </nav> -->
-
-    </div>
-
-
-
-  </div>
-    <div class="row justify-content-md-center mt-5">
-
-      <div class="col col-lg-6">
-        <div id="password" data-children=".item">
-          <div class="item">
-            <a data-toggle="collapse" data-parent="#password" href="#exampleAccordion1" aria-expanded="false" aria-controls="password1" class="btn-danger">
-              Update Password <i class="fa fa-key" aria-hidden="true"></i>
-            </a>
-            <div id="exampleAccordion1" class="collapse" role="tabpanel">
-              <div class="pwd">
-                <label for="post-title" class="form-control-label">New password:</label>
-                <input type="password" class="form-control" id="post-title" [(ngModel)]="password">
-                <button class="btn btn-primary" (click)="updatePwd(password)">Update</button>
+          <h2 class="card-title pt-3" style="color: #000;" >{{user.nickname}} </h2>
+          <husky [userScore]="user.averageScore" ></husky>
+          <div class="row justify-content-center">
+            <div class="col-9">
+              <h5>Health Strength</h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"  [ngStyle]="{ 'width': user.averageScore*100+'%'}" aria-valuenow="user.averageScore*100" aria-valuemin="0" aria-valuemax="100">{{user.averageScore*100}}%</div>
               </div>
             </div>
           </div>
         </div>
+        <div id="question">
+          <button *ngIf="user.needHelp=='false'" (click)="activateHelp()" class="question-btn btn-success">Raise question <i class="fa fa-hand-paper-o" aria-hidden="true"></i></button>
+          <button *ngIf="user.needHelp=='true'" (click)="deactivateHelp()" class="question-btn btn-success">Question solved </button>
+          <div *ngFor="let alert of helpAlerts">
+            <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+          </div>
+        </div>
+        <div *ngFor="let alert of alerts">
+          <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+        </div>
       </div>
+    </div>
+
+    <div class="col-sm-12 col-lg-6">
+      <h2 class="text-left mb-2">Course Leaderboard</h2>
+      <div [ngSwitch]="leaderboardIsActive">
+        <div class="card" *ngSwitchCase="false">
+          <div class="card-body">
+            <h3>Reveal coming soon...</h3>
+          </div>
+        </div>
+        <div class="leaderboard" *ngSwitchCase="true">
+          <a *ngFor="let user of leaders" class="">
+            <div class="media profile leader">
+              <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"><span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span></div>
+              <div class="media-body profile-body align-self-center">
+                <a class="chat-bubble" (click)="userService.setUser(user)" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                <div class="profile-husky-name" (click)="switchUser(user.userId)">
+                  <h2>{{user.nickname}}</h2>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row justify-content-md-center mt-5">
+    <div class="col col-lg-5">
+      <div id="password" data-children=".item">
+        <div class="item">
+          <a data-toggle="collapse" data-parent="#password" href="#exampleAccordion1" aria-expanded="false" aria-controls="password1" class="btn-danger">
+            Update Password <i class="fa fa-key" aria-hidden="true"></i>
+          </a>
+          <div id="exampleAccordion1" class="collapse" role="tabpanel">
+            <div class="pwd">
+              <label for="post-title" class="form-control-label">New password:</label>
+              <input type="password" class="form-control" id="post-title" [(ngModel)]="password">
+              <button class="btn btn-primary" (click)="updatePwd(password)">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
