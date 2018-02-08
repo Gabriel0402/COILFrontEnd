@@ -94,7 +94,7 @@ div.course-wrapper{
 
 .leaderboard {
     overflow: scroll;
-    height: 45.5em;
+    height: 47.65em;
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
@@ -102,6 +102,9 @@ div.course-wrapper{
     padding: 1px;
 }
 
+.leader {
+  height: 9.53em;
+}
 
 @media (min-width: 576px){
   .fullscreen .modal-dialog {
