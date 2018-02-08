@@ -1,5 +1,6 @@
 <div class="container animated fadeInRight">
   <div class="row mt-5">
+
     <div class="current col-sm-12 col-lg-6" *ngFor="let user of currentUser">
       <h2 class="text-left mb-2">My Performance Status</h2>
       <div class="card text-center">
@@ -30,25 +31,32 @@
 
     <div class="col-sm-12 col-lg-6">
       <h2 class="text-left mb-2">Course Leaderboard</h2>
-      <div class="leaderboard">
-        <a *ngFor="let user of rosters" class="">
-          <div class="media profile leader">
-            <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"><span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span></div>
+      <div [ngSwitch]="leaderboardIsActive">
+        <div class="card" *ngSwitchCase="false">
+          <div class="card-body">
+            <h3>Reveal coming soon...</h3>
+          </div>
+        </div>
+        <div class="leaderboard" *ngSwitchCase="true">
+          <a *ngFor="let user of leaders" class="">
+            <div class="media profile leader">
+              <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"><span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span></div>
               <div class="media-body profile-body align-self-center">
                 <a class="chat-bubble" (click)="userService.setUser(user)" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
                 <div class="profile-husky-name" (click)="switchUser(user.userId)">
                   <h2>{{user.nickname}}</h2>
                 </div>
               </div>
-          </div>
-        </a>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
 
   </div>
 
   <div class="row justify-content-md-center mt-5">
-    <div class="col col-lg-4">
+    <div class="col col-lg-5">
       <div id="password" data-children=".item">
         <div class="item">
           <a data-toggle="collapse" data-parent="#password" href="#exampleAccordion1" aria-expanded="false" aria-controls="password1" class="btn-danger">

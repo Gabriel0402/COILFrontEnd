@@ -4,7 +4,7 @@ import { RestService } from '../../services/rest.service';
 import { NgStyle } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { UserService } from "../../services/user.service";
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'starter',
@@ -19,15 +19,17 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   courses: any;
   course: any;
   rosters: any;
+  leaders: any;
+  leaderboardIsActive: boolean;
   password: any;
   public currentUser: any;
   public alerts: any = [];
   public helpAlerts: any = [];
-  rate:number;
-  max:number;
+  rate: number;
+  max: number;
 
 
-  public constructor(private restService: RestService, private userService:UserService) {
+  public constructor(private restService: RestService, private userService: UserService) {
 
     this.nav = document.querySelector('nav.navbar');
 
@@ -39,76 +41,82 @@ export class StarterViewComponent implements OnDestroy, OnInit {
   }
 
   public ngOnInit(): any {
-    this.rate=3;
-    this.max=5;
+    this.rate = 3;
+    this.max = 5;
     this.userId = localStorage.getItem('userId');
-    this.nav.className += " white-bg";
+    this.nav.className += ' white-bg';
     this.restService.getAccounts().subscribe(data => {
         this.users = data.data;
         this.currentUser = this.users.filter(user => user.userId == this.userId);
-        //console.log(this.currentUser);
       }
-    )
+    );
 
-    // TODO: implement logic to select the top 5 students in course by user's average score...
     this.restService.getCourses(this.userId).subscribe(data => {
       this.courses = data.data;
       this.course = this.courses[0];
       this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
         this.rosters = data.data;
-        // let Observables = [];
-        // for(let user of this.rosters){
-        //   Observables.push(this.restService.getRatings(user.userId));
-        // }
-        // Observable.forkJoin(Observables).subscribe(result=>{
-        //   console.log(result);
-        // })
-        //(this.rosters)
-      })
-    })
+        this.activateLeaderboard(this.rosters);
+        this.setLeaders(this.rosters);
+      });
+    });
 
-    let log = {
-      component: "start view",
-      action: "enter"
-    }
-    this.restService.log(log).subscribe(data => {
-      //console.log(data);
-    })
+
+    const log = {
+      component: 'start view',
+      action: 'enter'
+    };
+
+    this.restService.log(log).subscribe(data => {});
   }
 
-
   public ngOnDestroy(): any {
-    this.nav.classList.remove("white-bg");
-    let log = {
-      component: "start view",
-      action: "leave"
-    }
-    this.restService.log(log).subscribe(data => {
-      //console.log(data);
-    })
+    this.nav.classList.remove('white-bg');
+    const log = {
+      component: 'start view',
+      action: 'leave'
+    };
+    this.restService.log(log).subscribe(data => {});
+  }
+
+  private setLeaders(collection): any {
+    this.sortRoster(collection);
+    this.leaders = collection.slice(0, 5);
+  }
+
+  private sortRoster(collection): any {
+    collection.sort((a, b) => {
+      return b.averageScore - a.averageScore;
+    });
+  }
+
+  private activateLeaderboard(collection): any {
+    const usersMissingAverageScore = collection.filter(e => { return e.averageScore === null; });
+
+    this.leaderboardIsActive = !(usersMissingAverageScore.length >= (this.rosters.length / 2));
   }
 
   updatePwd(password) {
-    this.helpAlerts=[];
-    let psw = {
+    this.helpAlerts = [];
+    const psw = {
       password: password
-    }
+    };
     this.restService.changePsw(psw).subscribe(data => {
-      this.alerts=[{
+      this.alerts = [{
         type: 'success',
         msg: `Successfully updated your password`,
         timeout: 3000
       }];
-    })
+    });
   }
 
   activateHelp() {
-    this.alerts=[];
-    let help = {
+    this.alerts = [];
+    const help = {
       help: 'true'
-    }
+    };
     this.restService.activateHelp(help).subscribe(data => {
-      this.helpAlerts=[{
+      this.helpAlerts = [{
         type: 'success',
         msg: `Someone will come to help you`,
         timeout: 3000
@@ -116,14 +124,14 @@ export class StarterViewComponent implements OnDestroy, OnInit {
       this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
         this.rosters = data.data;
         this.currentUser = this.rosters.filter(user => user.userId == this.userId);
-      })
-    })
+      });
+    });
   }
 
   deactivateHelp() {
-    this.alerts=[];
+    this.alerts = [];
     this.restService.deactivateHelp().subscribe(data => {
-      this.helpAlerts=[{
+      this.helpAlerts = [{
         type: 'success',
         msg: `Glad you've solved your problem`,
         timeout: 3000
@@ -131,8 +139,8 @@ export class StarterViewComponent implements OnDestroy, OnInit {
       this.restService.getCourseRoster(this.course.courseId).subscribe(data => {
         this.rosters = data.data;
         this.currentUser = this.rosters.filter(user => user.userId == this.userId);
-      })
-    })
+      });
+    });
   }
 
 
