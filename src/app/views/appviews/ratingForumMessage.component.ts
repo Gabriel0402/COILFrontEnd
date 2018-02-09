@@ -30,9 +30,7 @@ export class RatingForumMessageComponent implements OnDestroy, OnInit {
  public incrementHelpfulness() {
     let incrementedRate = this.rate;
 
-    if (this.rate < 5) {
-      incrementedRate++;
-    }
+   (this.rate >= 5) ? (incrementedRate = 5) : incrementedRate++;
 
     this.updateRating(incrementedRate);
  }
@@ -40,9 +38,7 @@ export class RatingForumMessageComponent implements OnDestroy, OnInit {
  public decrementHelpfulness() {
     let decrementedRate = this.rate;
 
-    if (this.rate > 1) {
-      decrementedRate--;
-    }
+   (this.rate <= 1) ? (decrementedRate = 0) : decrementedRate-- ;
 
     this.updateRating(decrementedRate);
  }
