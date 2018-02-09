@@ -1,7 +1,7 @@
 <div class="profile-rating" [ngSwitch]="isInitialRate">
-  <div *ngSwitchCase="true">
+  <div *ngSwitchCase="true" tooltip="Select stars then submit to set initial rate" placement="bottom">
     <div [ngClass]="'acidjs-rating-stars'">
-      <form #form="ngForm" (ngSubmit)="onSubmit()" tooltip="Select stars then submit to set initial rate" placement="bottom">
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
         <button type="submit" class="btn btn-primary"> Submit </button>
 
         <input type="radio" name="group-{{messageId}}" [value]="5" [attr.id]="'group-5-'+ messageId" [(ngModel)]="rate" />
@@ -22,8 +22,8 @@
     </div>
   </div>
 
-  <div *ngSwitchCase="false">
-    <button [attr.id]="'rate-minus'" tooltip="-1 for item's overall score" placement="bottom" (click)="decrementHelpfulness()">
+  <div *ngSwitchCase="false" tooltip="Click -/+ to vote up or down item's overall score" placement="bottom" >
+    <button [attr.id]="'rate-minus'" (click)="decrementHelpfulness()">
       <span class="oi oi-minus"></span>
     </button>
     <div [ngClass]="'acidjs-rating-stars acidjs-rating-disabled'">
@@ -44,7 +44,7 @@
         <label for="group-1-{{messageId}}"></label>
       </form>
     </div>
-    <button [attr.id]="'rate-plus'" tooltip="+1 for item's overall score" placement="bottom" (click)="incrementHelpfulness()">
+    <button [attr.id]="'rate-plus'" (click)="incrementHelpfulness()">
       <span class="oi oi-plus"></span>
     </button>
   </div>
