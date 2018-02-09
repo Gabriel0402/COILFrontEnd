@@ -45,3 +45,7 @@
   -moz-pointer-events: none;
   pointer-events: none;
 }
+
+.profile-rating {
+  margin-top: 1.5em;
+}
