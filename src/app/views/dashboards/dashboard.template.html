@@ -1,8 +1,8 @@
 <div class="container animated fadeInRight">
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="mt-5 text-center">Dashboard</h1>
-      <h3 class="mt-3 text-center"> Helpful huskies! </h3>
+      <h1 class="mt-5 text-center">Roster</h1>
+      <h3 class="mt-3 text-center"> Try checking in with any of your peer when possible. </h3>
     </div>
   </div>
 
@@ -13,15 +13,15 @@
        <a class="">
         <div class="media profile">
 
-          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"></div>
+          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)">
+            <img src="assets/images/dog.png" alt="Profile Image">
+          </div>
 
-            <div class="media-body profile-body">
+            <div class="media-body profile-body align-self-center">
             <a class="chat-bubble" (click)="userService.setUser(user)" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
               <div class="" (click)="switchUser(user.userId)">
                 <h2>{{user.nickname}}</h2>
               </div>
-
-              <rating-dashboard [rate]="user.averageRating" [nickname]="user.nickname" [hasRating]="!!user.averageRating"></rating-dashboard>
             </div>
         </div>
       </a>

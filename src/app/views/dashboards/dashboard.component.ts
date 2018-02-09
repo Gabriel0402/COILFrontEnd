@@ -32,7 +32,16 @@ export class DashboardComponent {
       this.course=this.courses[0];
       this.restService.getCourseRoster(this.course.courseId).subscribe(data=>{
         this.rosters=data.data;
+        console.log(`roster: ${JSON.stringify(this.rosters)}`);
+        this.alphabetizeRoster(this.rosters);
       });
+    });
+  }
+
+
+  private alphabetizeRoster(collection): any {
+    collection.sort((a, b) => {
+      return a.nickname > b.nickname;
     });
   }
 
