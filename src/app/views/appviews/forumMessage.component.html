@@ -17,9 +17,9 @@
       </div>
     </div>
 
-    <div class="row align-items-end" *ngIf="forum?.userId!==userId">
+    <div class="row align-items-end">
       <div class="col-md-auto">
-        <rating-forum-message [messageId]="forum.messageId" ></rating-forum-message>
+        <rating-forum-message [messageId]="forum.messageId" [canRate]="forum?.userId!==userId" ></rating-forum-message>
       </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="profile-rating" [ngSwitch]="isInitialRate">
+<div class="profile-rating" [ngSwitch]="isInitialRate" [hidden]="!canRate">
   <div *ngSwitchCase="true" tooltip="Select stars then submit to set initial rate" placement="bottom">
     <div [ngClass]="'acidjs-rating-stars'">
       <form #form="ngForm" (ngSubmit)="onSubmit()">
@@ -48,4 +48,25 @@
       <span class="oi oi-plus"></span>
     </button>
   </div>
+</div>
+
+<div class="profile-rating" [hidden]="canRate" tooltip="Current helpfulness of your response" placement="bottom">
+    <div [ngClass]="'acidjs-rating-stars acidjs-rating-disabled'">
+      <form #form="ngForm">
+        <input type="radio" name="group-{{messageId}}" [value]="5" [attr.id]="'group-5-'+ messageId" [ngModel]="rate" />
+        <label for="group-5-{{messageId}}"></label>
+
+        <input type="radio" name="group-{{messageId}}" [value]="4" [attr.id]="'group-4-'+ messageId" [ngModel]="rate" />
+        <label for="group-4-{{messageId}}"></label>
+
+        <input type="radio" name="group-{{messageId}}" [value]="3" [attr.id]="'group-3-'+ messageId" [ngModel]="rate" />
+        <label for="group-3-{{messageId}}"></label>
+
+        <input type="radio" name="group-{{messageId}}" [value]="2" [attr.id]="'group-2-'+ messageId" [ngModel]="rate"  />
+        <label for="group-2-{{messageId}}"></label>
+
+        <input type="radio" name="group-{{messageId}}" [value]="1" [attr.id]="'group-1-' + messageId" [ngModel]="rate"  />
+        <label for="group-1-{{messageId}}"></label>
+      </form>
+    </div>
 </div>
