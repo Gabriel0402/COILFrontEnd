@@ -17,9 +17,11 @@ export class ForumMessageComponent implements OnDestroy, OnInit {
     @Input() forumMessages: any;
     public modalRef: BsModalRef;
     title: string;
+    userId: any;
     @Input() messageId: string;
 
     public ngOnInit(): any {
+        this.userId = localStorage.getItem('userId');
     }
 
     public ngOnDestroy(): any {}
