@@ -1,92 +1,31 @@
 <div class="container animated fadeInRight">
+
   <div class="row">
     <div class="col-sm-12">
-      <h1 class="mt-5 text-center">Dashboard</h1>
-      <h3 class="mt-3 text-center"> Helpful huskies! </h3>
+      <h1 class="mt-5 text-center">Roster</h1>
+      <h3 class="mt-3 text-center">Try checking in with any of your peers when possible.</h3>
     </div>
   </div>
 
   <div class="row mt-4">
-
     <div class="current col-sm-12 col-md-6 col-lg-4" *ngFor="let user of rosters">
 
-       <a class="">
+       <a class="roster-profile">
         <div class="media profile">
-
-          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image">
+          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)">
+            <husky [userScore]="user.averageScore"></husky>
             <span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span>
           </div>
-
-            <div class="media-body profile-body">
-            <a class="chat-bubble" (click)="userService.setUser(user)" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
-              <div class="" (click)="switchUser(user.userId)">
-                <h2>{{user.nickname}}</h2>
-              </div>
-
-              <rating-dashboard [rate]="user.averageRating" [nickname]="user.nickname" [hasRating]="!!user.averageRating"></rating-dashboard>
+          <div class="media-body profile-body align-self-center">
+          <a class="chat-bubble" (click)="userService.setUser(user)" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
+            <div class="" (click)="switchUser(user.userId)">
+              <h2>{{user.nickname}}</h2>
             </div>
+          </div>
         </div>
       </a>
+
     </div>
   </div>
+
 </div>
-
-<!-- <div class="wrapper wrapper-content animated fadeInRight">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="text-center m-t-lg">
-        <div class="content content--dashboard">
-          <div class="main">
-            <div class="group1">
-
-              <a *ngFor="let user of rosters" class="dog1">
-                <div class="dog1-photo" href="#"><img src="assets/images/dog.png"></div>
-                <div class="dog1-help" href="#"><img src="assets/images/help.png"></div>
-                <div class="dog1-name">
-                  <h2>{{user.nickname}}</h2>
-                </div>
-                <div class="dog1-message" href="#"><img src="assets/images/chat.png">
-                </div>
-                <div class="dog1-rating">
-                  <div class="acidjs-rating-stars acidjs-rating-disabled">
-                    <form>
-                      <input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" />
-                      <label for="group-3-0"></label>
-
-            <input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" />
-                      <label for="group-3-1"></label>
-
-            <input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label>
-
-            <input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label>
-
-            <input disabled="disabled" type="radio" name="group-3" id="group-3-4" value="1" /><label for="group-3-4"></label>
-                    </form>
-                  </div>
-                </div>
-                <div class="dog1-health">
-
-                  <p>Current </p>
-                  <div class="dog1-current">
-
-                    <div class="w3-greenw3-container w3-green w3-center" style="height:20px;width:70%">90%</div>
-                  </div>
-                  <b>Overall</b>
-                  <div class="dog1-overall">
-                    <div class="w3-greenw3-container w3-grey w3-center" style="height:20px;width:30%">30/100</div>
-                  </div>
-
-                </div><br>
-
-              </a>
-
-            </div>
-
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

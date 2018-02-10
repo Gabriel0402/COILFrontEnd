@@ -4,6 +4,12 @@ import { FormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './dashboard.component';
 import { RatingDashboardComponent } from './ratingDashboard.component';
+import { HuskyComponent } from './huskyViews/husky.component';
+import { HuskyHappiestComponent } from './huskyViews/huskyHappiest.component';
+import { HuskyHappyComponent } from './huskyViews/huskyHappy.component';
+import { HuskyNeutralComponent } from './huskyViews/huskyNeutral.component';
+import { HuskySadComponent } from './huskyViews/huskySad.component';
+import { HuskyDeadComponent } from './huskyViews/huskyDead.component';
 
 import { Dashboard1Component } from './dashboard1.component';
 import { Dashboard2Component } from './dashboard2.component';
@@ -20,13 +26,19 @@ import { IboxtoolsModule } from '../../components/common/iboxtools/iboxtools.mod
 import { PeityModule } from '../../components/charts/peity';
 import { SparklineModule } from '../../components/charts/sparkline';
 import { JVectorMapModule } from '../../components/map/jvectorMap';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     RatingDashboardComponent,
+    HuskyComponent,
+    HuskyHappyComponent,
+    HuskyHappiestComponent,
+    HuskyNeutralComponent,
+    HuskySadComponent,
+    HuskyDeadComponent,
     Dashboard1Component,
     Dashboard2Component,
     Dashboard3Component,
@@ -48,6 +60,12 @@ import { RouterModule } from "@angular/router";
   exports: [
     DashboardComponent,
     RatingDashboardComponent,
+    HuskyComponent,
+    HuskyHappyComponent,
+    HuskyHappiestComponent,
+    HuskyNeutralComponent,
+    HuskySadComponent,
+    HuskyDeadComponent,
     Dashboard1Component,
     Dashboard2Component,
     Dashboard3Component,

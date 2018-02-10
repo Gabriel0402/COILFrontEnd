@@ -38,7 +38,7 @@
         <li class="clearfix" *ngFor="let user of otherUsers">
           <!-- <a (click)="selectUser(user)" class="currentMessage"> -->
           <a (click)="selectUser(user)" [ngClass]="select(user)?'currentMessage':''">
-          <img src="assets/images/dog.png" alt="avatar" />
+          <img src="assets/images/emotions_profile/happiest.png" alt="avatar" />
           <div class="about">
             <div class="name">{{user.nickname}}</div>
             <div class="status">
@@ -52,7 +52,7 @@
 
     <div class="col-12 col-md-12 col-lg-8 chat">
 <!--       <div class="chat-header clearfix">
-        <img src="assets/images/dog.png" alt="avatar" />
+        <img src="assets/images/emotions_profile/happiest.png" alt="avatar" />
 
         <div class="chat-about">
           <div class="chat-with">Chat</div>
