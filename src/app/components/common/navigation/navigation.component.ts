@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import 'jquery-slimscroll';
 
-declare var jQuery:any;
+declare var jQuery: any;
 
 @Component({
   selector: 'navigation',
@@ -10,16 +10,17 @@ declare var jQuery:any;
 })
 
 export class NavigationComponent {
+  public alerts: any = [];
 
   constructor(private router: Router) {}
 
   ngAfterViewInit() {
     jQuery('#side-menu').metisMenu();
 
-    if (jQuery("body").hasClass('fixed-sidebar')) {
+    if (jQuery('body').hasClass('fixed-sidebar')) {
       jQuery('.sidebar-collapse').slimscroll({
         height: '100%'
-      })
+      });
     }
   }
 
@@ -27,5 +28,7 @@ export class NavigationComponent {
     return this.router.url.indexOf(routename) > -1;
   }
 
-
+  onNavigate() {
+    window.open('https://www.google.com', '_blank');
+  }
 }

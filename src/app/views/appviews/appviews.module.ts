@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { StarterViewComponent } from './starterview.component';
 import { InboxComponent } from './inbox.component';
 import { HotComponent } from './hot.component';
+import { AccountComponent } from './account.component';
 import { LoginComponent } from './login.component';
 import { ForumComponent } from './forum.component';
 import { ForumMessageComponent } from './forumMessage.component';
@@ -31,6 +32,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     StarterViewComponent,
     InboxComponent,
     HotComponent,
+    AccountComponent,
     LoginComponent,
     ForumComponent,
     ForumMessageComponent,
@@ -59,6 +61,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     StarterViewComponent,
     InboxComponent,
     HotComponent,
+    AccountComponent,
     LoginComponent,
     ForumComponent,
     ForumMessageComponent,

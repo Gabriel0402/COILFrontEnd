@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authenticationService.login(this.model.username, this.model.password)
             .subscribe(
-                data => {           
+                data => {
                     if(data.status=="error"){
                         this.alerts.push({
                             type: 'danger',
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
                           });
                         this.loading = false;
                         this.model.username="";
-                        this.model.passowrd="";
+                        this.model.password="";
                     }
                     else{
                         this.router.navigate([this.returnUrl]);
