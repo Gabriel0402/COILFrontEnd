@@ -1,25 +1,26 @@
-import {Routes} from "@angular/router";
+import {Routes} from '@angular/router';
 
-import {DashboardComponent} from "./views/dashboards/dashboard.component";
-import {Dashboard1Component} from "./views/dashboards/dashboard1.component";
-import {Dashboard2Component} from "./views/dashboards/dashboard2.component";
-import {Dashboard3Component} from "./views/dashboards/dashboard3.component";
-import {Dashboard4Component} from "./views/dashboards/dashboard4.component";
-import {Dashboard41Component} from "./views/dashboards/dashboard41.component";
-import {Dashboard5Component} from "./views/dashboards/dashboard5.component";
-import {ForumComponent} from "./views/appviews/forum.component"
+import {DashboardComponent} from './views/dashboards/dashboard.component';
+import {Dashboard1Component} from './views/dashboards/dashboard1.component';
+import {Dashboard2Component} from './views/dashboards/dashboard2.component';
+import {Dashboard3Component} from './views/dashboards/dashboard3.component';
+import {Dashboard4Component} from './views/dashboards/dashboard4.component';
+import {Dashboard41Component} from './views/dashboards/dashboard41.component';
+import {Dashboard5Component} from './views/dashboards/dashboard5.component';
+import {ForumComponent} from './views/appviews/forum.component';
 
-import {StarterViewComponent} from "./views/appviews/starterview.component";
-import {InboxComponent} from "./views/appviews/inbox.component";
-import {HotComponent} from "./views/appviews/hot.component";
-import {LoginComponent} from "./views/appviews/login.component";
+import {StarterViewComponent} from './views/appviews/starterview.component';
+import {InboxComponent} from './views/appviews/inbox.component';
+import {HotComponent} from './views/appviews/hot.component';
+import {AccountComponent} from './views/appviews/account.component';
+import {LoginComponent} from './views/appviews/login.component';
 
-import {BlankLayoutComponent} from "./components/common/layouts/blankLayout.component";
-import {BasicLayoutComponent} from "./components/common/layouts/basicLayout.component";
-import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavigationLayout.component";
-import {AuthGuard} from "./services/guards.service";
+import {BlankLayoutComponent} from './components/common/layouts/blankLayout.component';
+import {BasicLayoutComponent} from './components/common/layouts/basicLayout.component';
+import {TopNavigationLayoutComponent} from './components/common/layouts/topNavigationLayout.component';
+import {AuthGuard} from './services/guards.service';
 
-export const ROUTES:Routes = [
+export const ROUTES: Routes = [
   // Main redirect
   {path: '', redirectTo: 'starterview', pathMatch: 'full'},
 
@@ -44,19 +45,19 @@ export const ROUTES:Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'starterview', component: StarterViewComponent,canActivate: [AuthGuard]}
+      {path: 'starterview', component: StarterViewComponent, canActivate: [AuthGuard]}
     ]
   },
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'inbox', component: InboxComponent,canActivate: [AuthGuard]}
+      {path: 'inbox', component: InboxComponent, canActivate: [AuthGuard]}
     ]
   },
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'hot', component: HotComponent,canActivate: [AuthGuard]}
+      {path: 'hot', component: HotComponent, canActivate: [AuthGuard]}
     ]
   },
   {
@@ -68,10 +69,15 @@ export const ROUTES:Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'forum/:id', component: ForumComponent,canActivate: [AuthGuard]}
+      {path: 'forum/:id', component: ForumComponent, canActivate: [AuthGuard]}
     ]
   },
-  
+  {
+    path: '', component: BasicLayoutComponent,
+    children: [
+      {path: 'account', component: AccountComponent, canActivate: [AuthGuard]}
+    ]
+  },
 
   // Handle all other routes
   {path: '**',  redirectTo: 'starterview'}

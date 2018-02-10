@@ -12,6 +12,7 @@ export class RatingForumMessageComponent implements OnDestroy, OnInit {
   @Input() messageId: string;
   @Input() rate: number;
   isInitialRate: boolean;
+  @Input() canRate: boolean;
 
   public ngOnInit(): any {
     this.getForumRating(this.messageId);
