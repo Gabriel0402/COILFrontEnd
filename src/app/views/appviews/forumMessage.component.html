@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div class="row align-items-end">
+    <div class="row align-items-end" *ngIf="forum?.userId!==userId">
       <div class="col-md-auto">
         <rating-forum-message [messageId]="forum.messageId" ></rating-forum-message>
       </div>
