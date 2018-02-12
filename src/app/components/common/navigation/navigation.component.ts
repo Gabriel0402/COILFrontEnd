@@ -29,6 +29,6 @@ export class NavigationComponent {
   }
 
   onNavigate() {
-    window.open('https://www.google.com', '_blank');
+    window.open('https://goo.gl/forms/d5dMg2d6oBV8gHbC3', '_blank');
   }
 }
