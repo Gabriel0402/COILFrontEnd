@@ -16,6 +16,9 @@
           <button class="btn btn-primary btn-lg mt-2" type="submit">Update</button>
         </form>
       </div>
+      <div *ngFor="let alert of alerts" class="mt-2">
+        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout">{{ alert.msg }}</alert>
+      </div>
     </div>
     <div class="col"></div>
   </div>

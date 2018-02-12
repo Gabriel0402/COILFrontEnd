@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { RestService } from '../../services/rest.service';
-import {AlertService} from "../../services/alert.service";
+import { AlertService } from '../../services/alert.service';
 
 @Component({
   selector: 'account',
@@ -10,7 +10,7 @@ import {AlertService} from "../../services/alert.service";
 
 export class AccountComponent implements OnInit, OnDestroy {
   @Input() password: string;
-  private alerts: [{ type: string; msg: string; timeout: number }];
+  public alerts: any = [];
 
   public ngOnInit(): any {}
 
@@ -24,20 +24,17 @@ export class AccountComponent implements OnInit, OnDestroy {
     let pw = { password: this.password };
 
     this.restService.changePsw(pw).subscribe( data => {
-      if (data.status === 'success') {
+      if (data.code === '200') {
         pw = { password: '' };
 
         this.password = '';
 
-        this.alerts = [{
+        this.alerts.push({
           type: 'success',
           msg: `Successfully updated your password`,
           timeout: 3000
-        }];
+        });
       }
-
-    }).unsubscribe();
-
-    this.password = '';
+    });
   }
 }
