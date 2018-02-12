@@ -40,7 +40,7 @@
         <div class="leaderboard" *ngSwitchCase="true">
           <a *ngFor="let user of leaders" class="">
             <div class="media profile leader">
-              <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/dog.png" alt="Profile Image"><span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span></div>
+              <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)"><img src="assets/images/emotions_profile/happiest.png" alt="Profile Image"><span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span></div>
               <div class="media-body profile-body align-self-center">
                 <a class="chat-bubble" (click)="userService.setUser(user)" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
                 <div class="profile-husky-name" (click)="switchUser(user.userId)">

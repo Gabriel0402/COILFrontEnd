@@ -96,20 +96,6 @@ export class StarterViewComponent implements OnDestroy, OnInit {
     this.leaderboardIsActive = !(usersMissingAverageScore.length >= (this.rosters.length / 2));
   }
 
-  updatePwd(password) {
-    this.helpAlerts = [];
-    const psw = {
-      password: password
-    };
-    this.restService.changePsw(psw).subscribe(data => {
-      this.alerts = [{
-        type: 'success',
-        msg: `Successfully updated your password`,
-        timeout: 3000
-      }];
-    });
-  }
-
   activateHelp() {
     this.alerts = [];
     const help = {
