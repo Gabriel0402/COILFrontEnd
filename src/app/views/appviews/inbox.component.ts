@@ -42,17 +42,22 @@ export class InboxComponent implements OnDestroy, OnInit {
           this.selectUser(this.userService.getUser());
           this.userService.setUser({});
         }
+        let log = {
+          component: "inbox",
+          action: "enter",
+          nickname:this.currentUser[0].nickname,
+          averageScore:this.currentUser[0].averageScore,
+          averageRating:this.currentUser[0].averageRating,
+          needHelp:this.currentUser[0].needHelp
+        }
+        this.restService.log(log).subscribe(data => {
+          //console.log(data);
+        })
         //console.log(this.currentUser);
       })
     }
     )
-    let log = {
-      component: "inbox",
-      action: "enter"
-    }
-    this.restService.log(log).subscribe(data => {
-      //console.log(data);
-    })
+    
   }
 
 
@@ -60,7 +65,11 @@ export class InboxComponent implements OnDestroy, OnInit {
     this.nav.classList.remove("white-bg");
     let log = {
       component: "inbox",
-      action: "leave"
+      action: "leave",
+      nickname:this.currentUser[0].nickname,
+      averageScore:this.currentUser[0].averageScore,
+      averageRating:this.currentUser[0].averageRating,
+      needHelp:this.currentUser[0].needHelp
     }
     this.restService.log(log).subscribe(data => {
       //console.log(data);

@@ -12,13 +12,13 @@
 
        <a class="roster-profile">
         <div class="media profile">
-          <div class="profile-img d-flex mr-3" (click)="switchUser(user.userId)">
+          <div class="profile-img d-flex mr-3">
             <husky [userScore]="user.averageScore"></husky>
             <span class="help" *ngIf="user.needHelp=='true'"><img src="assets/images/help.png"></span>
           </div>
           <div class="media-body profile-body align-self-center">
           <a class="chat-bubble" (click)="userService.setUser(user)" [routerLink]="['/inbox']"><i class="fa fa-comment" aria-hidden="true"></i></a>
-            <div class="" (click)="switchUser(user.userId)">
+            <div class="">
               <h2>{{user.nickname}}</h2>
             </div>
           </div>

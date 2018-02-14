@@ -48,6 +48,15 @@ export class StarterViewComponent implements OnDestroy, OnInit {
     this.restService.getAccounts().subscribe(data => {
         this.users = data.data;
         this.currentUser = this.users.filter(user => user.userId == this.userId);
+        const log = {
+          component: 'start view',
+          action: 'enter',
+          nickname:this.currentUser[0].nickname,
+          averageScore:this.currentUser[0].averageScore,
+          averageRating:this.currentUser[0].averageRating,
+          needHelp:this.currentUser[0].needHelp
+        };
+        this.restService.log(log).subscribe(data => {});
       }
     );
 
@@ -59,22 +68,18 @@ export class StarterViewComponent implements OnDestroy, OnInit {
         this.activateLeaderboard(this.rosters);
         this.setLeaders(this.rosters);
       });
-    });
-
-
-    const log = {
-      component: 'start view',
-      action: 'enter'
-    };
-
-    this.restService.log(log).subscribe(data => {});
+    });   
   }
 
   public ngOnDestroy(): any {
     this.nav.classList.remove('white-bg');
     const log = {
       component: 'start view',
-      action: 'leave'
+      action: 'leave',
+      nickname:this.currentUser[0].nickname,
+      averageScore:this.currentUser[0].averageScore,
+      averageRating:this.currentUser[0].averageRating,
+      needHelp:this.currentUser[0].needHelp
     };
     this.restService.log(log).subscribe(data => {});
   }

@@ -4,6 +4,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { RestService } from '../../services/rest.service';
 import { InfoService } from '../../services/info.service';
 import 'rxjs/Rx';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'hot',
@@ -30,14 +31,26 @@ export class HotComponent implements OnDestroy, OnInit {
   messagesByTime: any[];
   messagesByComment: any[];
   messagesbyCurrentUser: any[];
+  currentUser:any;
 
-  public constructor(private modalService: BsModalService, private restService: RestService, private infoService: InfoService) {
+  public constructor(private modalService: BsModalService, private restService: RestService, private infoService: InfoService,private userService: UserService) {
     this.order = 'timestamp';
     this.ascending = true;
     this.nav = document.querySelector('nav.navbar');
     this.userId = localStorage.getItem('userId');
     this.restService.getAccounts().subscribe(data => {
       this.users = data.data;
+      this.currentUser = this.users.filter(user => user.userId == this.userId);
+      const log = {
+        component: 'what\'s hot',
+        action: 'enter',
+        nickname:this.currentUser[0].nickname,
+        averageScore:this.currentUser[0].averageScore,
+        averageRating:this.currentUser[0].averageRating,
+        needHelp:this.currentUser[0].needHelp
+      };
+      this.restService.log(log).subscribe(data => {
+      });
       }
     );
     this.restService.getCourses(this.userId).subscribe(data => {
@@ -59,12 +72,7 @@ export class HotComponent implements OnDestroy, OnInit {
 
   public ngOnInit(): any {
     this.nav.className += ' white-bg';
-    const log = {
-      component: 'what\'s hot',
-      action: 'enter'
-    };
-    this.restService.log(log).subscribe(data => {
-    });
+    
   }
 
 
@@ -72,7 +80,11 @@ export class HotComponent implements OnDestroy, OnInit {
     this.nav.classList.remove('white-bg');
     const log = {
       component: 'what\'s hot',
-      action: 'leave'
+      action: 'leave',
+      nickname:this.currentUser[0].nickname,
+      averageScore:this.currentUser[0].averageScore,
+      averageRating:this.currentUser[0].averageRating,
+      needHelp:this.currentUser[0].needHelp
     };
     this.restService.log(log).subscribe(data => {
     });
