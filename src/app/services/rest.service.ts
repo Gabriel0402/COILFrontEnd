@@ -4,7 +4,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 @Injectable()
 export class RestService {
     constructor(private http: Http) { }
-    private apiurl = "http://php.scripts.psu.edu/kqy1/coil/endpoint.php";
+    private apiurl = "http://spot.scienceontheweb.net/api/v2/endpoint.php";
 
     //get requests
 

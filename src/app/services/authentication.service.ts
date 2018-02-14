@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class AuthenticationService {
     constructor(private http: Http) { }
-    private apiurl = "http://php.scripts.psu.edu/kqy1/coil/endpoint.php";
+    private apiurl = "http://spot.scienceontheweb.net/api/v2/endpoint.php";
     login(username: string, password: string) {
         return this.http.post(this.apiurl+'/auth/login', JSON.stringify({ userId: username, password: password }))
             .map((response: Response) => {
