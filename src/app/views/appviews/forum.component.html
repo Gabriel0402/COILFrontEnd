@@ -48,10 +48,10 @@
       </button>
     </div>
     <div class="modal-body">
-      <label for="post-title" class="form-control-label">Title</label>
+      <label for="post-title" class="form-control-label">Subjects:</label>
       <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
-      <label for="post-title" class="form-control-label">Details</label>
-      <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
+      <label for="post-title" class="form-control-label">Messages:</label>
+      <input type="text" class="form-control" id="post-title" style="height: 100px" [(ngModel)]="content">
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>

@@ -33,11 +33,12 @@
       </button>
     </div>
     <div class="modal-body">
-      <label for="post-title" class="form-control-label">Title</label>
+      <label for="post-title" class="form-control-label">Subject</label>
       <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
       <label for="post-title" class="form-control-label">Details</label>
-      <input type="text" class="form-control" id="post-title" [(ngModel)]="content">
+      <input type="text" class="form-control" id="post-title" style="height: 100px" [(ngModel)]="content">
     </div>
+      
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>
       <button class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
