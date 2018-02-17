@@ -1,8 +1,8 @@
 <div class="container animated fadeInRight">
-  <div class="row mt-5">
+  <div class="row mt-4">
 
     <div class="current col-sm-12 col-lg-6" *ngFor="let user of currentUser">
-      <h2 class="text-center mb-2">My Performance Status</h2>
+      <h3 class="text-center mb-2">My Performance Status</h3>
       <div class="card text-center">
         <div class="card-body">
           <h2 class="card-title pt-3" style="color: #000;" >{{user.nickname}}</h2>
@@ -30,7 +30,7 @@
     </div>
 
     <div class="col-sm-12 col-lg-6">
-      <h2 class="text-center mb-2">Course Leaderboard</h2>
+      <h3 class="text-center mb-2">Course Leaderboard</h3>
       <div [ngSwitch]="leaderboardIsActive">
         <div class="card" *ngSwitchCase="false">
           <div class="card-body">
