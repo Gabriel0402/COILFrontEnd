@@ -53,7 +53,6 @@ export class InboxComponent implements OnDestroy, OnInit {
         }
         this.restService.log(log).subscribe(data => {
           //console.log(data);
-          console.log(this.emotionService.processWith(0.92))
         })
         //console.log(this.currentUser);
       })
