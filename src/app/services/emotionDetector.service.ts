@@ -10,11 +10,11 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class EmotionDetectorService {
   protected emotionCalculators: Array<EmotionCalculator> = [
-    new HappiestEmotionCalculator(0.9, 2),
-    new HappyEmotionCalculator(0.8, 0.9),
-    new NeutralEmotionCalculator(0.7, 0.8),
-    new SadEmotionCalculator(0.6, 0.7),
-    new DeadEmotionCalculator(0, 0.6)
+    new HappiestEmotionCalculator(0.9, 2),//0
+    new HappyEmotionCalculator(0.8, 0.9),//1
+    new NeutralEmotionCalculator(0.7, 0.8),//2
+    new SadEmotionCalculator(0.6, 0.7),//3
+    new DeadEmotionCalculator(0, 0.6)//4
   ];
 
   public processWith(userScore): number {

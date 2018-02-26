@@ -4,6 +4,7 @@ import { RestService } from '../../services/rest.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { UserService } from "../../services/user.service";
+import { EmotionDetectorService } from "../../services/emotionDetector.service";
 
 @Component({
   selector: 'inbox',
@@ -23,7 +24,7 @@ export class InboxComponent implements OnDestroy, OnInit {
   courses: any;
   course: any;
 
-  public constructor(private restService: RestService,private userService:UserService) {
+  public constructor(private restService: RestService,private userService:UserService, private emotionService:EmotionDetectorService) {
     this.nav = document.querySelector('nav.navbar');
   }
 
@@ -52,6 +53,7 @@ export class InboxComponent implements OnDestroy, OnInit {
         }
         this.restService.log(log).subscribe(data => {
           //console.log(data);
+          console.log(this.emotionService.processWith(0.92))
         })
         //console.log(this.currentUser);
       })
