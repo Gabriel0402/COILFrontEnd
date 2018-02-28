@@ -42,11 +42,11 @@
           <!-- <a (click)="selectUser(user)" class="currentMessage"> -->
           <a (click)="selectUser(user)" [ngClass]="select(user)?'currentMessage':''">
           <div [ngSwitch]="emotionService.processWith(user.averageScore)">
-            <img *ngSwitchCase="0" src="assets/images/emotions_profile/happiest.png" alt="avatar" />
-            <img *ngSwitchCase="1" src="assets/images/emotions_profile/happy.png" alt="avatar" />
-            <img *ngSwitchCase="2" src="assets/images/emotions_profile/neutral.png" alt="avatar" />
-            <img *ngSwitchCase="3" src="assets/images/emotions_profile/sad.png" alt="avatar" />
-            <img *ngSwitchCase="4" src="assets/images/emotions_profile/dead.png" alt="avatar" />
+            <img *ngSwitchCase="huskyEmotions.HAPPIEST" src="assets/images/emotions_profile/happiest.png" alt="avatar" />
+            <img *ngSwitchCase="huskyEmotions.HAPPY" src="assets/images/emotions_profile/happy.png" alt="avatar" />
+            <img *ngSwitchCase="huskyEmotions.NEUTRAL" src="assets/images/emotions_profile/neutral.png" alt="avatar" />
+            <img *ngSwitchCase="huskyEmotions.SAD" src="assets/images/emotions_profile/sad.png" alt="avatar" />
+            <img *ngSwitchCase="huskyEmotions.DEAD" src="assets/images/emotions_profile/dead.png" alt="avatar" />
           </div>
           <div class="about">
             <div class="name">{{user.nickname}}</div>

@@ -5,6 +5,7 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 export class RestService {
     constructor(private http: Http) { }
     private apiurl = "http://spot.scienceontheweb.net/api/v2/endpoint.php";
+    //private apiurl = "http://spot.scienceontheweb.net/testapi/endpoint.php";
 
     //get requests
 

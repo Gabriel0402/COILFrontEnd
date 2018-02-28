@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map'
 export class AuthenticationService {
     constructor(private http: Http) { }
     private apiurl = "http://spot.scienceontheweb.net/api/v2/endpoint.php";
+    //private apiurl = "http://spot.scienceontheweb.net/testapi/endpoint.php";
     login(username: string, password: string) {
         return this.http.post(this.apiurl+'/auth/login', JSON.stringify({ userId: username, password: password }))
             .map((response: Response) => {

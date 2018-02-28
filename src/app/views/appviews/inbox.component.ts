@@ -4,6 +4,7 @@ import { RestService } from '../../services/rest.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { UserService } from "../../services/user.service";
+import { Emotions } from '../../models/emotions.enum';
 import { EmotionDetectorService } from "../../services/emotionDetector.service";
 
 @Component({
@@ -14,6 +15,7 @@ import { EmotionDetectorService } from "../../services/emotionDetector.service";
 export class InboxComponent implements OnDestroy, OnInit {
 
   public nav: any;
+  protected huskyEmotions = Emotions;
   userId: any;
   users: any;
   currentUser: any;
