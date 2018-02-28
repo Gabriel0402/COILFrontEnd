@@ -10,7 +10,7 @@ export class AuthGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         return this.rest.getAccounts().map(data=>{
-            if(data.state=="error"||!localStorage.getItem('authtoken')){
+            if(data.status=="error"||!localStorage.getItem('authtoken')){
                 this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
                 return false;
             }
