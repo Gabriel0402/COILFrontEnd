@@ -12,7 +12,7 @@
                 <h2>{{forum?.title}}</h2>
               </div>
               <div class="offset-md-1 text-dark">
-                {{forum?.message}}
+                <div [innerHTML] = "forum?.message"></div>
               </div>
             </div>
             <div class="col-md-5">

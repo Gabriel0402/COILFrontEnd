@@ -34,6 +34,7 @@
     "metismenu": "^2.5.0",
     "ng2-charts": "^1.5.0",
     "ngx-bootstrap": "^1.9.1",
+    "node-sass": "^4.11.0",
     "peity": "^3.2.1",
     "popper.js": "^1.12.5",
     "rxjs": "^5.1.0",

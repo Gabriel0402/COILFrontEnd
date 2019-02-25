@@ -62,6 +62,7 @@ export class HotComponent implements OnDestroy, OnInit {
         this.restService.getForums(this.id).subscribe(data => {
           const result = data.data;
           this.forumMessages = result;
+          this.shortPlainTextMessage(this.forumMessages);
           this.filterByCurrentUser(result, this.userId);
           this.orderByTime(result);
           this.orderByComment(result);
@@ -74,7 +75,6 @@ export class HotComponent implements OnDestroy, OnInit {
     this.nav.className += ' white-bg';
     
   }
-
 
   public ngOnDestroy(): any {
     this.nav.classList.remove('white-bg');
@@ -139,5 +139,12 @@ export class HotComponent implements OnDestroy, OnInit {
    this.messagesbyCurrentUser = result.filter(function(element) {
      return element.userId === userId;
    });
+  }
+
+  public shortPlainTextMessage(messages:any) {
+    messages.forEach(element => {
+      var text = element.message ? String(element.message).replace(/<[^>]+>/gm, '') : '';
+      element.shortMessage = text.length > 56? text.substring(0, 56) + '...':text;
+    });
   }
 }

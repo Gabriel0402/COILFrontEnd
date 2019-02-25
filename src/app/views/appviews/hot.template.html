@@ -39,7 +39,9 @@
                       <i class="fa fa-users"></i>
                     </div>
                     <a class="forum-item-title">{{forum.title}}</a>
-                    <div class="forum-sub-title text-dark">{{forum.message}}</div>
+                    <div class="forum-sub-title text-dark">
+                      {{forum.shortMessage}}                      
+                    </div>
                   </div>
                   <div class="col-md-5">
                     <div class="forum-sub-title pull-right">{{forum.timestamp|date}} by {{forum.nickname}}</div>
