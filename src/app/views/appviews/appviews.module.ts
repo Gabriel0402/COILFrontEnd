@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarterViewComponent } from './starterview.component';
 import { InboxComponent } from './inbox.component';
 import { HotComponent } from './hot.component';
@@ -25,6 +25,8 @@ import { OrderBy } from './order.pipe';
 import { AlertModule } from 'ngx-bootstrap';
 import { RatingModule } from 'ngx-bootstrap';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
+import { QuillModule } from 'ngx-quill';
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     RouterModule,
     PeityModule,
     SparklineModule,
+    ReactiveFormsModule,
+    QuillModule.forRoot(),
     AlertModule.forRoot(),
     RatingModule.forRoot(),
     TooltipModule.forRoot()

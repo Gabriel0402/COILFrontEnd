@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit, TemplateRef, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RestService } from '../../services/rest.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { InfoService } from '../../services/info.service';
 
 @Component({

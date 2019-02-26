@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, } from '@angular/core';
 
 import { RestService } from '../../services/rest.service';
 import { NgStyle } from '@angular/common';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 import { UserService } from '../../services/user.service';
 

@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { RestService } from '../../services/rest.service';
 import { InfoService } from '../../services/info.service';
 import 'rxjs/Rx';
 import { UserService } from '../../services/user.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'hot',
@@ -32,6 +33,7 @@ export class HotComponent implements OnDestroy, OnInit {
   messagesByComment: any[];
   messagesbyCurrentUser: any[];
   currentUser:any;
+  editorForm: FormGroup;
 
   public constructor(private modalService: BsModalService, private restService: RestService, private infoService: InfoService,private userService: UserService) {
     this.order = 'timestamp';
@@ -73,6 +75,9 @@ export class HotComponent implements OnDestroy, OnInit {
 
   public ngOnInit(): any {
     this.nav.className += ' white-bg';
+    this.editorForm = new FormGroup({
+      'editor': new FormControl(null)
+    });
     
   }
 

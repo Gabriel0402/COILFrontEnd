@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 *,
 *:after,
 *::before {
@@ -1786,7 +1788,6 @@ body,
   margin-top: 5px;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 body {
   background: #34495e;
   color: #fff;
@@ -2486,7 +2487,6 @@ a:focus {
   }
 }
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
 body {
   background: #34495e;
   color: #fff;
@@ -5283,7 +5283,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: tahmoa, sans-serif;
-  box sizing: border-box;
+  box-sizing: border-box;
 }
 
 .body {

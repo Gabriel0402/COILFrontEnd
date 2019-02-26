@@ -8,6 +8,16 @@
                   <h3 class="text-center">Have a discussion with your peers.</h3>
                 </div>
             </div>
+            <div class="container">
+                <!--
+                <form [formGroup]="editorForm" (ngSubmit)="onFormSubmit()">
+                  <div class="form-group">
+                    <label for="editor"><h3>Editor</h3></label>
+                  </div>
+                </form>
+                -->
+                <!-- <quill-editor></quill-editor> -->
+            </div>
             <div class="row">
               <div class="col-sm-7 col-centered">
                 <div class="title-action">
@@ -55,7 +65,7 @@
   </div>
 </div>
 
-<template #template>
+<ng-template #template>
   <div class="modal-content">
     <div class="modal-header">
       <h5 class="modal-title" id="exampleModalLabel">Post a question</h5>
@@ -75,7 +85,7 @@
       <button class="btn btn-primary" (click)="createPost(title,content);modalRef.hide()">Submit</button>
     </div>
   </div>
-</template>
+</ng-template>
 
 
 
