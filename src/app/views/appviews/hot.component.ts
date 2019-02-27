@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { RestService } from '../../services/rest.service';
 import { InfoService } from '../../services/info.service';
@@ -10,7 +10,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'hot',
   templateUrl: 'hot.template.html',
-  styleUrls: ['component.css']
+  styleUrls: ['component.css', 'hot.component.css']
 })
 export class HotComponent implements OnDestroy, OnInit {
 
@@ -34,6 +34,30 @@ export class HotComponent implements OnDestroy, OnInit {
   messagesbyCurrentUser: any[];
   currentUser:any;
   editorForm: FormGroup;
+
+public editorConfig = {
+    toolbar: [
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      ['blockquote', 'code-block'],
+  
+      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+      [{ 'direction': 'rtl' }],                         // text direction
+  
+      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  
+      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'font': [] }],
+      [{ 'align': [] }],
+  
+      ['clean'],                                         // remove formatting button
+  
+      //['link', 'image', 'video']                         // link and image, video
+    ]
+  };
 
   public constructor(private modalService: BsModalService, private restService: RestService, private infoService: InfoService,private userService: UserService) {
     this.order = 'timestamp';
@@ -96,7 +120,10 @@ export class HotComponent implements OnDestroy, OnInit {
   }
 
   public openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    // Martin added this to control the size of the modal dialog
+    // for the quill editor
+    const config: ModalOptions = {class:'modal-lg', backdrop:'static'};
+    this.modalRef = this.modalService.show(template, config);
   }
 
   public createPost(title: string, content: string){
