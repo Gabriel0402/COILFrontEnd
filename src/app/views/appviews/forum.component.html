@@ -12,7 +12,7 @@
                 <h2>{{forum?.title}}</h2>
               </div>
               <div class="offset-md-1 text-dark">
-                <div [innerHTML] = "forum?.message"></div>
+                <div [innerHTML] = "forum?.desanitizedMessage"></div>
               </div>
             </div>
             <div class="col-md-5">
@@ -25,6 +25,7 @@
         <div class="row">
           <div class="col-sm-7">
             <div class="title-action">
+              <a routerLink="/hot" class="btn btn btn-primary btn-lg pull-left" style="color: #fff;">Back to Message List</a>
               <a class="btn btn-primary btn-lg" style="color: #fff;" (click)="openModal(template,forum)">Add Reply</a>
             </div>
           </div>
@@ -51,7 +52,12 @@
       <label for="post-title" class="form-control-label">Subjects:</label>
       <input type="text" class="form-control" id="post-title" [(ngModel)]="title">
       <label for="post-title" class="form-control-label">Messages:</label>
+      <!--
       <textarea type="text" class="form-control" id="post-message" style="height: 100px" [(ngModel)]="content"></textarea>
+      -->
+      <div class="my-quill">
+        <quill-editor [(ngModel)]="content" [modules]="editorConfig"></quill-editor>
+      </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalRef.hide()">Close</button>

@@ -6,7 +6,7 @@
           <i class="fa fa-user-circle"></i>
         </div>
         <div class="forum-sub-title">
-          {{forum.message}}
+          <div [innerHTML] = "forum.desanitizedMessage"></div>
         </div>
       </div>
 
@@ -17,13 +17,16 @@
       </div>
     </div>
 
+    <!--
     <div class="row align-items-end">
       <div class="col-md-auto">
         <rating-forum-message [messageId]="forum.messageId" [canRate]="forum?.userId!==userId" ></rating-forum-message>
       </div>
     </div>
+    -->
 </div>
 
+<!-- Commented out by Martin because I don't think it is used
 <ng-template #template>
   <div class="modal-content">
     <div class="modal-header">
@@ -45,3 +48,4 @@
     </div>
   </div>
 </ng-template>
+-->

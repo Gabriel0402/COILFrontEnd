@@ -4,8 +4,9 @@ import { RestService } from '../../services/rest.service';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+//import { BsModalRef } from 'ngx-bootstrap/modal';
 import { InfoService } from '../../services/info.service';
+//import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
     selector: 'forum-message',
@@ -15,7 +16,7 @@ import { InfoService } from '../../services/info.service';
 
 export class ForumMessageComponent implements OnDestroy, OnInit {
     @Input() forumMessages: any;
-    public modalRef: BsModalRef;
+    //public modalRef: BsModalRef;
     title: string;
     userId: any;
     @Input() messageId: string;
@@ -29,20 +30,22 @@ export class ForumMessageComponent implements OnDestroy, OnInit {
     public constructor(private modalService: BsModalService,
                        private route: ActivatedRoute,
                        private restService: RestService,
-                       private infoService: InfoService) {
+                       private infoService: InfoService)
+    {
 
     }
 
+    /*
     public openModal(template: TemplateRef<any>,forum) {
         this.modalRef = this.modalService.show(template);
         this.title = `Re: ${forum.title}`;
         this.messageId = forum.messageId;
     }
+    */
 
     public getReplies(forum){
         this.restService.getForumReply(forum.messageId).subscribe(data => {
             forum.replies = data.data;
         });
     }
-
 }

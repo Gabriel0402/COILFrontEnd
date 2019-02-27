@@ -38,7 +38,7 @@ export class HotComponent implements OnDestroy, OnInit {
 public editorConfig = {
     toolbar: [
       ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-      ['blockquote', 'code-block'],
+      //['blockquote', 'code-block'],
   
       [{ 'header': 1 }, { 'header': 2 }],               // custom button values
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
@@ -59,7 +59,10 @@ public editorConfig = {
     ]
   };
 
-  public constructor(private modalService: BsModalService, private restService: RestService, private infoService: InfoService,private userService: UserService) {
+  public constructor(private modalService: BsModalService,
+                      private restService: RestService,
+                      private infoService: InfoService,
+                      private userService: UserService) {
     this.order = 'timestamp';
     this.ascending = true;
     this.nav = document.querySelector('nav.navbar');
@@ -76,7 +79,7 @@ public editorConfig = {
         needHelp:this.currentUser[0].needHelp
       };
       this.restService.log(log).subscribe(data => {
-      });
+        });
       }
     );
     this.restService.getCourses(this.userId).subscribe(data => {
@@ -86,12 +89,7 @@ public editorConfig = {
         this.forums = [data.data[0]];
         this.id = this.forums[0].forumId;
         this.restService.getForums(this.id).subscribe(data => {
-          const result = data.data;
-          this.forumMessages = result;
-          this.shortPlainTextMessage(this.forumMessages);
-          this.filterByCurrentUser(result, this.userId);
-          this.orderByTime(result);
-          this.orderByComment(result);
+          this.postFetchingForum(data);
         });
       });
     });
@@ -102,7 +100,6 @@ public editorConfig = {
     this.editorForm = new FormGroup({
       'editor': new FormControl(null)
     });
-    
   }
 
   public ngOnDestroy(): any {
@@ -126,6 +123,15 @@ public editorConfig = {
     this.modalRef = this.modalService.show(template, config);
   }
 
+  private postFetchingForum(data) {
+    const result = data.data;
+    this.forumMessages = result;
+    this.shortPlainTextMessage(this.forumMessages);
+    this.filterByCurrentUser(result, this.userId);
+    this.orderByTime(result);
+    this.orderByComment(result);
+  }
+
   public createPost(title: string, content: string){
     const forum = {
       forumId: this.id,
@@ -134,7 +140,7 @@ public editorConfig = {
     };
     this.restService.postForumMessages(forum).subscribe(data => {
       this.restService.getForums(this.id).subscribe(data => {
-        this.forumMessages = data.data;
+        this.postFetchingForum(data);
       });
     });
   }
@@ -173,7 +179,7 @@ public editorConfig = {
    });
   }
 
-  public shortPlainTextMessage(messages:any) {
+  private shortPlainTextMessage(messages:any) {
     messages.forEach(element => {
       var text = element.message ? String(element.message).replace(/<[^>]+>/gm, '') : '';
       element.shortMessage = text.length > 56? text.substring(0, 56) + '...':text;
