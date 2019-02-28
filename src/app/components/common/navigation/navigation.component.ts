@@ -8,7 +8,6 @@ declare var jQuery: any;
   selector: 'navigation',
   templateUrl: 'navigation.template.html'
 })
-
 export class NavigationComponent {
   public alerts: any = [];
 
@@ -31,4 +30,5 @@ export class NavigationComponent {
   onNavigate() {
     window.open('https://goo.gl/forms/d5dMg2d6oBV8gHbC3', '_blank');
   }
+
 }
